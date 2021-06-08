@@ -7,7 +7,7 @@ export const BookItems = [
     {
         cName: 'book__link',
         url: '#',
-        src: 'img/botje.jpg',
+        src: 'img/korenwolf.jpg',
     },
     {
         cName: 'book__link',
@@ -22,6 +22,26 @@ export const BookItems = [
     {
         cName: 'book__link',
         url: '#',
+        src: 'img/korenwolf.jpg',
+    },
+    {
+        cName: 'book__link',
+        url: '#',
+        src: 'img/botje.jpg',
+    },
+    {
+        cName: 'book__link',
+        url: '#',
+        src: 'img/dolfje.jpg',
+    },
+    {
+        cName: 'book__link',
+        url: '#',
+        src: 'img/korenwolf.jpg',
+    },
+    {
+        cName: 'book__link',
+        url: '#',
         src: 'img/stilton.jpg',
     },
     {
@@ -37,6 +57,21 @@ export const BookItems = [
     {
         cName: 'book__link',
         url: '#',
+        src: 'img/dolfje.jpg',
+    },
+    {
+        cName: 'book__link',
+        url: '#',
+        src: 'img/stilton.jpg',
+    },
+    {
+        cName: 'book__link',
+        url: '#',
+        src: 'img/korenwolf.jpg',
+    },
+    {
+        cName: 'book__link',
+        url: '#',
         src: 'img/botje.jpg',
     },
     {
@@ -47,7 +82,12 @@ export const BookItems = [
     {
         cName: 'book__link',
         url: '#',
-        src: 'img/stilton.jpg',
+        src: 'img/dolfje.jpg',
+    },
+    {
+        cName: 'book__link',
+        url: '#',
+        src: 'img/korenwolf.jpg',
     },
     {
         cName: 'book__link',
@@ -57,46 +97,6 @@ export const BookItems = [
     {
         cName: 'book__link',
         url: '#',
-        src: 'img/stilton.jpg',
-    },
-    {
-        cName: 'book__link',
-        url: '#',
-        src: 'img/stilton.jpg',
-    },
-    {
-        cName: 'book__link',
-        url: '#',
-        src: 'img/stilton.jpg',
-    },
-    {
-        cName: 'book__link',
-        url: '#',
-        src: 'img/stilton.jpg',
-    },
-    {
-        cName: 'book__link',
-        url: '#',
-        src: 'img/stilton.jpg',
-    },
-    {
-        cName: 'book__link',
-        url: '#',
-        src: 'img/stilton.jpg',
-    },
-    {
-        cName: 'book__link',
-        url: '#',
-        src: 'img/stilton.jpg',
-    },
-    {
-        cName: 'book__link',
-        url: '#',
-        src: 'img/stilton.jpg',
-    },
-    {
-        cName: 'book__link',
-        url: '#',
-        src: 'img/stilton.jpg',
+        src: 'img/dolfje.jpg',
     },
 ]
