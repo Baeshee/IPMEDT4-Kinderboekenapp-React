@@ -1,0 +1,69 @@
+.center {
+  margin-top: 8vh;
+}
+
+.book {
+  position: relative;
+  width: 100%;
+  padding: 0 1rem;
+  box-sizing: border-box;
+  margin-bottom: 8rem;
+  filter: drop-shadow(0.8rem 1rem 0.4rem rgba(0, 0, 0, 0.493));
+}
+.book:active, .book:hover, .book:focus {
+  outline: none;
+  border: none;
+}
+.book:after {
+  content: "";
+  height: 2rem;
+  width: 100%;
+  background-color: #A87328;
+  z-index: 4;
+  position: absolute;
+  margin-top: 0.8rem;
+}
+.book:before {
+  content: "";
+  height: 4rem;
+  width: 101%;
+  background-color: #c0842f;
+  z-index: -1;
+  position: absolute;
+  bottom: 0;
+  transform: rotateX(40deg) translateY(70%);
+}
+
+.book__content {
+  width: 100%;
+  height: 32vh;
+  border-radius: 0.2rem;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+}
+.book__content .book__link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+.book__content .book__link img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background-color: black;
+  border-radius: 0.5rem;
+  position: relative;
+}
+.book__content .book__link img:after {
+  content: "";
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  position: absolute;
+}
+
+/*# sourceMappingURL=Boekenplank.css.map */
