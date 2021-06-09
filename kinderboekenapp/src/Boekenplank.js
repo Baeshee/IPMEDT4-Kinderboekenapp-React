@@ -1,14 +1,27 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
+import axios from "axios";
 
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 
-import { BookItems } from './BookItems';
+// import { BookItems } from './BookItems';
 import './Boekenplank.css';
 
 class Boekenplank extends Component {
-    books = this.props.books;
+    books = this.props.books; //Deze kan weg na het ingebruik nemen van de API
+
+    // state = { books: []};
+
+    // componentDidMount(){
+    //     const URL = "URL van eigen API"
+    //     axios.get(URL).then(res => {
+    //         const fetchedBooks = res.data;
+    //         this.setState({books: [...this.state.books, fetchedBooks]});
+    //     });
+    // }
+
+    
 
     render() {
         const settings = {
@@ -51,7 +64,7 @@ class Boekenplank extends Component {
 
         //Check if the array is empty if so setting a placeholder with
         //add book option (link to the booklist)
-        if (!Array.isArray(this.books) || this.books.length <= 0){
+        if (!Array.isArray(this.books) || this.books.length <= 0){ //this.books moet worden veranderd naar this.state.books
             return (
                 <Slider {...settings}>
                     <article className="book-placeholder">
@@ -67,7 +80,7 @@ class Boekenplank extends Component {
 
         return (
             <Slider {...settings}>
-                {BookItems.map((item, index) => {
+                {this.books.map((item, index) => { //this.books moet worden veranderd naar this.state.books
                     return (
                         <article key={index} className="book">
                             <section className="book__content">
@@ -85,49 +98,3 @@ class Boekenplank extends Component {
 
 
 export default Boekenplank;
-
-// Old Boekenplank
-// import React, { useState } from 'react';
-// import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from 'react-icons/fa';
-
-// import { BookItems } from './BookItems';
-// import './Boekenplank.css';
-
-// const Boekenplank = ({ books }) => {
-//     const [current, setCurrent] = useState(0);
-//     const length = books.length
-
-//     const nextSlide = () => {
-//         setCurrent(current === length - 1 ? 0 : current + 1);
-//     }
-
-//     const prevSlide = () => {
-//         setCurrent(current === length - 1 ? 0 : current - 1);
-//     }
-
-//     if (!Array.isArray(books) || books.length <= 0){
-//         return null;
-//     }
-
-//     return(
-//         <article className="boekenplank-container">
-//         <FaArrowAltCircleLeft class="left-arrow" onClick={prevSlide} />
-//         <FaArrowAltCircleRight class="right-arrow" onClick={nextSlide} />
-//             <ul className="boekenplank">
-//                 {BookItems.map((item, index) => {
-//                     return (
-//                         <li key={index} className={index == current ? 'book active' : 'book'}>
-//                             {index === current && (
-//                                 <a className={item.cName} href={item.url}>
-//                                 <img src={item.src} alt="" />
-//                             </a>)
-//                             }
-//                         </li>
-//                     )
-//                 })}
-//             </ul>
-//         </article>
-//     );
-// }
-
-// export default Boekenplank;
