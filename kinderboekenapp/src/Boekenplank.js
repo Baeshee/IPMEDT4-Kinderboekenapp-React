@@ -11,7 +11,7 @@ import './Boekenplank.css';
 class Boekenplank extends Component {
     books = this.props.books; //Deze kan weg na het ingebruik nemen van de API
 
-    state = { books: []};
+    state = {};
 
     getBookData = () => {
         const URL = "https://kinderboekenapp-laravel.herokuapp.com/api/users/1/books"
@@ -30,7 +30,7 @@ class Boekenplank extends Component {
     render() {
         const settings = {
             className: "center",
-            infinite: true,
+            infinite: false,
             centerPadding: "60px",
             slidesToShow: 3,
             slidesToScroll: 3,
@@ -44,7 +44,7 @@ class Boekenplank extends Component {
             settings: {
                 slidesToShow: 3,
                 slidesToScroll: 3,
-                infinite: true,
+                infinite: false,
                 dots: true
             }
             },
@@ -65,16 +65,15 @@ class Boekenplank extends Component {
             }
         ]
         };
-
         //Check if the array is empty if so setting a placeholder with
         //add book option (link to the booklist)
-        if (!Array.isArray(this.state.books) || this.state.books <= 6){ //this.books moet worden veranderd naar this.state.books
+        if (!Array.isArray(this.state.books) || this.state.books <= 0){ //this.books moet worden veranderd naar this.state.books
             return (
                 <Slider {...settings}>
                     <article className="book-placeholder">
                         <section className="book__content">
                             <div className="placeholder">
-                                <a href="#"><i className="fas fa-plus-circle fa-3x"></i></a>
+                                <a href="/boekenlijst"><i className="fas fa-plus-circle fa-3x"></i></a>
                             </div>
                         </section>
                     </article>
@@ -83,12 +82,12 @@ class Boekenplank extends Component {
         }
         return (
             <Slider {...settings}>
-                {this.state.books.map((item, index) => { //this.books moet worden veranderd naar this.state.books
+                {this.books.map((book, index) => { //this.books moet worden veranderd naar this.state.books
                     return (
                         <article key={index} className="book">
                             <section className="book__content">
                                 <a className='book__link' href='#'>
-                                    <img src={item.book_image} alt='' />
+                                    <img src={book.src} alt='' />
                                 </a>
                             </section>
                         </article>
