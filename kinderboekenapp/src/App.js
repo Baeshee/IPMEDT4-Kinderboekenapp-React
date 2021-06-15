@@ -1,15 +1,18 @@
 import React from 'react';
+import { store } from './store';
+import { Provider } from 'react-redux';
 
 import './App.css';
 
 import Boekenplank from './Boekenplank';
-import { BookItems } from './BookItems';
 
 class App extends React.Component {
     render() {
         return (
             <main>
-                <Boekenplank books={BookItems} />
+                <Provider store={store}>
+                    <Boekenplank />
+                </Provider>
             </main>
         )
     }

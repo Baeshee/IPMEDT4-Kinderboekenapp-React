@@ -1,31 +1,24 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
 import axios from "axios";
+import { connect } from "react-redux";
+import { changeUserBooks } from "./actions";
 
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
-
-// import { BookItems } from './BookItems';
 import './Boekenplank.css';
 
 class Boekenplank extends Component {
-    books = this.props.books; //Deze kan weg na het ingebruik nemen van de API
-
-    state = {};
-
     getBookData = () => {
         const URL = "https://kinderboekenapp-laravel.herokuapp.com/api/users/1/books"
         axios.get(URL).then(res => {
-            const fetchedBooks = res.data;
-            this.setState({books: fetchedBooks});
+            this.props.changeUserBooks(res.data);
         });
     }
 
     componentDidMount(){
         this.getBookData();
     }
-
-    
 
     render() {
         const settings = {
@@ -67,7 +60,7 @@ class Boekenplank extends Component {
         };
         //Check if the array is empty if so setting a placeholder with
         //add book option (link to the booklist)
-        if (!Array.isArray(this.state.books) || this.state.books <= 0){ //this.books moet worden veranderd naar this.state.books
+        if (!Array.isArray(this.props.userBooks) || this.props.userBooks <= 0){ //this.books moet worden veranderd naar this.state.books
             return (
                 <Slider {...settings}>
                     <article className="book-placeholder">
@@ -82,12 +75,12 @@ class Boekenplank extends Component {
         }
         return (
             <Slider {...settings}>
-                {this.books.map((book, index) => { //this.books moet worden veranderd naar this.state.books
+                {this.props.userBooks.map((book, index) => { //this.books moet worden veranderd naar this.state.books
                     return (
                         <article key={index} className="book">
                             <section className="book__content">
                                 <a className='book__link' href='#'>
-                                    <img src={book.src} alt='' />
+                                    <img src={book.book_image} />
                                 </a>
                             </section>
                         </article>
@@ -98,5 +91,10 @@ class Boekenplank extends Component {
     }
 }
 
+const mapStateToProps = state => {
+    return { userBooks: state.userBooks };
+}
 
-export default Boekenplank;
+export default connect(
+    mapStateToProps, { changeUserBooks: changeUserBooks }
+)(Boekenplank);
