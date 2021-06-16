@@ -1,4 +1,4 @@
-import { CHANGE_USERBOOKS, CHANGE_ACTIVEBOOK } from './actions.js';
+import { CHANGE_USERBOOKS, CHANGE_USERASSIGNMENTS } from './actions.js';
 
 export const userBooks = (state = [], action) => {
     switch (action.type){
@@ -9,9 +9,9 @@ export const userBooks = (state = [], action) => {
     }
 }
 
-export const activeBook = (state = "", action) => {
+export const userAssignments = (state = [], action) => {
     switch (action.type){
-        case CHANGE_ACTIVEBOOK:
+        case CHANGE_USERASSIGNMENTS:
             return action.payload;
         default:
             return state;

@@ -4,14 +4,16 @@ import { Provider } from 'react-redux';
 
 import './App.css';
 
-import Boekenplank from './Boekenplank';
+import BookAssignments from './BookAssignments';
+import Test from './Test';
 
 class App extends React.Component {
     render() {
         return (
             <main>
                 <Provider store={store}>
-                    <Boekenplank />
+                    {/* <BookAssignments /> */}
+                    <Test />
                 </Provider>
             </main>
         )
