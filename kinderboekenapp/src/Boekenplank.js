@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Slider from "react-slick";
 import axios from "axios";
 import { connect } from "react-redux";
-import { changeUserBooks } from "./actions";
+import { changeUserBooks, changeActiveBook } from "./actions";
 
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
@@ -75,13 +75,20 @@ class Boekenplank extends Component {
         }
         return (
             <Slider {...settings}>
-                {this.props.userBooks.map((book, index) => { //this.books moet worden veranderd naar this.state.books
+                {this.props.userBooks.map((book, index) => { 
+                     //this.books moet worden veranderd naar this.state.books
                     return (
-                        <article key={index} className="book">
+                        <article key={index} className="book" onClick={() => 
+                                    {
+                                        this.props.changeActiveBook(book.ISBN);
+                                        if(this.props.activeBook !== ""){
+                                            console.log(this.props.activeBook);
+                                        }
+                                    }}>
                             <section className="book__content">
-                                <a className='book__link' href='#'>
-                                    <img src={book.book_image} />
-                                </a>
+                                <section className='book__link'>
+                                    <img src={"https://kinderboekenapp-laravel.herokuapp.com" + book.book_image} alt="" />
+                                </section>
                             </section>
                         </article>
                     )
@@ -92,9 +99,9 @@ class Boekenplank extends Component {
 }
 
 const mapStateToProps = state => {
-    return { userBooks: state.userBooks };
+    return { userBooks: state.userBooks, activeBook: state.activeBook };
 }
 
 export default connect(
-    mapStateToProps, { changeUserBooks: changeUserBooks }
+    mapStateToProps, { changeUserBooks: changeUserBooks, changeActiveBook: changeActiveBook }
 )(Boekenplank);
