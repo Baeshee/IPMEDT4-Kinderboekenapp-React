@@ -12,8 +12,7 @@ class App extends React.Component {
         return (
             <main>
                 <Provider store={store}>
-                    {/* <BookAssignments /> */}
-                    <Test />
+                    <BookAssignments />
                 </Provider>
             </main>
         )

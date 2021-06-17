@@ -1,0 +1,46 @@
+.assignment-container {
+  height: 100%;
+  width: 100%;
+  align-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0 3rem;
+}
+.assignment-container form {
+  align-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.form__label {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.form__input {
+  height: 3rem;
+  margin-top: 1.5rem;
+}
+
+.text {
+  border: 1px solid black;
+  width: 100%;
+}
+
+.color {
+  width: 50%;
+  height: 4rem;
+  background-color: green;
+}
+
+.image {
+  width: 100%;
+}
+
+/*# sourceMappingURL=ImageVraag.css.map */
