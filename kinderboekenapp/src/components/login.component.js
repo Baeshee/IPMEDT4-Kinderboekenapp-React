@@ -11,9 +11,9 @@ import { login } from "../actions/action_auth";
 const required = (value) => {
   if (!value) {
     return (
-      <div className="alert alert-danger" role="alert">
+      <section className="alert alert-danger" role="alert">
         This field is required!
-      </div>
+      </section>
     );
   }
 };
@@ -80,8 +80,8 @@ class Login extends Component {
     }
 
     return (
-      <div className="col-md-12">
-        <div className="card card-container">
+      <article className="col-md-12">
+        <section className="card card-container">
           <img
             src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
             alt="profile-img"
@@ -95,7 +95,7 @@ class Login extends Component {
             }}
           >
 
-            <div className="form-group">
+            <section className="form-group">
               <label htmlFor="email"> Email</label>
               <Input
                 type="text"
@@ -105,9 +105,9 @@ class Login extends Component {
                 onChange={this.onChangeEmail}
                 validations={[required]}
               />
-            </div>
+            </section>
 
-            <div className="form-group">
+            <section className="form-group">
               <label htmlFor="password">Password</label>
               <Input
                 type="password"
@@ -117,9 +117,9 @@ class Login extends Component {
                 onChange={this.onChangePassword}
                 validations={[required]}
               />
-            </div>
+            </section>
 
-            <div className="form-group">
+            <section className="form-group">
               <button
                 className="btn btn-primary btn-block"
                 disabled={this.state.loading}
@@ -129,14 +129,14 @@ class Login extends Component {
                 )}
                 <span>Login</span>
               </button>
-            </div>
+            </section>
 
             {message && (
-              <div className="form-group">
-                <div className="alert alert-danger" role="alert">
+              <article className="form-group">
+                <section className="alert alert-danger" role="alert">
                   {message}
-                </div>
-              </div>
+                </section>
+              </article>
             )}
             <CheckButton
               style={{ display: "none" }}
@@ -145,16 +145,19 @@ class Login extends Component {
               }}
             />
           </Form>
-        </div>
-      </div>
+        </section>
+      </article>
     );
   }
 }
 
+// const mapStateToProps = state =>{
+//   return { isLoggedIn: state.auth, message: state.message, }
+// }
+
 function mapStateToProps(state) {
   const { isLoggedIn } = state.auth;
   const { message } = state.message;
-  console.log(isLoggedIn);
   return {
     isLoggedIn,
     message

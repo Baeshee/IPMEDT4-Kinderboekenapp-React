@@ -3,35 +3,43 @@ import { Redirect } from 'react-router-dom';
 import { connect } from "react-redux";
 
 import UserBoard from "./test_board-user.component";
+import AuthService from "../services/service_auth.service";
+import axios from "axios";
 
 
 class Profile extends Component {
 
+  logOut = () => {
+    AuthService.logout();
+  }
+
   render() {
     const { user: currentUser } = this.props;
-    console.log(currentUser);
-    console.log(this.props);
 
     if (!currentUser) {
       return <Redirect to="/login" />;
     }
 
     return (
-      <div className="container">
+      <article className="container">
         <header className="jumbotron">
           <h3>
-            <strong>Test</strong> Profile
+            Profile Page
           </h3>
         </header>
         <UserBoard />
-      </div>
+        <a href="/login" onClick={this.logOut}>Logout</a>
+      </article>
     );
   }
 }
 
+// const mapStateToProps = state =>{
+//   return { user: state.auth, }
+// }
+
 function mapStateToProps(state) {
   const { user } = state.auth;
-  console.log(user);
   return {
     user,   
   };

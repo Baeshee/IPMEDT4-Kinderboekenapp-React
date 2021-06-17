@@ -12,6 +12,7 @@ import "./App.css";
 
 class App extends React.Component{
     // state = {video: ""}; replaced by redux
+
     render(){
         return(
             <Router>
@@ -19,7 +20,7 @@ class App extends React.Component{
                     <Route path="/register">
                         <h2>Register here</h2>
                         <Provider store = {store}>
-                        <Register / >
+                            <Register />
                         </Provider>
                         <Link to="/login"> Log in </Link>
                     </Route>
@@ -38,7 +39,7 @@ class App extends React.Component{
                             <Provider store={store}>
                                <Profile />
                             </Provider>
-                            <Link to="/logout"> logout </Link>
+                            {/* <Link to="/login" onClick={this.logOut}> logout </Link> */}
                         </main>
                     </Route>
 

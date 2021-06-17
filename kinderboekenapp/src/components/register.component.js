@@ -10,9 +10,9 @@ import { register } from "../actions/action_auth";
 const required = (value) => {
   if (!value) {
     return (
-      <div className="alert alert-danger" role="alert">
+      <section className="alert alert-danger" role="alert">
         This field is required!
-      </div>
+      </section>
     );
   }
 };
@@ -20,9 +20,9 @@ const required = (value) => {
 const email = (value) => {
   if (!isEmail(value)) {
     return (
-      <div className="alert alert-danger" role="alert">
+      <section className="alert alert-danger" role="alert">
         This is not a valid email.
-      </div>
+      </section>
     );
   }
 };
@@ -30,9 +30,9 @@ const email = (value) => {
 const vusername = (value) => {
   if (value.length < 3 || value.length > 20) {
     return (
-      <div className="alert alert-danger" role="alert">
+      <section className="alert alert-danger" role="alert">
         The name must be between 3 and 20 characters.
-      </div>
+      </section>
     );
   }
 };
@@ -40,9 +40,9 @@ const vusername = (value) => {
 const vpassword = (value) => {
   if (value.length < 6 || value.length > 40) {
     return (
-      <div className="alert alert-danger" role="alert">
+      <section className="alert alert-danger" role="alert">
         The password must be between 6 and 40 characters.
-      </div>
+      </section>
     );
   }
 };
@@ -112,8 +112,8 @@ class Register extends Component {
     const { message } = this.props;
 
     return (
-      <div className="col-md-12">
-        <div className="card card-container">
+      <article className="col-md-12">
+        <section className="card card-container">
           <img
             src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
             alt="profile-img"
@@ -127,8 +127,8 @@ class Register extends Component {
             }}
           >
             {!this.state.successful && (
-              <div>
-                <div className="form-group">
+              <section>
+                <section className="form-group">
                   <label htmlFor="name">Name</label>
                   <Input
                     type="text"
@@ -138,9 +138,9 @@ class Register extends Component {
                     onChange={this.onChangeUsername}
                     validations={[required, vusername]}
                   />
-                </div>
+                </section>
 
-                <div className="form-group">
+                <section className="form-group">
                   <label htmlFor="email">Email</label>
                   <Input
                     type="text"
@@ -150,9 +150,9 @@ class Register extends Component {
                     onChange={this.onChangeEmail}
                     validations={[required, email]}
                   />
-                </div>
+                </section>
 
-                <div className="form-group">
+                <section className="form-group">
                   <label htmlFor="password">Password</label>
                   <Input
                     type="password"
@@ -162,20 +162,20 @@ class Register extends Component {
                     onChange={this.onChangePassword}
                     validations={[required, vpassword]}
                   />
-                </div>
+                </section>
 
-                <div className="form-group">
+                <section className="form-group">
                   <button className="btn btn-primary btn-block">Sign Up</button>
-                </div>
-              </div>
+                </section>
+              </section>
             )}
 
             {message && (
-              <div className="form-group">
-                <div className={ this.state.successful ? "alert alert-success" : "alert alert-danger" } role="alert">
+              <article className="form-group">
+                <section className={ this.state.successful ? "alert alert-success" : "alert alert-danger" } role="alert">
                   {message}
-                </div>
-              </div>
+                </section>
+              </article>
             )}
             <CheckButton
               style={{ display: "none" }}
@@ -184,11 +184,16 @@ class Register extends Component {
               }}
             />
           </Form>
-        </div>
-      </div>
+        </section>
+      </article>
     );
   }
 }
+
+
+// const mapStateToProps = state =>{
+//   return { message: state.message, }
+// }
 
 function mapStateToProps(state) {
   const { message } = state.message;

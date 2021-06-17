@@ -9,7 +9,7 @@ class UserService {
   }
 
   getUserBoard() {
-    return axios.post(API_URL + 'auth/me', { headers: authHeader() });
+    return axios.get(API_URL + 'auth/me', { headers: authHeader()});
   }
 
 //   getModeratorBoard() {
