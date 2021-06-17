@@ -20,9 +20,9 @@ export const ImageAntwoord = () => {
         <section className="assignment-container">
             <h2>Jouw antwoord:</h2>
             <p></p>
-            <figure>
+            {/* <figure>
                 <img src="../logo512.png" alt="" />
-            </figure>
+            </figure> */}
             <p></p>
         </section>
     )

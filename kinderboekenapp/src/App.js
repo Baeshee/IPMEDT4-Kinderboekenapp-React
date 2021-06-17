@@ -5,7 +5,6 @@ import { Provider } from 'react-redux';
 import './App.css';
 
 import BookAssignments from './BookAssignments';
-import Test from './Test';
 
 class App extends React.Component {
     render() {

@@ -7,14 +7,14 @@ import "./BookAssignments.css";
 
 import { DummyData } from './DummyData';
 
-import { ImageVraag, ImageAntwoord, ImageUnavailable} from "./Vragen/ImageVraag"
+import { ImageVraag, ImageAntwoord, ImageUnavailable} from './Vragen'
 
 class BookAssignments extends Component {
 
     state = { vragen: []}
 
     getAssignData = () => {
-        const URL = "https://kinderboekenapp-laravel.herokuapp.com/api/users/1/books"
+        const URL = "https://kinderboekenapp-laravel.herokuapp.com/api/users/assignments"
         axios.get(URL).then(res => {
             this.props.changeUserAssignments(res.data);
         });
