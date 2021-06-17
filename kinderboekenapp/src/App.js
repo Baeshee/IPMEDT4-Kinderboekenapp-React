@@ -25,8 +25,10 @@ class App extends React.Component {
 
   render(){
     return(
-      <article>
-        <h1 className="profileHeader">Profiel</h1>
+      <article className="profile">
+        <section className="profile__header">
+          <h1 className="profile__header__text">Profiel</h1>
+        </section>
         <ProfileMascotte/>
         <ProfileCard/>
       </article>

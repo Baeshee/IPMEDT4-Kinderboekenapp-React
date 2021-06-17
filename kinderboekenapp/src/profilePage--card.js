@@ -27,14 +27,14 @@ class ProfileCard extends React.Component {
         return(
             <article className="profileCard">
                 <ProfileUser/>
-                <section className="profileCard_section">
+                <section className="profileCard__section">
                     <Modal show={this.state.show} handleClose={this.hideModal}>
                     </Modal>
                 </section>
 
-                <section className="profileCard__buttonSection">
-                    <button type="button" onClick={this.showModal} className="profileCard__button">Kleur robot</button>  {/*open modal*/}
-                    <button className="profileCard__button profileCard__button--logout">Log uit</button>
+                <section className="profileCard__btnSection">
+                    <button type="button" onClick={this.showModal} className="profileCard__btnSection__colorBtn">Kleur robot</button>  {/*open modal*/}
+                    <button className="profileCard__btnSection__logoutBtn">Log uit</button>
                 </section>
                 
             </article> 

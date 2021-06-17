@@ -1,35 +1,27 @@
 .profileCard {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.profileCard__section {
+  margin: 3rem 0;
+}
+.profileCard__btnSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+}
+.profileCard__btnSection__colorBtn {
+  width: 15rem;
+  height: 5rem;
+}
+.profileCard__btnSection__logoutBtn {
+  padding: 1.5rem 4rem;
+  color: white;
+  background-color: #00aeff;
 }
 
-.profileCard_section {
-    margin: 3rem 0;
-}
-
-.profileCard__buttonSection{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 2rem;
-}
-
-/* .profileCard__name{
-    font-size: 2.4rem;
-    font-weight: 400;
-} */
-
-.profileCard__button {
-    width: 15rem;
-    height: 5rem;
-}
-
-.profileCard__button--logout{
-    padding: 1.5rem 4rem;
-    color: white;
-    background-color: #00aeff;
-    
-}
+/*# sourceMappingURL=ProfileCard.css.map */

@@ -5,18 +5,18 @@ import axios from 'axios';
 
 //the modal for choosing a color for the robot
 const Modal = ({ handleClose, show}) => {
-    const showHideClassName = show ? "modal display-block" : "modal display-none";
+    const showHideClassName = show ? "popup display-block" : "popup display-none";
   
     return (
       <article className={showHideClassName}>
-        <section className="modal-main">
+        <section className="modal">
             <section className="modal__header">
-                <span type="button" onClick={handleClose} className="close">&times;</span>
+                <span className="modal__header__close" type="button" onClick={handleClose}>&times;</span>
                 <h2 className="modal__header__h2">Kies hier een kleur voor je robot!</h2>
             </section>
-          <section className="popup__content__body__filter">
+          <section className="modal__content">
                 <form>
-                    <select className="filterOptions_section__filterButton">
+                    <select className="modal__content__options">
                         <option value="blue">Kies kleur</option>
                         <option value="blue">blauw</option>
                         <option value="green">groen</option>

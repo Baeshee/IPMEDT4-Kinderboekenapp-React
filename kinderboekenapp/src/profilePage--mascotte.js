@@ -7,9 +7,9 @@ class ProfileMascotte extends React.Component {
 
     render() {
         return (
-            <section className="mascotte-name-section">
-                <figure className="mascotte-name-section__figure">
-                    <img className="mascotte-name-section__figure__img" src="img/mascotte_blue.png" alt="foto van een robot"></img>
+            <section className="mascotte-name__section">
+                <figure className="mascotte-name__section__figure">
+                    <img className="mascotte-name__section__figure__img" src="img/mascotte_blue.png" alt="foto van een robot"></img>
                 </figure>   
             </section>
         );
