@@ -1,11 +1,5 @@
 .assignments {
-  width: 100vw;
-  height: 100vh;
-  position: relative;
-  margin: auto;
-  display: flex;
-  justify-content: center;
-  align-self: center;
+  margin: 0 auto;
 }
 
 /*# sourceMappingURL=BookAssignments.css.map */

@@ -1,17 +1,126 @@
-*, *::after, *::before {
+*, *::after, *::before{
   margin: 0;
   padding: 0;
 }
-
 html {
   font-size: 62.5%;
+  box-sizing: border-box;
+  margin:0;
+  padding:0;
+  font-family: sans-serif;
 }
-
-body {
-  height: 100vh;
+p{
+  font-size: 1.5rem;
+  padding: 0.5rem;
+}
+.assignment-container{
+  border: 3px solid grey;
+  border-radius: 1rem;
+  margin: 3rem auto;
+  width: 75%;
+  max-width: 75rem;
+  padding: 2rem;
+}
+.assignments{
+  margin: 0 auto;
   width: 100%;
-  font-size: 1.8rem;
-  background-color: #eee;
+}
+.section__intro{
+  border: 3px solid grey;
+  border-radius: 1rem;
+  margin: 3rem auto;
+  width: 75%;
+  max-width: 75rem;
+  min-height: 10rem;
+  padding: 2rem;
 }
 
-/*# sourceMappingURL=App.css.map */
+h1{
+  font-size: 3rem;
+  text-align: center;
+}
+h2{
+  text-align: center;
+  font-size: 2rem;
+}
+form{
+  margin: 0 auto;
+  width: 75%;
+  height: 15rem;
+}
+
+input[type=text]:focus {
+  background-color: lightgrey;
+}
+input{
+  padding: 0.5rem;
+}
+Button{
+  width: 10rem;
+  height: 5rem;
+  display: block;
+  margin: 0 auto;
+  padding: 1rem;
+}
+audio{
+  display: block;
+  margin: 0 auto;
+  width: 25rem;
+  height: 5rem;
+}
+.section__file{
+  width: 11rem;
+  margin-bottom: 1rem;
+}
+
+Button:active{
+  width: 50%;
+  height: 4rem;
+  display: block;
+  margin: 0 auto;
+}
+img{
+  display: block;
+  margin: 0 auto;
+}
+
+.userColor{
+  padding: 1rem;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+  display: block;
+  border-radius: 1rem;
+  font-weight: bold;
+  font-size: 2rem;
+}
+.McInput{
+width: 100%;
+max-width: 50rem;
+margin: 0 auto;
+justify-self: center;
+}
+label{
+  justify-content: center;
+  margin: 0 auto;
+  display: block;
+  width: 20rem;
+  font-size: 2rem;
+  padding-bottom: 0.4rem;
+}
+.colorInput{
+  width: 100%;
+  height: 10rem;
+}
+ul{
+  margin: 0.2rem;
+  list-style:square;
+  color: blue;
+  margin-left: 1.5rem;
+}
+.McGrid{
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  margin: 0 auto;
+  width: 100%;
+}

@@ -7,7 +7,7 @@ import "./BookAssignments.css";
 
 import { DummyData } from './DummyData';
 
-import { ImageVraag, ImageAntwoord, ImageUnavailable} from "./Vragen/ImageVraag"
+import { ImageVraag, ImageAntwoord, ImageUnavailable, intro, AudioVraag, ColorVraag, ColorAntwoord, MultipleChoiceVraag, Podcast} from "./Vragen/ImageVraag"
 
 class BookAssignments extends Component {
 
@@ -29,11 +29,11 @@ class BookAssignments extends Component {
             case "color":
                 switch(assignment.status){
                     case "active":
-                        return <ImageVraag key={index} />;
+                        return <ColorVraag key={index} />;
                     case "completed":
-                        return <ImageAntwoord key={index} />;
+                        return <ColorAntwoord key={index} />;
                     default:
-                        return <ImageVraag key={index} />;
+                        return <ColorVraag key={index} />;
                 }
             case "image":
                 switch(assignment.status){
@@ -53,6 +53,33 @@ class BookAssignments extends Component {
                     default:
                         return <ImageUnavailable key={index} />;
                 }  
+                case "audio":
+                    switch(assignment.status){
+                        case "active":
+                            return <AudioVraag key={index} />;
+                        case "completed":
+                            return <AudioVraag key={index} />;
+                        default:
+                            return <AudioVraag key={index} />;
+                    }  
+                case "MultipleChoice":
+                        switch(assignment.status){
+                            case "active":
+                                return <MultipleChoiceVraag key={index} />;
+                            case "completed":
+                                return <MultipleChoiceVraag key={index} />;
+                            default:
+                                return <MultipleChoiceVraag key={index} />;
+                        }  
+                        case "Podcast":
+                            switch(assignment.status){
+                                case "active":
+                                    return <Podcast key={index} />;
+                                case "completed":
+                                    return <Podcast key={index} />;
+                                default:
+                                    return <Podcast key={index} />;
+                            }          
             default:
                 return <ImageUnavailable key={index} />;
         }
