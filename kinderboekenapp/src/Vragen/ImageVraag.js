@@ -21,7 +21,7 @@ export const ImageAntwoord = () => {
             <h2>Jouw antwoord:</h2>
             <p></p>
             <figure>
-                <img src="../logo512.png" alt="" />
+             
             </figure>
             <p></p>
         </section>
