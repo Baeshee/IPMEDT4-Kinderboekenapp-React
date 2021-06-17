@@ -46,9 +46,6 @@ $colors:(
             &:nth-of-type(4){
                 background-color:map.get($colors, "MT");
             }
-            &:nth-of-type(5){
-                background-color:map.get($colors, "PF");
-            }
         }
     }
 }

@@ -19,9 +19,4 @@ export const NavItems = [
         url: '/profiel',
         icon: 'fas fa-user-alt fa-2x'
     },
-    {
-        cName: 'nav__list__link',
-        url: '/logout',
-        icon: 'fas fa-sign-out-alt fa-2x'
-    },
 ]
