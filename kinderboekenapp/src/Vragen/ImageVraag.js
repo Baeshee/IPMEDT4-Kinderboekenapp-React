@@ -7,7 +7,6 @@ import { render } from "@testing-library/react";
 
 
 export const intro = () =>{
-
     return(
         <section className="assignment-container"><p>We willen het boek graag introduceren met een filmpje of een luisterfragment. Hierin vertellen wij iets over het boek adhv de flaptekst. </p>
             <ReactAudioPlayer
@@ -19,7 +18,6 @@ export const intro = () =>{
     )
 
 }
-
 
 export const ImageVraag = () => {
     return(
@@ -39,7 +37,7 @@ Wat zou jij voor bijzondere muts willen dragen? Maak een ontwerp van jouw eigen 
     )
 }
 
-export const ImageAntwoord = () => {
+export const ImageAntwoord = props => {
     return(
         <div className="wrapper">
         <section className="assignment-container">
@@ -52,7 +50,7 @@ export const ImageUnavailable = () =>{
         <div className="wrapper">
         <section className="assignment-container">
            <h2>Lees eerst hoofdstuk 1 tot en met hoofdstuk 5</h2>
-            <button href="#google">Ik heb het gelezen</button>
+            <button>Ik heb het gelezen</button>
         </section>
         
     </div>)
@@ -67,7 +65,8 @@ export const AudioVraag = () => {
   className="AudioPlayer"
   autoPlay
   controls
-/></section>
+/>
+<button >Ik heb het geluisterd</button></section>
 </div>
     )
 }
@@ -119,7 +118,7 @@ className="AudioPlayer"
 autoPlay
 controls
 />
-            
+<button >Ik heb het geluisterd</button>
         </section></div>
     )
     }
@@ -141,13 +140,13 @@ return(
 </ul></p>
 <p>Hoe zouden BOTJEBOTJE, EJTOB, BO en BOET ‘mama’ noemen? </p>
 <div className="McGrid">
-<p>BOTJEBOTJE:</p>
+<p className="McGrid__text">BOTJEBOTJE:</p>
 <input className="McInput" type="text"></input>
-<p>EJTOB:</p>
+<p className="McGrid__text">EJTOB:</p>
 <input className="McInput" type="text"></input>
-<p>BO:</p>
+<p className="McGrid__text">BO:</p>
 <input className="McInput" type="text"></input>
-<p>BOET:</p>
+<p className="McGrid__text">BOET:</p>
 <input className="McInput" type="text"></input>
 </div>
 <button>Verzend</button>

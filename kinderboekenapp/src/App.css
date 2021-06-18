@@ -21,12 +21,11 @@ p{
   border-radius: 1rem;
   margin: 0 auto;
   width: 80%;
-  max-height: 90%;
+  max-height: 95%;
   max-width: 75rem;
   padding: 1.5rem;
   background-color: #F9F9F9;
   opacity: 95%;
-
 }
 .wrapper{
   height: 100vh;
@@ -35,6 +34,7 @@ p{
   justify-content: center;
   scroll-snap-align: start;
  }
+
  html{
    scroll-snap-type: y mandatory;
  }
@@ -63,6 +63,10 @@ input[type=text]:focus {
 }
 input{
   padding: 0.5rem;
+  width: 78%;
+  margin: 0 auto;
+  display: block;
+  height: 5rem;
 }
 Button{
   width: 78%;
@@ -129,4 +133,7 @@ ul{
   grid-template-rows: 1fr 1fr;
   margin: 0 auto;
   width: 100%;
+}
+.McGrid__text{
+  text-align: center;
 }

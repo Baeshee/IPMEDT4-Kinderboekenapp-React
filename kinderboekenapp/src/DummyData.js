@@ -19,6 +19,7 @@ export const DummyData = [
         "assignment": 'Hieronder kun jij een kleur kiezen. Zoek de mooiste kleur uit en geef hem net zo’n bijzondere naam. Bedenk daarvoor dus goed waar de kleur jou precies aan doet denken.',
         'kind_of_assignment': 'color',
         'status': 'completed',
+        'answer': '',
     },
     {
         "book_isbn": 9789000339280,
@@ -33,6 +34,10 @@ export const DummyData = [
         "assignment": 'Hieronder kun jij een kleur kiezen. Zoek de mooiste kleur uit en geef hem net zo’n bijzondere naam. Bedenk daarvoor dus goed waar de kleur jou precies aan doet denken.',
         'kind_of_assignment': 'MultipleChoice',
         'status': 'inactive',
+        'answer1':'',
+        'answer2':'',
+        'answer3':'',
+
     },
     {
         "book_isbn": 9789000339280,

@@ -13,6 +13,7 @@ class BookAssignments extends Component {
 
     state = { vragen: []}
 
+    
     getAssignData = () => {
         const URL = "https://kinderboekenapp-laravel.herokuapp.com/api/users/1/books"
         axios.get(URL).then(res => {
@@ -23,6 +24,8 @@ class BookAssignments extends Component {
     componentDidMount(){
         this.getAssignData();
     }
+    
+
 
     createAssignments = (assignment, index) =>{       
         switch(assignment.kind_of_assignment){
@@ -96,17 +99,21 @@ class BookAssignments extends Component {
     
 
     render() {
-      
+    
             return (
+
                 <article className="assignments">
-                    {}
+                    
 
+                   
                     {DummyData.map((assignment, index) => this.createAssignments(assignment, index))}
-
+                    
                 </article>
+          
             );
         }
     }
+
 
 
 const mapStateToProps = state => {

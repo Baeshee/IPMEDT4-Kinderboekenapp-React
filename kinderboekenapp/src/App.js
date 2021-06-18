@@ -1,6 +1,8 @@
 import React from 'react';
 import { store } from './store';
 import { Provider } from 'react-redux';
+import Endscreen from './components/Endscreen';
+
 
 import './App.css';
 
@@ -13,6 +15,7 @@ class App extends React.Component {
             <main>
                 <Provider store={store}>
                     <BookAssignments />
+                    <Endscreen/>
                 </Provider>
             </main>
         )
