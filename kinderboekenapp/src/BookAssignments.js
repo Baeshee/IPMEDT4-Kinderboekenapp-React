@@ -7,7 +7,7 @@ import "./BookAssignments.css";
 
 import { DummyData } from './DummyData';
 
-import { ImageVraag, ImageAntwoord, ImageUnavailable, intro, AudioVraag, ColorVraag, ColorAntwoord, MultipleChoiceVraag, Podcast} from "./Vragen/ImageVraag"
+import { ImageVraag, ImageAntwoord, ImageUnavailable, intro, AudioVraag, ColorVraag, ColorAntwoord, MultipleChoiceVraag, Podcast, MultipleChoiceVraag2} from "./Vragen/ImageVraag"
 
 class BookAssignments extends Component {
 
@@ -79,7 +79,16 @@ class BookAssignments extends Component {
                                     return <Podcast key={index} />;
                                 default:
                                     return <Podcast key={index} />;
-                            }          
+                            }  
+                            case "MultipleChoice2":
+                                switch(assignment.status){
+                                    case "active":
+                                        return <MultipleChoiceVraag2 key={index} />;
+                                    case "completed":
+                                        return <MultipleChoiceVraag2 key={index} />;
+                                    default:
+                                        return <MultipleChoiceVraag2 key={index} />;
+                                }         
             default:
                 return <ImageUnavailable key={index} />;
         }

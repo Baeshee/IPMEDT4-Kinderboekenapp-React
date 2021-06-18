@@ -3,23 +3,29 @@
   padding: 0;
 }
 html {
+  display: flex;
+  flex-direction: column;
   font-size: 62.5%;
   box-sizing: border-box;
   margin:0;
   padding:0;
   font-family: sans-serif;
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,121,101,1) 22%, rgba(0,212,255,1) 100%);
 }
 p{
   font-size: 1.5rem;
   padding: 0.5rem;
+
 }
 .assignment-container{
-  border: 3px solid grey;
+  border: 3px solid #04009A;
   border-radius: 1rem;
   margin: 3rem auto;
   width: 75%;
   max-width: 75rem;
-  padding: 2rem;
+  padding: 1.5rem;
+  background-color: #F9F9F9;
 }
 .assignments{
   margin: 0 auto;
@@ -56,10 +62,10 @@ input{
   padding: 0.5rem;
 }
 Button{
-  width: 10rem;
+  width: 78%;
   height: 5rem;
   display: block;
-  margin: 0 auto;
+  margin: 0.3rem auto;
   padding: 1rem;
 }
 audio{
@@ -73,12 +79,7 @@ audio{
   margin-bottom: 1rem;
 }
 
-Button:active{
-  width: 50%;
-  height: 4rem;
-  display: block;
-  margin: 0 auto;
-}
+
 img{
   display: block;
   margin: 0 auto;
@@ -92,12 +93,14 @@ img{
   border-radius: 1rem;
   font-weight: bold;
   font-size: 2rem;
+  width: 50%;
 }
 .McInput{
-width: 100%;
-max-width: 50rem;
+width: 90%;
+max-width: 75rem;
 margin: 0 auto;
-justify-self: center;
+border-radius: 1rem;
+display: block;
 }
 label{
   justify-content: center;

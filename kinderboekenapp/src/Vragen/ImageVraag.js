@@ -1,15 +1,17 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import ReactAudioPlayer from 'react-audio-player';
 import axios from 'axios';
 import { render } from "@testing-library/react";
 
 
-
-
+function handleChange(event){
+    this.setState({value: event.target.value});
+}
 
 export const intro = () =>{
+const test = this.props;
     return(
-        <section className="section__intro"><p>We willen het boek graag introduceren met een filmpje of een luisterfragment. Hierin vertellen wij iets over het boek adhv de flaptekst. </p>
+        <section className="assignment-container"><p>We willen het boek graag introduceren met een filmpje of een luisterfragment. Hierin vertellen wij iets over het boek adhv de flaptekst. </p>
             <ReactAudioPlayer
   src="my_audio_file.ogg"
   className="AudioPlayer"
@@ -41,7 +43,7 @@ Wat zou jij voor bijzondere muts willen dragen? Maak een ontwerp van jouw eigen 
 export const ImageAntwoord = () => {
     return(
         <section className="assignment-container">
-              <form><label for="color"></label><input className="colorInput" id="color" name="color" value="" type="color"></input></form><label for="userColor">Schrijf hier je kleur op:</label><input id="userColor" className="userColor" type="text" ></input><button id="submitButton" className="submitButton" type="submit" onClick="">Bevestig je kleur!</button></section>
+              <form><label for="color"></label><input className="colorInput" id="color" value={this.state.value} onChange={this.handleChange} name="color" type="color"></input></form><label for="userColor">Schrijf hier je kleur op:</label><input id="userColor" className="userColor" type="text" ></input><button id="submitButton" className="submitButton" type="submit" onClick="">Bevestig je kleur!</button></section>
     )
 }
 
@@ -57,7 +59,7 @@ export const ImageUnavailable = () =>{
 
 export const AudioVraag = () => {
     return(
-        <section className="section__intro"><p>We willen het boek graag introduceren met een filmpje of een luisterfragment. Hierin vertellen wij iets over het boek adhv de flaptekst. </p>
+        <section className="assignment-container"><p className="bold">We willen het boek graag introduceren met een filmpje of een luisterfragment. Hierin vertellen wij iets over het boek adhv de flaptekst. </p>
             <ReactAudioPlayer
   src="my_audio_file.ogg"
   className="AudioPlayer"
@@ -68,7 +70,7 @@ export const AudioVraag = () => {
 }
 export const AudioAntwoord = () => {
     return(
-        <section className="section__intro"><p>We willen het boek graag introduceren met een filmpje of een luisterfragment. Hierin vertellen wij iets over het boek adhv de flaptekst. </p>
+        <section className="assignment-container"><p>We willen het boek graag introduceren met een filmpje of een luisterfragment. Hierin vertellen wij iets over het boek adhv de flaptekst. </p>
             <ReactAudioPlayer
   src="my_audio_file.ogg"
   className="AudioPlayer"
@@ -81,7 +83,7 @@ export const AudioAntwoord = () => {
 
 export const ColorVraag = () => {
     return(
-        <section className="section__intro"><p>Bibi haar vader heeft een wolwinkel en verkoopt daar de meest bijzondere kleuren wol. Zo lezen we over paardenbloemstengelgroen, varkensstaartjesroze, diepzeezwart, watermeloenrood, krijtrotswit en Middellandsezeeblauw. In de naam van de kleur zie je steeds al staan waar je de kleur ‘in het echt’ terug kunt zien.<br></br>
+        <section className="assignment-container"><p>Bibi haar vader heeft een wolwinkel en verkoopt daar de meest bijzondere kleuren wol. Zo lezen we over paardenbloemstengelgroen, varkensstaartjesroze, diepzeezwart, watermeloenrood, krijtrotswit en Middellandsezeeblauw. In de naam van de kleur zie je steeds al staan waar je de kleur ‘in het echt’ terug kunt zien.<br></br>
 
         Kun jij ook zo’n mooie naam bedenken voor een kleur? Hieronder kun jij een kleur kiezen. Zoek de mooiste kleur uit en geef hem net zo’n bijzondere naam. Bedenk daarvoor dus goed waar de kleur jou precies aan doet denken..
         </p>
@@ -91,7 +93,7 @@ export const ColorVraag = () => {
 
 export const ColorAntwoord = () => {
     return(
-        <section className="section__intro"><p>Bibi haar vader heeft een wolwinkel en verkoopt daar de meest bijzondere kleuren wol. Zo lezen we over paardenbloemstengelgroen, varkensstaartjesroze, diepzeezwart, watermeloenrood, krijtrotswit en Middellandsezeeblauw. In de naam van de kleur zie je steeds al staan waar je de kleur ‘in het echt’ terug kunt zien.<br></br>
+        <section className="assignment-container"><p> Bibi haar vader heeft een wolwinkel en verkoopt daar de meest bijzondere kleuren wol. Zo lezen we over paardenbloemstengelgroen, varkensstaartjesroze, diepzeezwart, watermeloenrood, krijtrotswit en Middellandsezeeblauw. In de naam van de kleur zie je steeds al staan waar je de kleur ‘in het echt’ terug kunt zien.<br></br>
 
         Kun jij ook zo’n mooie naam bedenken voor een kleur? Hieronder kun jij een kleur kiezen. Zoek de mooiste kleur uit en geef hem net zo’n bijzondere naam. Bedenk daarvoor dus goed waar de kleur jou precies aan doet denken..
         </p>
@@ -142,4 +144,27 @@ return(
 
     </section>
 )
+}
+
+export const MultipleChoiceVraag2 = () => {
+    return(
+        <section className="assignment-container">
+<p>Ken jij het woord ‘onbetaalbaar’? Wat betekent dat (voor jou?).
+Iets dat onbetaalbaar is, dat is iets wat je voor geen geld zou willen verkopen. Niet voor al het geld in de wereld.
+</p>
+<p>
+In het boek is Bibi bang dat haar vader botje verkoopt aan De Rus. De Rus heeft namelijk een koffer met héél veel geld. Voor Bibi is botje onbetaalbaar. Hoe veel geld De Rus haar ook zo betalen, ze zou botje nooit weggeven.
+</p>
+<p >Denk eens na:</p>
+<p>Waarom denk je dat Bibi Botje niet wil verkopen, zelfs niet voor héél veel geld? </p>
+<input className="McInput" value="" type="text"></input>
+<p>Wat zou jij hebben gedaan als je in dezelfde situatie zat als Bibi?</p>
+<input className="McInput" value="" type="text"></input>
+<p>Zijn er dingen die voor jou onbetaalbaar zijn? Waarom zijn die onbetaalbaar voor je?</p>
+<input className="McInput" value="" type="text"></input>
+<button>Verzend</button>
+        </section>
+
+
+    )
 }
