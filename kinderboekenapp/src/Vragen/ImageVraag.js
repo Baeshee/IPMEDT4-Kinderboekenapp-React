@@ -4,12 +4,10 @@ import axios from 'axios';
 import { render } from "@testing-library/react";
 
 
-function handleChange(event){
-    this.setState({value: event.target.value});
-}
+
 
 export const intro = () =>{
-const test = this.props;
+
     return(
         <section className="assignment-container"><p>We willen het boek graag introduceren met een filmpje of een luisterfragment. Hierin vertellen wij iets over het boek adhv de flaptekst. </p>
             <ReactAudioPlayer
@@ -25,6 +23,7 @@ const test = this.props;
 
 export const ImageVraag = () => {
     return(
+        <div className="wrapper">
         <section className="assignment-container">
             <p>Speciaal voor het snowboardteam breidt Bibi haar vader de meest bijzondere mutsen! Ook zelf draagt hij graag een bijzondere muts, zoals een broccolimuts.
 
@@ -36,29 +35,32 @@ Wat zou jij voor bijzondere muts willen dragen? Maak een ontwerp van jouw eigen 
                 <input type="submit" />
             </form>
            
-        </section>
+        </section></div>
     )
 }
 
 export const ImageAntwoord = () => {
     return(
+        <div className="wrapper">
         <section className="assignment-container">
-              <form><label for="color"></label><input className="colorInput" id="color" value={this.state.value} onChange={this.handleChange} name="color" type="color"></input></form><label for="userColor">Schrijf hier je kleur op:</label><input id="userColor" className="userColor" type="text" ></input><button id="submitButton" className="submitButton" type="submit" onClick="">Bevestig je kleur!</button></section>
+              <form><label for="color"></label><input className="colorInput" id="color" value={this.state.value} onChange={this.handleChange} name="color" type="color"></input></form><label for="userColor">Schrijf hier je kleur op:</label><input id="userColor" className="userColor" type="text" ></input><button id="submitButton" className="submitButton" type="submit" onClick="">Bevestig je kleur!</button></section></div>
     )
 }
 
 export const ImageUnavailable = () =>{
     return(
-        
+        <div className="wrapper">
         <section className="assignment-container">
            <h2>Lees eerst hoofdstuk 1 tot en met hoofdstuk 5</h2>
-            <button>Ik heb het gelezen</button>
+            <button href="#google">Ik heb het gelezen</button>
         </section>
-    )
+        
+    </div>)
 }
 
 export const AudioVraag = () => {
     return(
+        <div className="wrapper" >
         <section className="assignment-container"><p className="bold">We willen het boek graag introduceren met een filmpje of een luisterfragment. Hierin vertellen wij iets over het boek adhv de flaptekst. </p>
             <ReactAudioPlayer
   src="my_audio_file.ogg"
@@ -66,44 +68,50 @@ export const AudioVraag = () => {
   autoPlay
   controls
 /></section>
+</div>
     )
 }
 export const AudioAntwoord = () => {
     return(
+        <div className="wrapper" >
         <section className="assignment-container"><p>We willen het boek graag introduceren met een filmpje of een luisterfragment. Hierin vertellen wij iets over het boek adhv de flaptekst. </p>
             <ReactAudioPlayer
   src="my_audio_file.ogg"
   className="AudioPlayer"
   autoPlay
   controls
-/></section>
+/></section></div>
     )
 }
 
 
 export const ColorVraag = () => {
     return(
+        <div className="wrapper">
         <section className="assignment-container"><p>Bibi haar vader heeft een wolwinkel en verkoopt daar de meest bijzondere kleuren wol. Zo lezen we over paardenbloemstengelgroen, varkensstaartjesroze, diepzeezwart, watermeloenrood, krijtrotswit en Middellandsezeeblauw. In de naam van de kleur zie je steeds al staan waar je de kleur ‘in het echt’ terug kunt zien.<br></br>
 
         Kun jij ook zo’n mooie naam bedenken voor een kleur? Hieronder kun jij een kleur kiezen. Zoek de mooiste kleur uit en geef hem net zo’n bijzondere naam. Bedenk daarvoor dus goed waar de kleur jou precies aan doet denken..
         </p>
-              <form><label for="color"></label><input className="colorInput" id="color" name="color" value="" type="color"></input></form><label for="userColor">Schrijf hier je kleur op:</label><input id="userColor" className="userColor" type="text" ></input><button id="submitButton" className="submitButton" type="submit" onClick="">Bevestig je kleur!</button></section>
+              <form><label for="color"></label><input className="colorInput" id="color" name="color" value={this.props.value} onChange={this.props.value} type="color"></input></form><label for="userColor">Schrijf hier je kleur op:</label><input id="userColor" className="userColor" type="text" ></input><button id="submitButton" className="submitButton" type="submit" onClick="">Bevestig je kleur!</button></section></div>
     )
 }
 
 export const ColorAntwoord = () => {
     return(
+        <div className="wrapper">
         <section className="assignment-container"><p> Bibi haar vader heeft een wolwinkel en verkoopt daar de meest bijzondere kleuren wol. Zo lezen we over paardenbloemstengelgroen, varkensstaartjesroze, diepzeezwart, watermeloenrood, krijtrotswit en Middellandsezeeblauw. In de naam van de kleur zie je steeds al staan waar je de kleur ‘in het echt’ terug kunt zien.<br></br>
 
         Kun jij ook zo’n mooie naam bedenken voor een kleur? Hieronder kun jij een kleur kiezen. Zoek de mooiste kleur uit en geef hem net zo’n bijzondere naam. Bedenk daarvoor dus goed waar de kleur jou precies aan doet denken..
         </p>
-              <form><label for="color"></label><input className="colorInput" id="color" name="color" value="" type="color"></input></form><label for="userColor">Schrijf hier je kleur op:</label><input id="userColor" className="userColor" type="text" ></input><button id="submitButton" className="submitButton" type="submit" onClick="">Bevestig je kleur!</button></section>
+              <form><label for="color"></label><input className="colorInput" id="color" name="color" value="" type="color"></input></form><label for="userColor">Schrijf hier je kleur op:</label><input id="userColor" className="userColor"  type="text" ></input><button id="submitButton" className="submitButton" type="submit" onClick="">Bevestig je kleur!</button></section></div>
     )
 }
 
 export const Podcast = () =>{
     return(
+        <div className="wrapper">
         <section className="assignment-container">
+            
               <p>Hieronder vindt je een Podcast die over het boek gaat.</p>
       <ReactAudioPlayer
 src="my_audio_file.ogg"
@@ -112,12 +120,13 @@ autoPlay
 controls
 />
             
-        </section>
+        </section></div>
     )
     }
 
 export const MultipleChoiceVraag = () =>{
 return(
+    <div className="wrapper">
     <section className="assignment-container">
         <p>1.Botje zegt in plaats van ‘Bibi’ ‘Bibibi’, en in plaats van ‘papa’, ‘papapa’. Zie jij wat Botje doet? Hoe denk je dat botje mama zou noemen? …..</p>
         <input className="McInput" value="" type="text"></input>
@@ -133,21 +142,23 @@ return(
 <p>Hoe zouden BOTJEBOTJE, EJTOB, BO en BOET ‘mama’ noemen? </p>
 <div className="McGrid">
 <p>BOTJEBOTJE:</p>
-<input className="McInput" type="text"></input><button className="McGrid__McButton">Verzend</button>
+<input className="McInput" type="text"></input>
 <p>EJTOB:</p>
-<input className="McInput" type="text"></input><button>Verzend</button>
+<input className="McInput" type="text"></input>
 <p>BO:</p>
-<input className="McInput" type="text"></input><button>Verzend</button>
+<input className="McInput" type="text"></input>
 <p>BOET:</p>
-<input className="McInput" type="text"></input><button>Verzend</button>
+<input className="McInput" type="text"></input>
 </div>
+<button>Verzend</button>
 
-    </section>
+    </section></div>
 )
 }
 
 export const MultipleChoiceVraag2 = () => {
     return(
+        <div className="wrapper">
         <section className="assignment-container">
 <p>Ken jij het woord ‘onbetaalbaar’? Wat betekent dat (voor jou?).
 Iets dat onbetaalbaar is, dat is iets wat je voor geen geld zou willen verkopen. Niet voor al het geld in de wereld.
@@ -163,7 +174,7 @@ In het boek is Bibi bang dat haar vader botje verkoopt aan De Rus. De Rus heeft 
 <p>Zijn er dingen die voor jou onbetaalbaar zijn? Waarom zijn die onbetaalbaar voor je?</p>
 <input className="McInput" value="" type="text"></input>
 <button>Verzend</button>
-        </section>
+        </section></div>
 
 
     )
