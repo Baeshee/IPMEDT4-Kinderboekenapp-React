@@ -3,6 +3,7 @@ import React, { Component, useState } from "react";
 
 
 class Endscreen extends React.Component {
+     
     constructor(props){
         super(props);
         this.state = {
@@ -12,12 +13,12 @@ class Endscreen extends React.Component {
         }
         
     }
+    
 
     render(){
-        console.log(this.state.score)
         return(
             <div className="wrapper"><section className="assignment-container">
-            <p>Dit waren de opdrachten voor dit boek. je hebt  {this.state.score} / 6 munten verdiend. Deze kan je direct uitgeven in de store! </p>
+            <p className="endscreen__text" >Dit waren de opdrachten voor dit boek. Hier zie je hoeveel munten je verdiend hebt, deze kan je direct in de store uitgeven!</p>  <h1 className="endscreen__text">{this.state.score} / 6 munten </h1> 
             <button>Terug naar de boekenplank</button>
             <button>Naar de store</button>
                 

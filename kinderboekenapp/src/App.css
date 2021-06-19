@@ -17,6 +17,7 @@ html {
 p{
   font-size: 1.5rem;
   padding: 0.5rem;
+  font-family: sans-serif;
 }
 
 .assignment-container{
@@ -84,6 +85,8 @@ Button{
   padding: 1rem;
   font-weight: 800;
   background-color: white;
+  border-radius: 5rem;
+  box-shadow: 0 0 0 black;
 }
 
 audio{
@@ -139,7 +142,7 @@ label{
 ul{
   margin: 0.2rem;
   list-style:square;
-  color: blue;
+
   margin-left: 1.5rem;
 }
 
@@ -153,7 +156,10 @@ ul{
 
 .McGrid__text{
   text-align: center;
+  font-weight: 700;
+  font-size: 2rem;
 }
-.buttonGreen{
-  background-color: #0e8034;
+
+.endscreen__text{
+  text-align: center;
 }

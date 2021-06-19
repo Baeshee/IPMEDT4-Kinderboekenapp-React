@@ -9,16 +9,23 @@ function scrollY(event){
     event.preventDefault();
     var top  = window.pageYOffset || document.documentElement.scrollTop;
     top = top + 950;
-    window.scroll({top: top, behavior: 'smooth'});
+    setTimeout(() => {
+        window.scroll({top: top, behavior: 'smooth'});
+    }, 500);
+
   }
 
-function buttonActive(){
+function ButtonActive(props){
     var arr = document.getElementsByTagName('button');
-    arr[x].style.backgroundColor = '#0e8034';
-    x++;
+    var arr2 = document.getElementsByTagName('section');
+   
+        arr[x].style.backgroundColor = '#0e8034';
+        arr2[x].style.borderWidth = 'thick';
+        arr2[x].style.borderColor = "#0e8034";
+        x++;
+    
+
 }
-
-
 
 export const ImageUnavailable = () =>{
     return(
@@ -27,13 +34,12 @@ export const ImageUnavailable = () =>{
            <h2>Lees eerst hoofdstuk 1 tot en met hoofdstuk 5</h2>
             <button onClick={(event)=> {
                 scrollY(event);
-                buttonActive();
+                ButtonActive();
             }}> Ik heb het gelezen</button>
         </section>
         
     </div>)
 }
-
 
 export const intro = () =>{
     return(
@@ -61,7 +67,7 @@ Wat zou jij voor bijzondere muts willen dragen? Maak een ontwerp van jouw eigen 
                 <input className="form__input image" type="file" if="answer_2" name="answer_2" />
                 <button onClick={(event)=> {
                 scrollY(event);
-                buttonActive();
+                ButtonActive();
             }}  type="submit"> Verzenden </button>
             </form>
            
@@ -73,7 +79,9 @@ export const ImageAntwoord = props => {
     return(
         <div className="wrapper">
         <section className="assignment-container">
-              <form><label for="color"></label><input className="colorInput" id="color" value={this.state.value} onChange={this.buttonActive} name="color" type="color"></input></form><label for="userColor">Schrijf hier je kleur op:</label><input id="userColor" className="userColor" type="text" ></input><button id="submitButton" className="submitButton" type="submit" onClick={scrollY}>Bevestig je kleur!</button></section></div>
+              <form><label for="color"></label>
+              <input className="colorInput" id="color" value={this.props.value} name="color" type="color"></input></form>
+              <label for="userColor">Schrijf hier je kleur op:</label><input id="userColor" className="userColor" type="text" ></input><button id="submitButton" className="submitButton" type="submit" onClick={scrollY}>Bevestig je kleur!</button></section></div>
     )
 }
 
@@ -89,7 +97,7 @@ export const AudioVraag = () => {
 />
 <button onClick={(event)=> {
                 scrollY(event);
-                buttonActive();
+                ButtonActive();
             }}>Ik heb het geluisterd</button></section>
 </div>
     )
@@ -115,9 +123,9 @@ export const ColorVraag = () => {
 
         Kun jij ook zo’n mooie naam bedenken voor een kleur? Hieronder kun jij een kleur kiezen. Zoek de mooiste kleur uit en geef hem net zo’n bijzondere naam. Bedenk daarvoor dus goed waar de kleur jou precies aan doet denken..
         </p>
-              <form><label for="color"></label><input className="colorInput" id="color" name="color" value={this.props.value} onChange={this.props.value} type="color"></input></form><label for="userColor">Schrijf hier je kleur op:</label><input id="userColor" className="userColor" type="text" ></input><button id="submitButton" className="submitButton" type="submit" onClick={(event)=> {
+              <form><label for="color"></label><input className="colorInput" id="color" name="color"  type="color"></input></form><label for="userColor">Schrijf hier je kleur op:</label><input id="userColor" className="userColor" type="text" ></input><button id="submitButton" className="submitButton" type="submit" onClick={(event)=> {
                 scrollY(event);
-                buttonActive();
+                ButtonActive();
             }}>Bevestig je kleur!</button></section></div>
     )
 }
@@ -129,9 +137,9 @@ export const ColorAntwoord = () => {
 
         Kun jij ook zo’n mooie naam bedenken voor een kleur? Hieronder kun jij een kleur kiezen. Zoek de mooiste kleur uit en geef hem net zo’n bijzondere naam. Bedenk daarvoor dus goed waar de kleur jou precies aan doet denken..
         </p>
-              <form><label for="color"></label><input className="colorInput" id="color" name="color" value="" type="color"></input></form><label for="userColor">Schrijf hier je kleur op:</label><input id="userColor" className="userColor"  type="text" ></input><button id="submitButton" className="submitButton" type="submit" onClick={(event)=> {
+              <form><label for="color"></label><input className="colorInput" id="color" name="color"  type="color"></input></form><label for="userColor">Schrijf hier je kleur op:</label><input id="userColor" className="userColor"  type="text" ></input><button id="submitButton" className="submitButton" type="submit" onClick={(event)=> {
                 scrollY(event);
-                buttonActive();
+                ButtonActive();
             }}>Bevestig je kleur!</button></section></div>
     )
 }
@@ -150,7 +158,7 @@ controls
 />
 <button onClick={(event)=> {
                 scrollY(event);
-                buttonActive();
+                ButtonActive();
             }} >Ik heb het geluisterd</button>
         </section></div>
     )
@@ -161,9 +169,9 @@ return(
     <div className="wrapper">
     <section className="assignment-container">
         <p>1.Botje zegt in plaats van ‘Bibi’ ‘Bibibi’, en in plaats van ‘papa’, ‘papapa’. Zie jij wat Botje doet? Hoe denk je dat botje mama zou noemen? …..</p>
-        <input className="McInput" value="" type="text"></input>
+        <input className="McInput" type="text"></input>
         <p>2.Stel dat botje de woorden ‘dodo’, ‘jojo’ en ‘lolly’ zou uitspreken, hoe zou ze dat dan doen?</p>
-        <input className="McInput" value="" type="text"></input>
+        <input className="McInput" type="text"></input>
         <p>3. Stel dat er twee andere botjes zijn, ze heten BOTJEBOTJE, EJTOB, BOT en BOET
             <ul>
                 <li>BOTJEBOTJE zegt: Bibibibi en papapapa</li>
@@ -184,7 +192,7 @@ return(
 </div>
 <button onClick={(event)=> {
                 scrollY(event);
-                buttonActive();
+                ButtonActive();
             }}>Verzend</button>
 
     </section></div>
@@ -210,7 +218,7 @@ In het boek is Bibi bang dat haar vader botje verkoopt aan De Rus. De Rus heeft 
 <input className="McInput" value="" type="text"></input>
 <button onClick={(event)=> {
                 scrollY(event);
-                buttonActive();
+                ButtonActive();
             }}>Verzend</button>
         </section></div>
 
