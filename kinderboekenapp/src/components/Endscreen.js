@@ -7,7 +7,8 @@ class Endscreen extends React.Component {
         super(props);
         this.state = {
             score: 3,
-            setScore: 1
+            setScore: 1,
+            totalScore: 5,
         }
         
     }

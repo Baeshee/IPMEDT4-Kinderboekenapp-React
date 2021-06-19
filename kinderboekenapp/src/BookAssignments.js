@@ -102,10 +102,7 @@ class BookAssignments extends Component {
     
             return (
 
-                <article className="assignments">
-                    
-
-                   
+                <article className="assignments"> 
                     {DummyData.map((assignment, index) => this.createAssignments(assignment, index))}
                     
                 </article>

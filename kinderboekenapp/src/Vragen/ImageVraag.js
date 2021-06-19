@@ -2,8 +2,37 @@ import React, { Component, useState } from "react";
 import ReactAudioPlayer from 'react-audio-player';
 import axios from 'axios';
 import { render } from "@testing-library/react";
+var x = 0;
 
 
+function scrollY(event){
+    event.preventDefault();
+    var top  = window.pageYOffset || document.documentElement.scrollTop;
+    top = top + 950;
+    window.scroll({top: top, behavior: 'smooth'});
+  }
+
+function buttonActive(){
+    var arr = document.getElementsByTagName('button');
+    arr[x].style.backgroundColor = '#0e8034';
+    x++;
+}
+
+
+
+export const ImageUnavailable = () =>{
+    return(
+        <div className="wrapper">
+        <section className="assignment-container">
+           <h2>Lees eerst hoofdstuk 1 tot en met hoofdstuk 5</h2>
+            <button onClick={(event)=> {
+                scrollY(event);
+                buttonActive();
+            }}> Ik heb het gelezen</button>
+        </section>
+        
+    </div>)
+}
 
 
 export const intro = () =>{
@@ -30,7 +59,10 @@ Wat zou jij voor bijzondere muts willen dragen? Maak een ontwerp van jouw eigen 
             <form className="fileUpload" action="">
                 <label className="form__label" htmlFor="answer_2">Foto van jouw muts</label>
                 <input className="form__input image" type="file" if="answer_2" name="answer_2" />
-                <input type="submit" />
+                <button onClick={(event)=> {
+                scrollY(event);
+                buttonActive();
+            }}  type="submit"> Verzenden </button>
             </form>
            
         </section></div>
@@ -41,19 +73,8 @@ export const ImageAntwoord = props => {
     return(
         <div className="wrapper">
         <section className="assignment-container">
-              <form><label for="color"></label><input className="colorInput" id="color" value={this.state.value} onChange={this.handleChange} name="color" type="color"></input></form><label for="userColor">Schrijf hier je kleur op:</label><input id="userColor" className="userColor" type="text" ></input><button id="submitButton" className="submitButton" type="submit" onClick="">Bevestig je kleur!</button></section></div>
+              <form><label for="color"></label><input className="colorInput" id="color" value={this.state.value} onChange={this.buttonActive} name="color" type="color"></input></form><label for="userColor">Schrijf hier je kleur op:</label><input id="userColor" className="userColor" type="text" ></input><button id="submitButton" className="submitButton" type="submit" onClick={scrollY}>Bevestig je kleur!</button></section></div>
     )
-}
-
-export const ImageUnavailable = () =>{
-    return(
-        <div className="wrapper">
-        <section className="assignment-container">
-           <h2>Lees eerst hoofdstuk 1 tot en met hoofdstuk 5</h2>
-            <button>Ik heb het gelezen</button>
-        </section>
-        
-    </div>)
 }
 
 export const AudioVraag = () => {
@@ -66,10 +87,14 @@ export const AudioVraag = () => {
   autoPlay
   controls
 />
-<button >Ik heb het geluisterd</button></section>
+<button onClick={(event)=> {
+                scrollY(event);
+                buttonActive();
+            }}>Ik heb het geluisterd</button></section>
 </div>
     )
 }
+
 export const AudioAntwoord = () => {
     return(
         <div className="wrapper" >
@@ -83,7 +108,6 @@ export const AudioAntwoord = () => {
     )
 }
 
-
 export const ColorVraag = () => {
     return(
         <div className="wrapper">
@@ -91,7 +115,10 @@ export const ColorVraag = () => {
 
         Kun jij ook zo’n mooie naam bedenken voor een kleur? Hieronder kun jij een kleur kiezen. Zoek de mooiste kleur uit en geef hem net zo’n bijzondere naam. Bedenk daarvoor dus goed waar de kleur jou precies aan doet denken..
         </p>
-              <form><label for="color"></label><input className="colorInput" id="color" name="color" value={this.props.value} onChange={this.props.value} type="color"></input></form><label for="userColor">Schrijf hier je kleur op:</label><input id="userColor" className="userColor" type="text" ></input><button id="submitButton" className="submitButton" type="submit" onClick="">Bevestig je kleur!</button></section></div>
+              <form><label for="color"></label><input className="colorInput" id="color" name="color" value={this.props.value} onChange={this.props.value} type="color"></input></form><label for="userColor">Schrijf hier je kleur op:</label><input id="userColor" className="userColor" type="text" ></input><button id="submitButton" className="submitButton" type="submit" onClick={(event)=> {
+                scrollY(event);
+                buttonActive();
+            }}>Bevestig je kleur!</button></section></div>
     )
 }
 
@@ -102,7 +129,10 @@ export const ColorAntwoord = () => {
 
         Kun jij ook zo’n mooie naam bedenken voor een kleur? Hieronder kun jij een kleur kiezen. Zoek de mooiste kleur uit en geef hem net zo’n bijzondere naam. Bedenk daarvoor dus goed waar de kleur jou precies aan doet denken..
         </p>
-              <form><label for="color"></label><input className="colorInput" id="color" name="color" value="" type="color"></input></form><label for="userColor">Schrijf hier je kleur op:</label><input id="userColor" className="userColor"  type="text" ></input><button id="submitButton" className="submitButton" type="submit" onClick="">Bevestig je kleur!</button></section></div>
+              <form><label for="color"></label><input className="colorInput" id="color" name="color" value="" type="color"></input></form><label for="userColor">Schrijf hier je kleur op:</label><input id="userColor" className="userColor"  type="text" ></input><button id="submitButton" className="submitButton" type="submit" onClick={(event)=> {
+                scrollY(event);
+                buttonActive();
+            }}>Bevestig je kleur!</button></section></div>
     )
 }
 
@@ -118,7 +148,10 @@ className="AudioPlayer"
 autoPlay
 controls
 />
-<button >Ik heb het geluisterd</button>
+<button onClick={(event)=> {
+                scrollY(event);
+                buttonActive();
+            }} >Ik heb het geluisterd</button>
         </section></div>
     )
     }
@@ -149,7 +182,10 @@ return(
 <p className="McGrid__text">BOET:</p>
 <input className="McInput" type="text"></input>
 </div>
-<button>Verzend</button>
+<button onClick={(event)=> {
+                scrollY(event);
+                buttonActive();
+            }}>Verzend</button>
 
     </section></div>
 )
@@ -172,7 +208,10 @@ In het boek is Bibi bang dat haar vader botje verkoopt aan De Rus. De Rus heeft 
 <input className="McInput" value="" type="text"></input>
 <p>Zijn er dingen die voor jou onbetaalbaar zijn? Waarom zijn die onbetaalbaar voor je?</p>
 <input className="McInput" value="" type="text"></input>
-<button>Verzend</button>
+<button onClick={(event)=> {
+                scrollY(event);
+                buttonActive();
+            }}>Verzend</button>
         </section></div>
 
 
