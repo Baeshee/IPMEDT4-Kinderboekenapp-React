@@ -32,3 +32,10 @@ body{
         margin-left: 37%;
     }
 }
+
+@media(min-width: 1000px){
+    body{
+        width: 70%;
+        margin: 0 auto;
+    }
+}

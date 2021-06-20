@@ -36,10 +36,11 @@ class BookCardList extends React.Component{
                     return(
                         <section key={index}>
                             <BookCard bookTitle={item.book_title}
-                                img={item.book_image}
+                                img={"https://kinderboekenapp-laravel.herokuapp.com" + item.book_image}
                                 writer={item.author}
                                 genre={item.genre}
                                 id={item.id}
+                                bookCardClicked={this.bookCardClicked}
                         />
                         </section>
                     )

@@ -7,6 +7,12 @@ import axios from 'axios';
 import './App.css'
 
 class App extends React.Component{
+    state = {book: ""}
+
+    makeApiCall = searchTerm =>{
+        const BASE_URL = "https://kinderboekenapp-laravel.herokuapp.com/api/books";
+        
+    }
     // state = {bookTitle: "", img: "", writer: "", genre: "", id: ""};
 
     // onSubmit = (searchTerm) => {
@@ -25,7 +31,7 @@ class App extends React.Component{
     // }
 
     bookCardClicked = id => {
-        console.log("Book card clicked " + id);
+        console.log("Book card clicked test " + id);
     }
 
     render(){
@@ -35,7 +41,7 @@ class App extends React.Component{
                 <header>
                     <h1 className="boekenlijstHeader">Boekenlijst</h1>
                 </header>
-                <Searchbar onSubmit={this.onSubmit}/>
+                <Searchbar onSubmit={this.makeApiCall}/>
                 <FilterOptions/>
                 <BookCardList bookCardClicked = {this.bookCardClicked}/>
             </article>
