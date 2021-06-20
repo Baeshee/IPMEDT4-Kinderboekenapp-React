@@ -17,8 +17,8 @@ class App extends React.Component {
         return (
             <main>
                 <Provider store={store}>
-                    <IntroScreen/>
                     <BookAssignments />
+                    
                     <Endscreen/>
                 </Provider>
             </main>

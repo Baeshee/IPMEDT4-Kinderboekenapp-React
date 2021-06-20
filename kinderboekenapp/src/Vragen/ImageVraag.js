@@ -1,9 +1,9 @@
-import React, { Component, useState } from "react";
+import React, { Component, useEffect, useState } from "react";
 import ReactAudioPlayer from 'react-audio-player';
 import axios from 'axios';
 import { render } from "@testing-library/react";
 var x = 0;
-var API_URL = 'http://localhost:8000/api/books'
+var API_URL = 'http://localhost:8000/api/assignments'
 
 
 function scrollY(event){
@@ -24,38 +24,40 @@ function ButtonActive(props){
     x++;
 }
 
-function GetQuestions(props){
-    const [questions, setQuestion] = useState(0);
-    axios.get('API_URL').then(res => {
-        const questions = res.data;
-        this.setState({ questions});
-    })
-}
+
+    function GetQuestions(props){
+        axios.get(API_URL).then(res => {
+            const questions = res.data;
+            console.log(questions);
+        })
+    }
+
+
 function CheckQuestions(props){
-    axios.post('API_URL', {questions}).then(res=> {
+    axios.post(API_URL).then(res=> {
+        const questions = res.data;
         console.log(res);
-        console.log(res.data);
+        console.log(questions);
     })
 }
 
 
-// export const ImageUnavailable = () =>{
-//     const [score, setScore] = useState(0);
+export const ImageUnavailable = (props) =>{
     
-//     return(
-//         <div className="wrapper">
-//         <section className="assignment-container">
-//            <h2>Lees eerst hoofdstuk 1 tot en met hoofdstuk 5</h2>
-//             <button onClick={(event)=> {
-//                 scrollY(event);
-//                 ButtonActive();
-//             }}> Ik heb het gelezen</button>
+    return(
+        <div className="wrapper">
+        <section className="assignment-container">
+           <h2>Lees eerst hoofdstuk 1 tot en met hoofdstuk 5</h2>
+            <button onClick={(event)=> {
+                scrollY(event);
+                ButtonActive();
+            }}> Ik heb het gelezen</button>
              
-//         </section>
+        </section>
 
         
-//     </div>)
-// }
+    </div>)
+}
 
 export const intro = () =>{
     return(
@@ -132,12 +134,24 @@ export const AudioAntwoord = () => {
     )
 }
 
+// export const ColorVraag = () => {
+//     return(
+//         <div className="wrapper">
+//         <section className="assignment-container"><p>Bibi haar vader heeft een wolwinkel en verkoopt daar de meest bijzondere kleuren wol. Zo lezen we over paardenbloemstengelgroen, varkensstaartjesroze, diepzeezwart, watermeloenrood, krijtrotswit en Middellandsezeeblauw. In de naam van de kleur zie je steeds al staan waar je de kleur ‘in het echt’ terug kunt zien.<br></br>
+
+//         Kun jij ook zo’n mooie naam bedenken voor een kleur? Hieronder kun jij een kleur kiezen. Zoek de mooiste kleur uit en geef hem net zo’n bijzondere naam. Bedenk daarvoor dus goed waar de kleur jou precies aan doet denken..
+//         </p>
+//               <form><label for="color"></label><input className="colorInput" id="color" name="color"  type="color"></input></form><label for="userColor">Schrijf hier je kleur op:</label><input id="userColor" className="userColor" type="text" ></input><button id="submitButton" className="submitButton" type="submit" onClick={(event)=> {
+//                 scrollY(event);
+//                 ButtonActive();
+//             }}>Bevestig je kleur!</button></section></div>
+//     )
+// }
+
 export const ColorVraag = () => {
     return(
         <div className="wrapper">
-        <section className="assignment-container"><p>Bibi haar vader heeft een wolwinkel en verkoopt daar de meest bijzondere kleuren wol. Zo lezen we over paardenbloemstengelgroen, varkensstaartjesroze, diepzeezwart, watermeloenrood, krijtrotswit en Middellandsezeeblauw. In de naam van de kleur zie je steeds al staan waar je de kleur ‘in het echt’ terug kunt zien.<br></br>
-
-        Kun jij ook zo’n mooie naam bedenken voor een kleur? Hieronder kun jij een kleur kiezen. Zoek de mooiste kleur uit en geef hem net zo’n bijzondere naam. Bedenk daarvoor dus goed waar de kleur jou precies aan doet denken..
+        <section className="assignment-container"><p>
         </p>
               <form><label for="color"></label><input className="colorInput" id="color" name="color"  type="color"></input></form><label for="userColor">Schrijf hier je kleur op:</label><input id="userColor" className="userColor" type="text" ></input><button id="submitButton" className="submitButton" type="submit" onClick={(event)=> {
                 scrollY(event);
@@ -146,12 +160,11 @@ export const ColorVraag = () => {
     )
 }
 
+
 export const ColorAntwoord = () => {
     return(
         <div className="wrapper">
-        <section className="assignment-container"><p> Bibi haar vader heeft een wolwinkel en verkoopt daar de meest bijzondere kleuren wol. Zo lezen we over paardenbloemstengelgroen, varkensstaartjesroze, diepzeezwart, watermeloenrood, krijtrotswit en Middellandsezeeblauw. In de naam van de kleur zie je steeds al staan waar je de kleur ‘in het echt’ terug kunt zien.<br></br>
-
-        Kun jij ook zo’n mooie naam bedenken voor een kleur? Hieronder kun jij een kleur kiezen. Zoek de mooiste kleur uit en geef hem net zo’n bijzondere naam. Bedenk daarvoor dus goed waar de kleur jou precies aan doet denken..
+        <section className="assignment-container"><p> 
         </p>
               <form><label for="color"></label><input className="colorInput" id="color" name="color"  type="color"></input></form><label for="userColor">Schrijf hier je kleur op:</label><input id="userColor" className="userColor"  type="text" ></input><button id="submitButton" className="submitButton" type="submit" onClick={(event)=> {
                 scrollY(event);

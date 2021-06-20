@@ -11,7 +11,9 @@ class Endscreen extends React.Component {
             score: 3,
         }
     }
-
+    componentDidMount(){
+        
+    }
     render(){
         return(
             <div className="wrapper"><section className="assignment-container">

@@ -7,17 +7,23 @@ import "./BookAssignments.css";
 
 import { DummyData } from './DummyData';
 
-import { ImageVraag, ImageAntwoord, AudioVraag, ColorVraag, ColorAntwoord, MultipleChoiceVraag, Podcast, MultipleChoiceVraag2} from "./Vragen/ImageVraag"
+import { ImageVraag, ImageAntwoord, AudioVraag, ColorVraag, ColorAntwoord, MultipleChoiceVraag, Podcast,ImageUnavailable, MultipleChoiceVraag2} from "./Vragen/ImageVraag"
 
 class BookAssignments extends Component {
 
-    state = { vragen: []}
+ state = {
+     assignment: []
+ }
 
     
-    getAssignData = () => {
-        const URL = "https://kinderboekenapp-laravel.herokuapp.com/api/users/1/books"
+    getAssignData = (props) => {
+        const URL = "http://localhost:8000/api/assignments"
         axios.get(URL).then(res => {
             this.props.changeUserAssignments(res.data);
+            this.setState = {
+                assignment: res.data
+            }
+            console.log(res.data);
         });
     }
 
@@ -32,11 +38,11 @@ class BookAssignments extends Component {
             case "color":
                 switch(assignment.status){
                     case "active":
-                        return <ColorVraag key={index} />;
+                        return <ColorVraag assignment={assignment.ColorVraag}/>;
                     case "completed":
-                        return <ColorAntwoord key={index} />;
+                        return <ColorAntwoord assignment={assignment.ColorAntwoord} />;
                     default:
-                        return <ColorVraag key={index} />;
+                        return <ColorVraag assignment={assignment.ColorAntwoord} />;
                 }
             case "image":
                 switch(assignment.status){
@@ -44,8 +50,8 @@ class BookAssignments extends Component {
                         return <ImageVraag key={index} />;
                     case "completed":
                         return <ImageAntwoord key={index} />;
-                    // default:
-                    //     return <ImageUnavailable key={index} />;
+                    default:
+                        return <ImageUnavailable key={index} />;
                 }
             case "text":
                 switch(assignment.status){
@@ -53,8 +59,8 @@ class BookAssignments extends Component {
                         return <ImageVraag key={index} />;
                     case "completed":
                         return <ImageAntwoord key={index} />;
-                    // default:
-                    //     return <ImageUnavailable key={index} />;
+                    default:
+                        return <ImageUnavailable key={index} />;
                 }  
                 case "audio":
                     switch(assignment.status){
@@ -93,7 +99,7 @@ class BookAssignments extends Component {
                                         return <MultipleChoiceVraag2 key={index} />;
                                 }         
             default:
-                // return <ImageUnavailable key={index} />;
+                return <ImageUnavailable key={index} />;
         }
 }
     
@@ -103,7 +109,8 @@ class BookAssignments extends Component {
             return (
 
                 <article className="assignments"> 
-                    {DummyData.map((assignment, index) => this.createAssignments(assignment, index))}
+                    {this.state.assignment.map((assignment, index) => this.createAssignments(assignment, index))}
+                    
                     
                 </article>
           
