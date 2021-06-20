@@ -9,10 +9,10 @@ import './App.css'
 class App extends React.Component{
     state = {book: ""}
 
-    makeApiCall = searchTerm =>{
-        const BASE_URL = "https://kinderboekenapp-laravel.herokuapp.com/api/books";
+    // makeApiCall = searchTerm =>{
+    //     const BASE_URL = "https://kinderboekenapp-laravel.herokuapp.com/api/books";
         
-    }
+    // }
     // state = {bookTitle: "", img: "", writer: "", genre: "", id: ""};
 
     // onSubmit = (searchTerm) => {
@@ -52,4 +52,4 @@ class App extends React.Component{
 export default App;
 
 /* filmpjes week 2 voor state maken */
-//SEARCHBAR DOESNT WORK YET MAYBE USE REDUCERS WEEK 3
+//SEARCHBAR DOESNT WORK YET MAYBE USE REDUCERS WEEK 3 -> edited by Zoë untested at push
