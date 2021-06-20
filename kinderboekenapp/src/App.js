@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import { store } from './store';
 import { Provider } from 'react-redux';
 import Endscreen from './components/Endscreen';
+import IntroScreen from './components/IntroScreen';
 
 
 import './App.css';
@@ -16,6 +17,7 @@ class App extends React.Component {
         return (
             <main>
                 <Provider store={store}>
+                    <IntroScreen/>
                     <BookAssignments />
                     <Endscreen/>
                 </Provider>

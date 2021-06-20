@@ -7,13 +7,10 @@ class Endscreen extends React.Component {
     constructor(props){
         super(props);
         this.state = {
+            correct: true,
             score: 3,
-            setScore: 1,
-            totalScore: 5,
         }
-        
     }
-    
 
     render(){
         return(

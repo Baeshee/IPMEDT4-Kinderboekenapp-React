@@ -3,6 +3,7 @@ import ReactAudioPlayer from 'react-audio-player';
 import axios from 'axios';
 import { render } from "@testing-library/react";
 var x = 0;
+var API_URL = 'http://localhost:8000/api/books'
 
 
 function scrollY(event){
@@ -12,34 +13,49 @@ function scrollY(event){
     setTimeout(() => {
         window.scroll({top: top, behavior: 'smooth'});
     }, 500);
-
   }
 
 function ButtonActive(props){
     var arr = document.getElementsByTagName('button');
     var arr2 = document.getElementsByTagName('section');
-   
-        arr[x].style.backgroundColor = '#0e8034';
-        arr2[x].style.borderWidth = 'thick';
-        arr2[x].style.borderColor = "#0e8034";
-        x++;
+    arr[x].style.backgroundColor = '#0e8034';
+    arr2[x].style.borderWidth = 'thick';
+    arr2[x].style.borderColor = "#0e8034";
+    x++;
+}
+
+function GetQuestions(props){
+    const [questions, setQuestion] = useState(0);
+    axios.get('API_URL').then(res => {
+        const questions = res.data;
+        this.setState({ questions});
+    })
+}
+function CheckQuestions(props){
+    axios.post('API_URL', {questions}).then(res=> {
+        console.log(res);
+        console.log(res.data);
+    })
+}
+
+
+// export const ImageUnavailable = () =>{
+//     const [score, setScore] = useState(0);
     
+//     return(
+//         <div className="wrapper">
+//         <section className="assignment-container">
+//            <h2>Lees eerst hoofdstuk 1 tot en met hoofdstuk 5</h2>
+//             <button onClick={(event)=> {
+//                 scrollY(event);
+//                 ButtonActive();
+//             }}> Ik heb het gelezen</button>
+             
+//         </section>
 
-}
-
-export const ImageUnavailable = () =>{
-    return(
-        <div className="wrapper">
-        <section className="assignment-container">
-           <h2>Lees eerst hoofdstuk 1 tot en met hoofdstuk 5</h2>
-            <button onClick={(event)=> {
-                scrollY(event);
-                ButtonActive();
-            }}> Ik heb het gelezen</button>
-        </section>
         
-    </div>)
-}
+//     </div>)
+// }
 
 export const intro = () =>{
     return(
