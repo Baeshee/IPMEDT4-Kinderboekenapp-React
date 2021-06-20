@@ -14,7 +14,7 @@ class Searchbar extends React.Component{
     }
 
     makeApiCall = (searchTerm) =>{
-        const BASE_URL = "https://kinderboekenapp-laravel.herokuapp.com/api/books";
+        const BASE_URL = "https://kinderboekenapp-laravel.herokuapp.com/api/books/";
         axios.get(BASE_URL + searchTerm).then(res => {
             this.props.changeBooks(res.data);
         })
@@ -51,7 +51,7 @@ class Searchbar extends React.Component{
     // }
 
     render(){
-        console.log(this.state.searchTerm);
+        console.log(this.props.searchTerm);
         return(
             <section className="searchbar_section">
                 <form onSubmit={this.onCheck}>

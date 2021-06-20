@@ -5,6 +5,8 @@ import Searchbar from './Searchbar';
 import FilterOptions from './FilterOptions';
 import axios from 'axios';
 import './App.css'
+import { store } from './store';
+import {Provider} from 'react-redux';
 
 class App extends React.Component{
     state = {book: ""}
@@ -41,7 +43,9 @@ class App extends React.Component{
                 <header>
                     <h1 className="boekenlijstHeader">Boekenlijst</h1>
                 </header>
-                <Searchbar onSubmit={this.makeApiCall}/>
+                <Provider store={store}>
+                    <Searchbar onSubmit={this.makeApiCall}/>
+                </Provider>
                 <FilterOptions/>
                 <BookCardList bookCardClicked = {this.bookCardClicked}/>
             </article>

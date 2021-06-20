@@ -1,6 +1,6 @@
 // Reducer for searchbar
 
-import { CHANGE_SEARCHTERM, CHANGE_BOOKS } from "./actions";
+import { CHANGE_SEARCHTERM, CHANGE_BOOKS } from "./actions.js";
 
 export const searchTerm = (state = "", action) => {
     switch(action.type){
