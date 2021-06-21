@@ -1,53 +1,54 @@
-import React from 'react';
+import React, { Component } from 'react';
 import BookCard from './BookCard';
 import axios from 'axios';
+import { connect } from "react-redux";
+import './BookCard.css';
+import { changeBooks } from "./actions.js";
 
+class BookCardList extends Component {
 
-class BookCardList extends React.Component{
-
-    bookCardClicked = (id) =>{
-        this.props.bookCardClicked(id);
-    }
-
-    //make a state with an array
-    state = {books: []};
-
-    //get the api url and changed the state with the data
     getBooks = () => {
         console.log("getBooks");
         const BASE_URL = "https://kinderboekenapp-laravel.herokuapp.com/api/books";
         axios.get(BASE_URL).then(res => {
             const fetchedBooks = res.data;
-            this.setState({books: fetchedBooks});
+            this.props.changeBooks(fetchedBooks);
         });
     }
 
-    //mehtod call to get the api
     componentDidMount(){
         this.getBooks();
     }
-    
-    //render the bookCard with all the data
+
     render(){
+        console.log(this.props.books);
         return(
             <article>
-                {this.state.books.map((item, index) => {
+                {this.props.books.map((item, index) => {
                     console.log(item.book_image);
                     return(
                         <section key={index}>
-                            <BookCard bookTitle={item.book_title}
-                                img={"https://kinderboekenapp-laravel.herokuapp.com" + item.book_image}
-                                writer={item.author}
-                                genre={item.genre}
-                                id={item.id}
-                                bookCardClicked={this.bookCardClicked}
-                        />
+                            <BookCard
+                                bookTitle = { item.book_title }
+                                img = { "https://kinderboekenapp-laravel.herokuapp.com" + item.book_image} 
+                                writer = { item.author }
+                                genre ={ item.genre }
+                                id = { item.id }
+                                />
                         </section>
                     )
-              })}
-            </article> 
-        );
+                })}
+            </article>
+        )
     }
 }
 
-export default BookCardList;
+const mapStateToProps = state => {
+    return{
+        books : state.books
+    };
+}
+
+export default connect(
+    mapStateToProps, {changeBooks: changeBooks,}
+) (BookCardList);

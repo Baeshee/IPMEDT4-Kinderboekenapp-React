@@ -10,13 +10,15 @@ class Searchbar extends React.Component{
     // state = {searchTerm: ""};
 
     componentDidMount(){
-        this.makeApiCall("Botje");
+        this.makeApiCall("");
     }
 
     makeApiCall = (searchTerm) =>{
         const BASE_URL = "https://kinderboekenapp-laravel.herokuapp.com/api/books/";
         axios.get(BASE_URL + searchTerm).then(res => {
             this.props.changeBooks(res.data);
+            const data = res.data;
+            console.log(data);
         })
     }
 
@@ -28,27 +30,6 @@ class Searchbar extends React.Component{
         event.preventDefault();
         this.makeApiCall(this.props.searchTerm);
     }
-
-    // onSearch = event =>{
-    //     this.setState({searchTerm: event.target.value});
-    // }
-
-    // onCheck = (event) =>{
-    //     event.preventDefault();
-    //     this.props.onSubmit(this.state.searchTerm);
-    // }
-
-
-    // onSearch = (event) =>{
-    //     console.log(event.target.value);
-    //     this.setState({searchTerm: event.target.value});
-    //     // console.log(searchTerm);
-    // }
-
-    // onSubmit = (event) =>{
-    //     event.preventDefault();
-    //     this.props.onSubmit(this.state.searchTerm.toLowerCase());
-    // }
 
     render(){
         console.log(this.props.searchTerm);
