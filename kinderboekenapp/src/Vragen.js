@@ -16,7 +16,7 @@ function scrollY(event){
 
 function ButtonActive(props){
 
-    let arr = document.getElementsByTagName('button');
+    let arr = document.getElementsByClassName('assignment__button');
     let arr2 = document.getElementsByTagName('section');
     let arr3 = document.getElementsByTagName('li');
     arr[x].style.backgroundColor = '#0e8034';
@@ -32,7 +32,7 @@ export const VraagUnavailable = (props) =>{
         <div className="wrapper">
         <section className="assignment-container">
            <h2>{props.chapters} </h2>
-            <button onClick={(event)=> {
+            <button className="assignment__button" onClick={(event)=> {
                 scrollY(event);
                 ButtonActive();
             }}> Ik heb het gelezen</button>
@@ -69,7 +69,7 @@ export const ImageVraag = (props) => {
             <form className="fileUpload" action="">
                 <label className="form__label" htmlFor="answer_2">Foto van jouw muts</label>
                 <input className="form__input image" type="file" if="answer_2" name="answer_2" />
-                <button onClick={(event)=> {
+                <button className="assignment__button" onClick={(event)=> {
                 scrollY(event);
                 ButtonActive();
              
@@ -87,7 +87,7 @@ export const ImageVraag = (props) => {
 //             <p>{props.assignment}</p>
 //               <form><label htmlFor="color"></label>
 //               <input className="colorInput" id="color" value={props.value} name="color" type="color"></input></form>
-//               <label htmlFor="user__color">Schrijf hier je kleur op:</label><input id="userColor" className="user__color" type="text" ></input><button id="submitButton" className="submitButton" type="submit" onClick={scrollY}>Bevestig je kleur!</button></section></div>
+//               <label htmlFor="user__color">Schrijf hier je kleur op:</label><input id="userColor" className="user__color" type="text" ></input><button className="assignment__button" id="submitButton" className="submitButton" type="submit" onClick={scrollY}>Bevestig je kleur!</button></section></div>
 //     )
 // }
 
@@ -101,7 +101,7 @@ export const AudioVraag = (props) => {
   autoPlay
   controls
 />
-<button onClick={(event)=> {
+<button className="assignment__button" onClick={(event)=> {
                 scrollY(event);
                 ButtonActive();
             }}>Ik heb het geluisterd</button></section>
@@ -129,7 +129,7 @@ export const AudioVraag = (props) => {
 
 //         Kun jij ook zo’n mooie naam bedenken voor een kleur? Hieronder kun jij een kleur kiezen. Zoek de mooiste kleur uit en geef hem net zo’n bijzondere naam. Bedenk daarvoor dus goed waar de kleur jou precies aan doet denken..
 //         </p>
-//               <form><label htmlFor="color"></label><input className="colorInput" id="color" name="color"  type="color"></input></form><label htmlFor="userColor">Schrijf hier je kleur op:</label><input id="userColor" className="userColor" type="text" ></input><button id="submitButton" className="submitButton" type="submit" onClick={(event)=> {
+//               <form><label htmlFor="color"></label><input className="colorInput" id="color" name="color"  type="color"></input></form><label htmlFor="userColor">Schrijf hier je kleur op:</label><input id="userColor" className="userColor" type="text" ></input><button className="assignment__button" id="submitButton" className="submitButton" type="submit" onClick={(event)=> {
 //                 scrollY(event);
 //                 ButtonActive();
 //             }}>Bevestig je kleur!</button></section></div>
@@ -141,7 +141,7 @@ export const ColorVraag = (props) => {
         <div className="wrapper">
         <section className="assignment-container"><p>{props.assignment}</p>
         
-              <form><label htmlFor="color"></label><input className="colorInput" id="color" name="color"  type="color"></input></form><label htmlFor="userColor">Schrijf hier je kleur op:</label><input id="userColor" className="userColor" type="text" ></input><button id="submitButton" className="submitButton" type="submit" onClick={(event)=> {
+              <form><label htmlFor="color"></label><input className="colorInput" id="color" name="color"  type="color"></input></form><label htmlFor="userColor">Schrijf hier je kleur op:</label><input id="userColor" className="userColor" type="text" ></input><button className="assignment__button" id="submitButton" type="submit" onClick={(event)=> {
                 scrollY(event);
                 ButtonActive();
             }}>Bevestig je kleur!</button></section></div>
@@ -153,7 +153,7 @@ export const ColorVraag = (props) => {
 //     return(
 //         <div className="wrapper">
 //         <section className="assignment-container"><p>{props.assignment}</p>
-//               <form><label htmlFor="color"></label><input className="colorInput" id="color" name="color"  type="color"></input></form><label htmlFor="userColor">Schrijf hier je kleur op:</label><input id="userColor" className="userColor"  type="text" ></input><button id="submitButton" className="submitButton" type="submit" onClick={(event)=> {
+//               <form><label htmlFor="color"></label><input className="colorInput" id="color" name="color"  type="color"></input></form><label htmlFor="userColor">Schrijf hier je kleur op:</label><input id="userColor" className="userColor"  type="text" ></input><button className="assignment__button" id="submitButton"  type="submit" onClick={(event)=> {
 //                 scrollY(event);
 //                 ButtonActive();
 //             }}>Bevestig je kleur!</button></section></div>
@@ -172,7 +172,7 @@ className="AudioPlayer"
 autoPlay
 controls
 />
-<button onClick={(event)=> {
+<button className="assignment__button" onClick={(event)=> {
                 scrollY(event);
                 ButtonActive();
             }} >Ik heb het geluisterd</button>
@@ -180,7 +180,7 @@ controls
     )
     }
 
-export const MultipleChoiceVraag = (props) =>{
+export const MultipleChoice = (props) =>{
 return(
     <div className="wrapper">
     <section className="assignment-container">
@@ -206,7 +206,7 @@ return(
 <p className="McGrid__text">BOET:</p>
 <input className="McInput" type="text"></input>
 </div>
-<button onClick={(event)=> {
+<button className="assignment__button" onClick={(event)=> {
                 scrollY(event);
                 ButtonActive();
             }}>Verzend</button>
@@ -215,7 +215,7 @@ return(
 )
 }
 
-export const MultipleChoiceVraag2 = (props) => {
+export const MultipleChoice2 = (props) => {
     return(
         <div className="wrapper">
         <section className="assignment-container">
@@ -228,7 +228,7 @@ export const MultipleChoiceVraag2 = (props) => {
 <input className="McInput" value="" type="text"></input>
 <p>{props.assignmentChild3}</p>
 <input className="McInput" value="" type="text"></input>
-<button onClick={(event)=> {
+<button className="assignment__button" onClick={(event)=> {
                 scrollY(event);
                 ButtonActive();
             }}>Verzend</button>

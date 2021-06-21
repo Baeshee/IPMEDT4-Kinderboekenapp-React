@@ -157,9 +157,6 @@ label{
   font-size: 2rem;
 }
 
-.endscreen__text{
-  text-align: center;
-}
 .opdr__nav{
   position: sticky;
   bottom: 8rem;
@@ -176,12 +173,19 @@ label{
 li{
   display: inline-block;
   border: 2px solid white;
-  width: 2rem;
-  height: 2rem;
+  width: 1.5rem;
+  height: 1.5rem;
   border-radius: 100%;
   opacity: 50%;
 }
 .nav__active{
   background-color: green;
   opacity: 75%;
+}
+.nav__button{
+  position: absolute;
+  top: 1rem;
+  left: calc(-50vw + 50%);
+  right: calc(-50vw + 50%);
+  margin: 5% auto;
 }

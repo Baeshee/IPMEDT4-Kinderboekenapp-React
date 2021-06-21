@@ -4,11 +4,11 @@ import { connect } from "react-redux";
 import { changeUserAssignments, changeActiveBook } from "./actions";
 
 import "./BookAssignments.css";
+import "./App.css";
 
 
-
-import { ImageVraag, AudioVraag, ColorVraag,  MultipleChoiceVraag, Podcast,VraagUnavailable, MultipleChoiceVraag2} from "./Vragen"
-
+import { ImageVraag, AudioVraag, ColorVraag,  MultipleChoice, Podcast, VraagUnavailable, MultipleChoice2} from "./Vragen"
+let x = 0;
 class BookAssignments extends Component {
 
     componentDidMount(){
@@ -22,14 +22,30 @@ class BookAssignments extends Component {
         });
     }
     inputAnswer = (props) =>{
-        axios.post("http://localhost:8000/api/assignments/1");
+        axios.post("http://localhost:8000/api/assignments/1/", {answer_1 : "dit is een antwoord"},  {
+           headers: {'Content-Type': 'application/json'}}).catch(error => { console.log(error)
+        });
+          
     }
 
     checkAnswer = (props) => {
-        if(this.props.userAssignments[0].correct_answer_1 === this.props.userAssignments[0].answer_1){
-            console.log('goed')
+        
+        if(this.props.userAssignments[x].correct_answer_1 === this.props.userAssignments[x].answer_1){
+            console.log('goed');
+            let arr = document.getElementsByTagName('button');
+            let arr2 = document.getElementsByTagName('section');
+            arr[x].style.backgroundColor = '#0e8034';
+            arr2[x].style.borderWidth = 'thick';
+            arr2[x].style.borderColor = "#0e8034";
+            x++;
         } else {
-            console.log('fout')
+            console.log('fout');
+            let arr = document.getElementsByTagName('button');
+            let arr2 = document.getElementsByTagName('section');
+            arr[x].style.backgroundColor = 'red';
+            arr2[x].style.borderWidth = 'thick';
+            arr2[x].style.borderColor = "red";
+            x++;
         }
     }
 
@@ -44,7 +60,7 @@ class BookAssignments extends Component {
             case "color":
                 switch(assignment.status){
                     case "active":
-                        return <div><ColorVraag assignment={assignment.assignment} key={index}/></div>;
+                        return <div><ColorVraag assignment={assignment.assignment} key={index}/> <button className="nav__button" onClick={this.checkAnswer}> klik </button></div>;
                     case "completed":
                         // return <ColorAntwoord assignment={assignment.assignment} key={index} />;
                     default:
@@ -59,15 +75,7 @@ class BookAssignments extends Component {
                     default:
                         return <VraagUnavailable chapters={assignment.chapters} key={index} />;
                 }
-            case "text":
-                switch(assignment.status){
-                    case "active":
-                        return <ImageVraag assignment={assignment.assignment} key={index} />;
-                    case "completed":
-                        // return <ImageAntwoord assignment={assignment.assignment} key={index} />;
-                    default:
-                        return <VraagUnavailable chapters={assignment.chapters} key={index} />;
-                }  
+
             case "audio":
                     switch(assignment.status){
                         case "active":
@@ -76,13 +84,15 @@ class BookAssignments extends Component {
                             // return <AudioVraag assignment={assignment.assignment} key={index} />;
                         default:
                             return <VraagUnavailable chapters={assignment.chapters} key={index} />;
+
+
                     }  
             case "MultipleChoice":
                         switch(assignment.status){
                             case "active":
-                                return <MultipleChoiceVraag assignment={assignment.assignment} key={index} />;
-                            case "completed":
-                                return <MultipleChoiceVraag assignment={assignment.assignment} key={index} />;
+                                return <MultipleChoice assignment={assignment.assignment} key={index} />;
+                            // case "completed":
+                            //     return <MultipleChoice assignment={assignment.assignment} key={index} />;
                             default:
                                 return <VraagUnavailable chapters={assignment.chapters} key={index} />;
                         }  
@@ -90,17 +100,17 @@ class BookAssignments extends Component {
                         switch(assignment.status){
                             case "active":
                                 return <Podcast assignment={assignment.assignment} key={index} />;
-                            case "completed":
-                                return <Podcast assignment={assignment.assignment} key={index} />;
+                            // case "completed":
+                            //     return <Podcast assignment={assignment.assignment} key={index} />;
                             default:
                                 return <VraagUnavailable chapters={assignment.chapters} key={index} />;
                         }  
             case "MultipleChoice2":
                         switch(assignment.status){
                             case "active":
-                                return <MultipleChoiceVraag2 assignment={assignment.assignment} key={index} />;
-                            case "completed":
-                                return <MultipleChoiceVraag2 assignment={assignment.assignment} key={index} />;
+                                return <MultipleChoice2 assignment={assignment.assignment} key={index} />;
+                            // case "completed":
+                            //     return <MultipleChoiceVraag2 assignment={assignment.assignment} key={index} />;
                             default:
                                 return <VraagUnavailable chapters={assignment.chapters} key={index} />;
                         }         
@@ -113,8 +123,8 @@ class BookAssignments extends Component {
     render() {
   
         setTimeout(() => {
-            this.checkAnswer();
-        }, 2000);
+            this.getAssignData();
+        }, 3000);
        
       
             return (
