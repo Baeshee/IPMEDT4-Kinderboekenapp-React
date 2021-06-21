@@ -1,14 +1,10 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { store } from './store';
 import { Provider } from 'react-redux';
-import Endscreen from './components/Endscreen';
-import IntroScreen from './components/IntroScreen';
-
-
 import './App.css';
-
 import BookAssignments from './BookAssignments';
-import Test from './Test';
+import OpdrNav from './components/OpdrNav';
+
 
 class App extends React.Component {
     
@@ -18,8 +14,9 @@ class App extends React.Component {
             <main>
                 <Provider store={store}>
                     <BookAssignments />
+                    <OpdrNav/>
                     
-                    <Endscreen/>
+
                 </Provider>
             </main>
         )

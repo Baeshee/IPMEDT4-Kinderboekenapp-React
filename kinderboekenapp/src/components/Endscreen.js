@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React from "react";
 
 
 
@@ -11,9 +11,7 @@ class Endscreen extends React.Component {
             score: 3,
         }
     }
-    componentDidMount(){
-        
-    }
+
     render(){
         return(
             <div className="wrapper"><section className="assignment-container">

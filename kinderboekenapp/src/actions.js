@@ -3,7 +3,7 @@ export const CHANGE_ACTIVEBOOK = "CHANGE_ACTIVEBOOK"
 export const CHANGE_USERASSIGNMENTS = "CHANGE_USERASSIGNMENTS"
 
 export const changeUserAssignments = userAssingments => ({
-    type: CHANGE_USERBOOKS,
+    type: CHANGE_USERASSIGNMENTS,
     payload: userAssingments
 });
 

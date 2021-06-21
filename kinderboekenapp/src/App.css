@@ -66,7 +66,8 @@ form{
 }
 
 input[type=text]:focus {
-  background-color: lightgrey;
+  background-color: lightblue;
+
 }
 
 input{
@@ -106,7 +107,7 @@ img{
   margin: 0 auto;
 }
 
-.userColor{
+.user__color{
   padding: 1rem;
   margin: 0 auto;
   margin-bottom: 1rem;
@@ -140,12 +141,7 @@ label{
   height: 10rem;
 }
 
-ul{
-  margin: 0.2rem;
-  list-style:square;
 
-  margin-left: 1.5rem;
-}
 
 .McGrid{
   display: grid;
@@ -163,4 +159,29 @@ ul{
 
 .endscreen__text{
   text-align: center;
+}
+.opdr__nav{
+  position: sticky;
+  bottom: 8rem;
+  left: calc(-50vw + 50%);
+  right: calc(-50vw + 50%);
+  margin: 5% auto;
+
+}
+.Nav__list{
+  margin: 0 auto;
+  max-width: 15rem;
+}
+
+li{
+  display: inline-block;
+  border: 2px solid white;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 100%;
+  opacity: 50%;
+}
+.nav__active{
+  background-color: green;
+  opacity: 75%;
 }
