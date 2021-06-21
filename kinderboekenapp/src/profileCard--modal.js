@@ -1,8 +1,9 @@
 import React from 'react';
 import "./Modal.css";
 import ColorOptions from './ColorOptions';
+import {Provider} from "react-redux";
+import {store} from "./store";
 
-import axios from 'axios';
 
 //the modal for choosing a color for the robot
 const Modal = ({ handleClose, show}) => {
@@ -18,7 +19,7 @@ const Modal = ({ handleClose, show}) => {
                 <h2 className="modal__header__h2">Kies hier een kleur voor je robot!</h2>
             </section>
             <section className="modal__content">
-              <ColorOptions/>
+                <ColorOptions/>
             </section>  
         </section>
       </article>

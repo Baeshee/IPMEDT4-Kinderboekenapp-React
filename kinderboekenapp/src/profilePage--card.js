@@ -34,7 +34,7 @@ class ProfileCard extends React.Component {
 
                 <section className="profileCard__btnSection">
                     <button type="button" onClick={this.showModal} className="profileCard__btnSection__colorBtn">Kleur robot</button>  {/*open modal*/}
-                    <button className="profileCard__btnSection__logoutBtn">Log uit</button>
+                    <button className="profileCard__btnSection__logoutBtn"> <img className="profileCard__btnSection__logoutBtn__img" src="/img/logout.png"></img>Log uit</button>
                 </section>
                 
             </article> 

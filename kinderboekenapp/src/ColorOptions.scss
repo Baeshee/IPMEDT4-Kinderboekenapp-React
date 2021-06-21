@@ -1,0 +1,37 @@
+.colorForm {
+    position: relative;
+    &__section {
+        margin-top: 5.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column; 
+        &__label {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        &__options {
+            padding: 1.5rem 3rem;
+        margin-top: 2rem;
+        margin-left: 1rem;
+        box-shadow: 0 0 1px black;
+        font-size: 1.8rem;
+        &__pick {
+            margin: 3rem;
+            border: 0.1rem solid black;
+        }
+        }
+    }
+    &__btnSection {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &__submitButton {
+            font-size: 2rem;
+            padding: 1rem 2rem;
+            margin-top: 26rem;
+            background-color: #00aeff;
+            color: white;
+        }
+    }
+}

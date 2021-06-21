@@ -15,13 +15,22 @@
   gap: 2rem;
 }
 .profileCard__btnSection__colorBtn {
-  width: 15rem;
-  height: 5rem;
-}
-.profileCard__btnSection__logoutBtn {
-  padding: 1.5rem 4rem;
+  padding: 1.5rem 3.5rem;
+  font-size: 2.2rem;
   color: white;
   background-color: #00aeff;
+}
+.profileCard__btnSection__logoutBtn {
+  padding: 1rem 3rem;
+  background-color: #fa4846;
+  margin-top: 2rem;
+  font-size: 1.8rem;
+}
+
+.profileCard__btnSection__logoutBtn__img{
+  width: 2.5rem;
+  margin-right: 1.5rem;
+  float: left;
 }
 
 /*# sourceMappingURL=ProfileCard.css.map */

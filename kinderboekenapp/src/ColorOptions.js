@@ -1,66 +1,63 @@
-import React from 'react';
-import {colorImg} from './ColorImg';
+import React from "react";
+import {connect} from "react-redux";
+import {changeColor} from './actions';
+import {colorValue} from './reducers';
+import axios from "axios";
+import './ColorOptions.css';
 
 
 class ColorOptions extends React.Component{
-    constructor(props){
-        super(props);
-        this.state = {value: "blauw"};
 
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+    makeApiCall = colorValue =>{
+        const requestBody = {img: colorValue}
+        const BASE_URL = "https://kinderboekenapp-laravel.herokuapp.com/api/update/1";
+        axios.patch(BASE_URL, requestBody)
     }
 
-    handleChange(event){
-        this.setState({value: event.target.value});
+    handleChange = event =>{
+        this.props.changeColor(event.target.value);
+        console.log(event.target.value);
     }
 
-    handleSubmit(event){
-        // nu naar de mascotte page om src te veranderen?
-        let color = this.state.value;
-        alert("Je hebt de robot veranderd in de kleur " + color);
-        this.props.test();
-        console.log(colorImg);
-        {colorImg.map((item, index) =>{
-            const colorsImg = item.label;
-            console.log(colorsImg);
-            event.preventDefault();
-        })}
+    handleSubmit = event =>{
+        event.preventDefault();     //make apiCall
+        this.makeApiCall(this.props.colorValue);    
     }
 
-    // test = () =>{
-    //     this.props.colorPick(this.props.value);
-    // }
+
 
     render(){
+        console.log("test" + this.props.colorValue);
         return(
-            <form onSubmit={this.handleSubmit}>
-                <label>Kies hier je kleur: </label>
-                <select value={this.state.value} onChange={this.handleChange} className="modal__content__options">
-                    <option value="blauw">blauw</option>
-                    <option value="groen">groen</option>
-                    <option value="rood">rood</option>
-                    <option value="geel">geel</option>
-                    <option value="oranje">oranje</option>
-                    <option value="aqua">aqua</option>
-                    <option value="paars">paars</option>
-                </select>
-                <input type="submit" value="submit" onClick={this.test}/>   
+            <form className="colorForm" onSubmit={this.handleSubmit}>
+                <section className="colorForm__section">
+                    <label className="colorForm__section__label">Kies hier je favoriete kleur: </label>
+                    <select onChange={this.handleChange} className="colorForm__section__options">
+                        <option className="colorForm__options__pick" value="/img/blue.png">blauw</option>
+                        <option className="colorForm__options__pick" value="/img/green.png">groen</option>
+                        <option className="colorForm__options__pick" value="/img/red.png">rood</option>
+                        <option className="colorForm__options__pick" value="/img/yellow.png">geel</option>
+                        <option className="colorForm__options__pick" value="/img/orange.png">oranje</option>
+                        <option className="colorForm__options__pick" value="/img/aqua.png">aqua</option>
+                        <option className="colorForm__options__pick" value="/img/purple.png">paars</option>
+                    </select>
+                </section>
+                <section className="colorForm__btnSection">
+                    <input className="colorForm__btnSection__submitButton" type="submit" value="Verander"/>   
+                </section>
             </form>
         );
     }
 }
 
-export default ColorOptions;
+const mapStateToProps = state =>{
+    return{colorValue: state.colorValue};
+}
+
+export default connect(
+    mapStateToProps,
+    {changeColor: changeColor}
+) (ColorOptions);
 
 
-{/* <select className="modal__content__options">
-                        <option value="blue">Kies kleur</option>
-                        <option value="blue">blauw</option>
-                        <option value="green">groen</option>
-                        <option value="red">rood</option>
-                        <option value="yellow">geel</option>
-                        <option value="orange">oranje</option>
-                        <option value="aqua">aqua</option>
-                        <option value="purple">paars</option>
-                    </select> */}
+

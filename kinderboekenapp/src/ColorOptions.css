@@ -1,0 +1,47 @@
+.colorForm{
+    position: relative;
+}
+
+.colorForm__section {
+    margin-top: 5.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;   
+}
+
+.colorForm__section__label{
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.colorForm__section__options{
+    margin-top: 2rem;
+    padding: 1rem 2.5rem;
+    margin-left: 1rem;
+    box-shadow: 0 0 1px black;
+    font-size: 1.8rem;
+}
+
+.colorForm__options__pick{
+    margin: 3rem;
+    border: 0.1rem solid black;
+}
+
+.colorForm__btnSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.colorForm__btnSection__submitButton{
+    font-size: 2rem;
+    padding: 1rem 2rem;
+    margin-top: 26rem;
+    background-color: #00aeff;
+    color: white;
+  }
+
+
+
+  
