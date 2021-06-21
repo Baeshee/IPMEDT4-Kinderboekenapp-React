@@ -3,7 +3,6 @@ import Slider from "react-slick";
 import axios from "axios";
 import { connect } from "react-redux";
 import { changeUserBooks, changeActiveBook } from "./actions";
-import { Redirect } from 'react-router-dom';
 
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
@@ -11,7 +10,7 @@ import './Boekenplank.css';
 
 class Boekenplank extends Component {
     getBookData = () => {
-        const URL = "https://kinderboekenapp-laravel.herokuapp.com/api/users/1/books"
+        const URL = "https://kinderboekenapp-laravel.herokuapp.com/api/books"
         axios.get(URL).then(res => {
             this.props.changeUserBooks(res.data);
         });
@@ -61,39 +60,40 @@ class Boekenplank extends Component {
         };
         //Check if the array is empty if so setting a placeholder with
         //add book option (link to the booklist)
-        if (!Array.isArray(this.props.userBooks) || this.props.userBooks <= 0){ //this.books moet worden veranderd naar this.state.books
+        if (!Array.isArray(this.props.userBooks) || this.props.userBooks <= 0){
             return (
                 <Slider {...settings}>
-                    <article className="book-placeholder">
-                        <section className="book__content">
-                            <div className="placeholder">
-                                <a href="/boekenlijst"><i className="fas fa-plus-circle fa-3x"></i></a>
-                            </div>
-                        </section>
-                    </article>
+                    <a href="/boekenlijst">
+                        <article className="book-placeholder">
+                            <section className="book__content">
+                                <div className="placeholder">
+                                    <i className="fas fa-plus-circle fa-3x"></i>
+                                </div>
+                            </section>
+                        </article>
+                    </a>
                 </Slider>
             )
         }
 
-        console.log(this.props.activeBook);
+        console.log(this.props.userBooks);
 
         return (
             <Slider {...settings}>
                 {this.props.userBooks.map((book, index) => { 
-                     //this.books moet worden veranderd naar this.state.books
                     return (
-                        <article key={index} className="book">
-                            <section className="book__content">
-                                <section className='book__link'>
-                                    <a href="/boek" onClick={() => 
+                        <a key={index} href="/boek" onClick={() => 
                                     {
                                         this.props.changeActiveBook(book.ISBN);
                                     }}>
+                            <article className="book">
+                                <section className="book__content">
+                                    <section className='book__link'>
                                         <img src={"https://kinderboekenapp-laravel.herokuapp.com" + book.book_image} alt="" />
-                                    </a>
+                                    </section>
                                 </section>
-                            </section>
-                        </article>
+                            </article>
+                        </a>
                     )
                 })}
             </Slider>
