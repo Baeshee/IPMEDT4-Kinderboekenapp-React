@@ -1,0 +1,31 @@
+.profileCard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    &__section {
+        margin: 3rem 0;
+    }
+    &__btnSection {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 2rem;
+        &__colorBtn {
+            width: 15rem;
+            height: 5rem;
+            border: 0.1rem solid black;
+            border-radius: 0.5rem;
+            font-size: 1.8rem;
+        }
+        &__logoutBtn {
+            padding: 1.5rem 4rem;
+            // color: white;
+            font-size: 2rem;
+            background-color: #00aeff;
+            border: 0.1rem solid black;
+            border-radius: 0.5rem;
+        }
+    }
+}

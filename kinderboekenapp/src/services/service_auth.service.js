@@ -1,11 +1,11 @@
 import axios from "axios";
 import authHeader from './service_auth-header';
-const API_URL = "http://localhost:8000/api/auth/";
+const API = "https://kinderboekenapp-laravel.herokuapp.com/api/auth/";
 
 class AuthService{
     login(email, password){
         return axios
-            .post(API_URL + "login", { email, password})
+            .post(API + "login", { email, password})
             .then((response) => {
                 if(response.data.access_token){
                     localStorage.setItem("user", JSON.stringify(response.data));
@@ -15,12 +15,12 @@ class AuthService{
     }
 
     logout() {
-        axios.post(API_URL + 'logout', { headers: authHeader()});
+        axios.post(API + 'logout', { headers: authHeader()});
         localStorage.removeItem("user");
     }
     
     register(name, email, password) {
-        return axios.post(API_URL + "register", {
+        return axios.post(API + "register", {
             name,
             email,
             password,

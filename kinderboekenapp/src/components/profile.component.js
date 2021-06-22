@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 
 import UserBoard from "./test_board-user.component";
 import AuthService from "../services/service_auth.service";
-import axios from "axios";
 
 
 class Profile extends Component {

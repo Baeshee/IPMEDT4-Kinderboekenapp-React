@@ -1,0 +1,9 @@
+.mascotte-name__section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    &__figure__img {
+        height: 25rem;
+    }
+}

@@ -2,7 +2,13 @@ import React from "react";
 
 import Login from "./components/login.component";
 import Register from "./components/register.component";
-import Profile from "./components/profile.component";
+import Profile from "./profile/Profile";
+
+import Boekenlijst from './boekenlijst/Boekenlijst';
+import Navbar from './navbar/Navbar';
+import { NavItems } from './navbar/NavItems';
+import Boekenplank from './boekenplank/Boekenplank';
+import BookAssignments from './opdrachten/BookAssignments'
 
 import {Provider} from "react-redux";
 import {store} from "./store.js";
@@ -15,37 +21,55 @@ class App extends React.Component{
 
     render(){
         return(
-            <Router>
-                <Switch>
-                    <Route path="/register">
-                        <h2>Register here</h2>
-                        <Provider store = {store}>
-                            <Register />
-                        </Provider>
-                        <Link to="/login"> Log in </Link>
-                    </Route>
-                    
-                    <Route path="/login">
-                        <main>
-                            <Provider store={store}>
-                               <Login />
-                            </Provider>
-                            <Link to="/register"> register </Link>
-                        </main>
-                    </Route>
+            <Provider store={store}>
+                <Router>      
+                    <Switch>
+                        <Route path="/register">
+                            <main>
+                                <h2>Register here</h2>
+                                    <Register />
+                                <Link to="/login"> Log in </Link>
+                            </main>
+                        </Route>
+                        
+                        <Route path="/login">
+                            <main>
+                                <Login />
+                                <Link to="/register"> register </Link>
+                            </main>
+                        </Route>
 
-                    <Route path="/profile">
-                        <main>
-                            <Provider store={store}>
-                               <Profile />
-                            </Provider>
-                            {/* <Link to="/login" onClick={this.logOut}> logout </Link> */}
-                        </main>
-                    </Route>
+                        <Route path="/profile">
+                            <main>
+                                <Profile />
+                                <Navbar navitems={NavItems} />
+                            </main>
+                        </Route>
 
-                </Switch>
-            </Router>
-            
+                        <Route path="/boekenlijst">
+                            <main>
+                                <Boekenlijst />
+                                <Navbar navitems={NavItems} />
+                            </main>
+                        </Route>
+
+                        <Route path='/boekenplank'>
+                            <main>
+                                <Boekenplank />
+                                <Navbar navitems={NavItems} />
+                            </main>
+                        </Route>
+
+                        <Route path='/boek'>
+                            <main>
+                                <BookAssignments />
+                                <Navbar navitems={NavItems} />
+                            </main>
+                        </Route>
+
+                    </Switch>
+                </Router>
+            </Provider>
         );
     }
 }
