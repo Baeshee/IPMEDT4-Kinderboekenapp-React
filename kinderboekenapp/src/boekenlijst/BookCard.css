@@ -1,7 +1,15 @@
+/* bookCardList.js */
 .bookCardList{
     margin-bottom: 9rem;
 }
 
+/* boekenlijst.js */
+.boekenlijstHeader{
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+/* bookCard.js */
 .bookCard{
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -28,9 +36,6 @@
 }
 
 .bookCard__addButton{
-    /* position: absolute;
-    z-index: 1;
-    margin: 4rem 25rem; */
     font-size: 3.2rem;
     border-radius: 0.5rem;
     background-color: #f2a365;
@@ -41,8 +46,46 @@
     cursor: pointer;
 }
 
-/* @media(min-width: 1000px){
+@media(min-width: 768px){
     .bookCard{
-        grid-template-columns: repeat(0, minmax(0, 1fr));
+        width: 80%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        margin: 0 auto;
+        margin-bottom: 4rem;
     }
-} */
+}
+
+@media(min-width: 1000px){
+    .boekenlijstHeader{
+        font-size: 6rem;
+    }
+    .bookCard{
+        width: 80vw;
+        margin-left: 7.5%;
+    }
+    .bookCard__img{
+        width: 80%;
+        margin: 10%;
+        height: 90%;
+    }
+    
+    .bookCard__title{
+        font-weight: 400;
+        font-size: 4rem;
+        margin-top: 10%;
+    }
+    
+    .bookCard__info{
+        font-size: 2.8rem;
+        margin-top: 0.5rem;
+    }
+    .bookCard__addButton{
+        font-size: 6rem;
+        height: 40%;
+        width: 40%;
+        margin-top: 40%;
+        margin-left: 20%;
+    }
+}

@@ -26,16 +26,14 @@ class App extends React.Component{
                     <Switch>
                         <Route path="/register">
                             <main>
-                                <h2>Register here</h2>
+                                {/* <h2>Register here</h2> */}
                                     <Register />
-                                <Link to="/login"> Log in </Link>
                             </main>
                         </Route>
                         
                         <Route path="/login">
                             <main>
                                 <Login />
-                                <Link to="/register"> register </Link>
                             </main>
                         </Route>
 

@@ -1,9 +1,13 @@
 .back-link {
   text-decoration: none;
-  font-size: 3rem;
+  color: black;
+  font-size: 5rem;
+  position: fixed;
+  top: 0;
+  left: 2%;
 }
 
-p{
+.assignments__text{
   font-size: 1.5rem;
   padding: 0.5rem;
   font-family: sans-serif;
@@ -16,10 +20,11 @@ p{
   border: 0.5rem solid black;
   border-radius: 1rem;
   margin: 0 auto;
+  margin-bottom: 8rem;
   width: 80%;
   max-height: 95%;
   max-width: 75rem;
-  padding: 1.5rem;
+  padding: 6rem;
   background-color: #F9F9F9;
   opacity: 95%;
 }
@@ -42,7 +47,7 @@ h1{
   text-align: center;
 }
 
-h2{
+.assignment_header{
   text-align: center;
   font-size: 3rem;
   padding: 1rem;
@@ -67,7 +72,7 @@ h2{
   border-radius: 1rem;
 }
 
-Button{
+.button{
   width: 78%;
   height: 5rem;
   display: block;
@@ -78,7 +83,8 @@ Button{
   box-shadow: 1 1 1 black;
   border: 0.3rem solid green;
 }
-Button:hover{
+
+.button:hover{
   border: 0.6rem solid green;
   cursor: pointer;
 }
@@ -89,16 +95,13 @@ audio{
   width: 25rem;
   height: 5rem;
 }
+
 .section__file{
   width: 11rem;
   margin-bottom: 1rem;
 }
 
-img{
-  display: block;
-  margin: 0 auto;
-}
-li{
+.assignment-list__item{
   text-align: left;
   list-style: none;
   text-align: left;
@@ -106,7 +109,8 @@ li{
   margin: 1rem auto;
   font-weight: 700;
 }
-ul{
+
+.assignment-list{
   width: 100%;
   margin: 0 auto;
 }
@@ -131,14 +135,15 @@ border-radius: 1rem;
 display: block;
 }
 
-/* label{
-  justify-content: center;
-  margin: 0 auto;
+.label{
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 1rem auto;
   display: block;
   width: 20rem;
   font-size: 2rem;
   padding-bottom: 0.4rem;
-} */
+}
 
 .color__input{
   width: 100%;
@@ -159,11 +164,12 @@ display: block;
 }
 
 .opdr__nav{
-  position: sticky;
-  bottom: 4rem;
-  left: calc(-50vw + 50%);
-  right: calc(-50vw + 50%);
+  position: fixed;
+  bottom: 6rem;
+  left: 50%;
+  transform: translateX(-50%);
   margin: 5% auto;
+  z-index: 5;
 
 }
 .Nav__list{
@@ -177,8 +183,8 @@ display: block;
   border-radius: 50%;
   width: 3rem;
   height: 3rem;
-
   opacity: 50%;
+  margin: 0 1rem;
 }
 
 .nav__active{

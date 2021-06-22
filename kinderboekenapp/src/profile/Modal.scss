@@ -9,8 +9,9 @@
     z-index: 7;
     &__header {
       height: 10%;
-      background-color: #00aeff;
+      background-color: #0084FF;
       padding: 0 0.75rem;
+      text-align: center;
       &__close {
         float: right;
         font-size: 4rem;
@@ -39,3 +40,9 @@
   .display-none {
     display: none;
   }
+
+  @media(min-width: 768px) {
+   .modal__header__h2{
+     font-size: 2.8rem;
+   }
+}

@@ -4,7 +4,7 @@
 
 .filterOptions_section_p{
     margin-top: 3rem;
-    margin-left: 4%;   
+    margin-left: 2%;   
 }
 
 .filterOptions_section__filterButton{
@@ -27,5 +27,25 @@
         width: 41%;
     }
 }
+
+@media(min-width: 1000px){
+    .filterOptions_section{
+        margin-left: 7%;
+    }
+    
+    .filterOptions_section_p{
+        font-size: 2.5rem;
+    }
+    
+    .filterOptions_section__filterButton{
+        font-size: 2rem;
+    }
+    
+    .filterOptions_section__filterButton--auteur{
+        font-size: 2rem;
+    }
+}
+
+
 
 

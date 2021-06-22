@@ -2,20 +2,23 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import axios from "axios";
 
+import OpdrachtNav from './components/OpdrachtNav';
 import authHeader from '../services/service_auth-header';
 import { changeUserAssignments, changeActiveBook } from "../actions";
 
 import { ImageVraag, AudioVraag, ColorVraag, ColorAntwoord, ImageAntwoord,  MultipleChoice, Podcast, VraagUnavailable, MultipleChoice2} from "./Vragen"
-// import "./BookAssignments.css";
+import "./BookAssignments.css";
 
-let x = 0;
 class BookAssignments extends Component {
 
     getAssignData = () => {
-        const requestData = { book_isbn: this.props.activeBook }
+        const isbn = JSON.parse(localStorage.getItem('bookISBN'));
+        const requestData = { book_isbn: isbn };
+        console.log(requestData);
         axios.get(this.props.BASE_URL + '/api/assignments', requestData, {headers: authHeader()}).then(res => {
             this.props.changeUserAssignments(res.data);
             });
+        localStorage.removeItem("bookISBN");
     }
 
     componentDidMount(){
@@ -95,6 +98,7 @@ class BookAssignments extends Component {
     render() {      
             return (
                 <article className="assignments"> 
+                    <OpdrachtNav />
                     <a className="back-link" href='/boekenplank'><i className="fas fa-times"></i></a>
                     {this.props.userAssignments.map((assignment, index) => this.createAssignments(assignment, index))}
                 </article>
@@ -107,6 +111,7 @@ class BookAssignments extends Component {
 const mapStateToProps = state => {
     return {
         activeBook: state.activeBook,
+        userBooks: state.userBooks,
         userAssignments: state.userAssignments,
         BASE_URL: state.BASE_URL
     };

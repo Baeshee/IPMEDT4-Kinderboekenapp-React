@@ -11,7 +11,8 @@ class ColorOptions extends React.Component{
 
     makeApiCall = colorValue =>{
         const requestBody = {img: colorValue}
-        axios.patch(this.props.BASE_URL + '/api/user/update', requestBody, { headers: authHeader()})
+        axios.patch(this.props.BASE_URL + '/api/user/update', requestBody, { headers: authHeader()});
+        alert("Kleur is veranderd! Sluit de popup!");
     }
 
     handleChange = event =>{
@@ -32,17 +33,19 @@ class ColorOptions extends React.Component{
                 <section className="colorForm__section">
                     <label className="colorForm__section__label">Kies hier je favoriete kleur: </label>
                     <select onChange={this.handleChange} className="colorForm__section__options">
-                        <option className="colorForm__options__pick" value="/img/blue.png">blauw</option>
-                        <option className="colorForm__options__pick" value="/img/green.png">groen</option>
-                        <option className="colorForm__options__pick" value="/img/red.png">rood</option>
-                        <option className="colorForm__options__pick" value="/img/yellow.png">geel</option>
-                        <option className="colorForm__options__pick" value="/img/orange.png">oranje</option>
-                        <option className="colorForm__options__pick" value="/img/aqua.png">aqua</option>
-                        <option className="colorForm__options__pick" value="/img/purple.png">paars</option>
+                        <option>Kies kleur</option>
+                        <option className="colorForm__options__pick" value="/img/blue.png">Blauw</option>
+                        <option className="colorForm__options__pick" value="/img/green.png">Groen</option>
+                        <option className="colorForm__options__pick" value="/img/red.png">Rood</option>
+                        <option className="colorForm__options__pick" value="/img/yellow.png">Geel</option>
+                        <option className="colorForm__options__pick" value="/img/orange.png">Oranje</option>
+                        <option className="colorForm__options__pick" value="/img/aqua.png">Aqua</option>
+                        <option className="colorForm__options__pick" value="/img/purple.png">Paars</option>
                     </select>
                 </section>
                 <section className="colorForm__btnSection">
-                    <input className="colorForm__btnSection__submitButton" type="submit" value="Verander" />   
+                    <input className="colorForm__btnSection__submitButton" type="submit" value="Verander" />
+
                 </section>
             </form>
         );

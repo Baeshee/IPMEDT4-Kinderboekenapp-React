@@ -17,6 +17,10 @@ body {
   position: relative;
 }
 
+.profile {
+  margin-top: 12rem;
+}
+
 .profile__header {
   display: flex;
   justify-content: center;

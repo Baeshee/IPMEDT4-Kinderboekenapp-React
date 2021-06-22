@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import BookCardList from './BookCardList';
 import Searchbar from './Searchbar';
 import FilterOptions from './FilterOptions';
+import './BookCard.css';
 
 
 class Boekenlijst extends Component {

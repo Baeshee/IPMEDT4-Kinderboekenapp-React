@@ -8,6 +8,10 @@ import CheckButton from "react-validation/build/button";
 import { connect } from "react-redux";
 import { login } from "../actions/action_auth";
 
+import { Link, BrowserRouter as Router } from "react-router-dom";
+
+import './Login.css';
+
 const required = (value) => {
   if (!value) {
     return (
@@ -80,13 +84,18 @@ class Login extends Component {
     }
 
     return (
-      <article className="col-md-12">
-        <section className="card card-container">
-          <img
-            src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
-            alt="profile-img"
-            className="profile-img-card"
-          />
+      <article className="login">
+        <section className="login__section">
+          <h2 className="login__section__heading">Login</h2>
+          <figure className="login__section__figure">
+            <img src="/img/mascotte_blue.png" alt="profile-img" className="login__figure__img"/>
+          </figure>
+          <section className="login__section__txtSection">
+            <p className="login__section__txtSection__text">Hoi! Ik ben Robbie de Robot!</p>
+            <p className="login__section__txtSection__text">Log hier in!</p>
+          </section>
+          
+          
 
           <Form
             onSubmit={this.handleLogin}
@@ -99,7 +108,7 @@ class Login extends Component {
               <label htmlFor="email"> Email</label>
               <Input
                 type="text"
-                className="form-control"
+                className="form-control login__section__input"
                 email="email"
                 value={this.state.email}
                 onChange={this.onChangeEmail}
@@ -108,10 +117,10 @@ class Login extends Component {
             </section>
 
             <section className="form-group">
-              <label htmlFor="password">Password</label>
+              <label htmlFor="password">Wachtwoord</label>
               <Input
                 type="password"
-                className="form-control"
+                className="form-control login__section__input"
                 name="password"
                 value={this.state.password}
                 onChange={this.onChangePassword}
@@ -119,9 +128,9 @@ class Login extends Component {
               />
             </section>
 
-            <section className="form-group">
+            <section className="login__section__btnSection">
               <button
-                className="btn btn-primary btn-block"
+                className="btn btn-primary btn-block login__section__btnSection__button1"
                 disabled={this.state.loading}
               >
                 {this.state.loading && (
@@ -129,6 +138,7 @@ class Login extends Component {
                 )}
                 <span>Login</span>
               </button>
+              <Link className="btn btn-primary btn-block login__section__btnSection__button2" to="/register"> Registreren </Link>
             </section>
 
             {message && (

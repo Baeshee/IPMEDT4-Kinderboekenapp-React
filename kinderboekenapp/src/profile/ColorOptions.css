@@ -31,10 +31,18 @@
 .colorForm__btnSection__submitButton {
   font-size: 2rem;
   padding: 1rem 2rem;
-  margin-top: 26rem;
-  background-color: #00aeff;
+  margin-top: 20rem;
+  background-color: #0084FF;
   border: 0.1rem solid black;
   border-radius: 0.5rem;
+  color: white;
+}
+
+@media (min-width: 768px) {
+  .colorForm__btnSection__submitButton {
+    font-size: 2.2rem;
+    margin-top: 20rem;
+  }
 }
 
 /*# sourceMappingURL=ColorOptions.css.map */

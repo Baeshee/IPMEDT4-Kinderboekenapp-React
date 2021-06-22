@@ -109,8 +109,9 @@ class Boekenplank extends Component {
                     {this.props.userBooks.map((book, index) => { 
                         return (
                             <article key={index} className="book" onClick={() => {
-                                this.setActiveBook(index);
-                                }}>
+                                localStorage.setItem("bookISBN", JSON.stringify(book.ISBN));
+                                window.location.href='/boek';
+                            }}>
                                 <section className="book__content">
                                     <section className='book__link'>
                                         <img src={"https://kinderboekenapp-laravel.herokuapp.com" + book.book_image} alt="" />

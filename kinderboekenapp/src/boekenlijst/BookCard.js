@@ -11,11 +11,12 @@ class BookCard extends React.Component {
     makeApiCall = addBook =>{      
         const requestBody = { id: addBook}                     //api post request to add the book to the bookshelf
         axios.post(this.props.BASE_URL + "/api/user/booktouser", requestBody, { headers: authHeader()});
+        alert("Boek toegevoegd! Ga terug naar de boekenplank!");
+        // window.location.href="/boekenplank"
     }
 
     onAddClicked = () =>{                           //Pressed on the add book to bookshelf gets the id 
         this.makeApiCall(this.props.id);
-        console.log(this.props.id);
     }
 
     

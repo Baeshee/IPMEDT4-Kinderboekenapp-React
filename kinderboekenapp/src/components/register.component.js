@@ -7,6 +7,11 @@ import { isEmail } from "validator";
 import { connect } from "react-redux";
 import { register } from "../actions/action_auth";
 
+import { Link, BrowserRouter as Router } from "react-router-dom";
+
+import './Login.css';
+
+
 const required = (value) => {
   if (!value) {
     return (
@@ -99,6 +104,7 @@ class Register extends Component {
           this.setState({
             successful: true,
           });
+          window.location.href="/login";
         })
         .catch(() => {
           this.setState({
@@ -112,13 +118,16 @@ class Register extends Component {
     const { message } = this.props;
 
     return (
-      <article className="col-md-12">
-        <section className="card card-container">
-          <img
-            src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
-            alt="profile-img"
-            className="profile-img-card"
-          />
+      <article className="register">
+        <section className="register__section">
+        <h2 className="register__section__heading">Registreren</h2>
+        <figure className="register__section__figure">
+          <img src="/img/mascotte_blue.png" alt="profile-img" className="profile-img-card"/>
+        </figure>
+        <section className="register__section__txtSection">
+            <p className="register__section__txtSection__text">Hoi! Ik ben Robbie de Robot!</p>
+            <p className="register__section__txtSection__text">Registreer hier!</p>
+          </section>
 
           <Form
             onSubmit={this.handleRegister}
@@ -129,10 +138,10 @@ class Register extends Component {
             {!this.state.successful && (
               <section>
                 <section className="form-group">
-                  <label htmlFor="name">Name</label>
+                  <label htmlFor="name">Naam</label>
                   <Input
                     type="text"
-                    className="form-control"
+                    className="form-control register__section__input"
                     name="name"
                     value={this.state.name}
                     onChange={this.onChangeUsername}
@@ -144,7 +153,7 @@ class Register extends Component {
                   <label htmlFor="email">Email</label>
                   <Input
                     type="text"
-                    className="form-control"
+                    className="form-control register__section__input"
                     name="email"
                     value={this.state.email}
                     onChange={this.onChangeEmail}
@@ -153,10 +162,10 @@ class Register extends Component {
                 </section>
 
                 <section className="form-group">
-                  <label htmlFor="password">Password</label>
+                  <label htmlFor="password">Wachtwoord</label>
                   <Input
                     type="password"
-                    className="form-control"
+                    className="form-control register__section__input"
                     name="password"
                     value={this.state.password}
                     onChange={this.onChangePassword}
@@ -164,8 +173,9 @@ class Register extends Component {
                   />
                 </section>
 
-                <section className="form-group">
-                  <button className="btn btn-primary btn-block">Sign Up</button>
+                <section className="login__section__btnSection">
+                  <button className="btn btn-primary btn-block login__section__btnSection__button1">Registreren</button>
+                  <Link className="login__section__btnSection__button2" to="/login"> Log in </Link>
                 </section>
               </section>
             )}

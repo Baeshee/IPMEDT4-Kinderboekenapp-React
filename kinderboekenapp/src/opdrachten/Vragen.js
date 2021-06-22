@@ -54,8 +54,8 @@ function ButtonActive(){
     let arr2 = document.getElementsByTagName('section');
     let arr3 = document.getElementsByClassName('Nav__item');
     arr[x].style.backgroundColor = '#0e8034';
-    arr2[x + 1].style.borderWidth = 'thick';
-    arr2[x + 1].style.borderColor = "#0e8034";
+    arr2[x].style.borderWidth = 'thick';
+    arr2[x].style.borderColor = "#0e8034";
     arr3[x].classList.add('nav__active')
     x++;
 
@@ -65,16 +65,14 @@ export const VraagUnavailable = (props) =>{
     
     return(
         <article className="wrapper">
-        <section className="assignment-container">
-           <h2>{props.chapters} </h2>
-            <button className="assignment__button" onClick={(event)=> {
-                scrollY(event);
-                ButtonActive();
-            }}> Ik heb het gelezen</button>
-        </section>
-
-        
-    </article>)
+            <section className="assignment-container">
+            <h2 className="assignments_header">{props.chapters} </h2>
+                <button className="assignment__button" onClick={(event)=> {
+                    scrollY(event);
+                    ButtonActive();
+                }}> Ik heb het gelezen!</button>
+            </section>
+        </article>)
 }
 
 
@@ -83,14 +81,14 @@ export const ImageVraag = (props) => {
     return(
         <article className="wrapper">
             <section className="assignment-container">
-                <p>{props.assignment}</p>
+                <p className="assignments__text">{props.assignment}</p>
                 <form className="form fileUpload" action="">
-                    <label className="label form__label" htmlFor="answer_2">Foto van jouw muts</label>
+                    <label className="label form__label" htmlFor="answer_2">Foto van jouw muts:</label>
                     <input className="input" onSubmit={(props) => props.inputImage} type="file" if="answer_2" name="answer_2" />
-                    <button className="assignment__button" onClick={(event)=> {
-                    scrollY(event);
-                    ButtonActive();
-                }}  type="submit"> Verzenden </button>
+                    <button className="button assignment__button image" onClick={(event)=> {
+                        scrollY(event);
+                        ButtonActive();
+                    }}  type="submit"> Verzenden </button>
                 </form>
             </section>
         </article>
@@ -101,14 +99,14 @@ export const ImageAntwoord = (props) => {
     return(
         <article className="wrapper">
             <section className="assignment-container">
-                <p>{props.assignment}</p>
+                <p className="assignments__text">{props.assignment}</p>
                 <form className="form">
                     <label htmlFor="color"></label>
                     <input className="input color__input" id="color" value={props.value} name="color" type="color"></input>
                 </form>
                 <label className="label" htmlFor="user__color">Schrijf hier je kleur op:</label>
                 <input id="input userColor" className="user__color" type="text" ></input>
-                <button className="assignment__button" id="submitButton" type="submit" onClick={scrollY}>Bevestig je kleur!</button>
+                <button className="button assignment__button" id="submitButton" type="submit" onClick={scrollY}>Bevestig je kleur!</button>
             </section>
         </article>
     )
@@ -123,10 +121,10 @@ export const AudioVraag = (props) => {
                 autoPlay
                 controls
                 />
-                <button className="assignment__button" onClick={(event)=> {
+                <button className="button assignment__button" onClick={(event)=> {
                                 scrollY(event);
                                 ButtonActive();
-                            }}>Ik heb het geluisterd</button>
+                            }}>Ik heb het geluisterd!</button>
             </section>
         </article>
     )
@@ -155,7 +153,7 @@ export const ColorVraag = (props) => {
                 </form>
                 <label htmlFor="userColor">Schrijf hier je kleur op:</label>
                 <input id="userColor" className="input userColor" type="text" ></input>
-                <button className="assignment__button" id="submitButton" type="submit" onClick={(event)=> {
+                <button className="button assignment__button" id="submitButton" type="submit" onClick={(event)=> {
                     scrollY(event);
                     ButtonActive();
                     inputAnswer(props);
@@ -176,7 +174,7 @@ export const ColorAntwoord = (props) => {
                 </form>
                 <label className="label"htmlFor="userColor">Schrijf hier je kleur op:</label>
                 <input id="userColor" className="input userColor"  type="text" ></input>
-                <button className="assignment__button" id="submitButton"  type="submit" onClick={(event)=> {
+                <button className="button assignment__button" id="submitButton"  type="submit" onClick={(event)=> {
                     scrollY(event);
                     ButtonActive();
                     inputAnswer(props.isbn);
@@ -190,16 +188,16 @@ export const Podcast = (props) =>{
     return(
         <article className="wrapper">
             <section className="assignment-container"> 
-             <p>{props.assignment}</p>
+             <p className="assignments__text">{props.assignment}</p>
                 <ReactAudioPlayer
                     src="my_audio_file.ogg"
                     autoPlay
                     controls
                     />
-                <button className="assignment__button" onClick={(event)=> {
+                <button className="button assignment__button" onClick={(event)=> {
                         scrollY(event);
                         ButtonActive();
-                    }} >Ik heb het geluisterd</button>
+                    }} >Ik heb het geluisterd!</button>
             </section>
         </article>
     )
@@ -209,16 +207,16 @@ export const MultipleChoice = (props) =>{
 return(
     <article className="wrapper">
         <section className="assignment-container">
-            <p>1. Botje zegt in plaats van ‘Bibi’ ‘Bibibi’, en in plaats van ‘papa’, ‘papapa’. Zie jij wat Botje doet? Hoe denk je dat botje mama zou noemen?</p>
+            <p className="assignments__text">1. Botje zegt in plaats van ‘Bibi’ ‘Bibibi’, en in plaats van ‘papa’, ‘papapa’. Zie jij wat Botje doet? Hoe denk je dat botje mama zou noemen?</p>
             <input className="input mc__input" type="text" onClick={inputAnswer}></input>
-            <p>2. Stel dat botje de woorden ‘dodo’, ‘jojo’ en ‘lolly’ zou uitspreken, hoe zou ze dat dan doen?</p>
+            <p className="assignments__text">2. Stel dat botje de woorden ‘dodo’, ‘jojo’ en ‘lolly’ zou uitspreken, hoe zou ze dat dan doen?</p>
             <input className="input mc__input" type="text" onClick={inputAnswer2}></input>
-            <p>3. Stel dat er twee andere botjes zijn, ze heten BOTJEBOTJE, EJTOB, BOT en BOET</p>
-            <ul>
-                <p><li>BOTJEBOTJE zegt: Bibibibi en papapapa</li></p>
-                <p><li>EJTOB zegt: Ibib en apap.</li></p>
-                <p><li>BO zegt: bi en pa</li></p>
-                <p><li>BOET zegt: Biib en paap</li></p>
+            <p className="assignments__text">3. Stel dat er twee andere botjes zijn, ze heten BOTJEBOTJE, EJTOB, BOT en BOET</p>
+            <ul className="assignment-list">
+                <p><li className="assignment-list__item">BOTJEBOTJE zegt: Bibibibi en papapapa</li></p>
+                <p><li className="assignment-list__item">EJTOB zegt: Ibib en apap.</li></p>
+                <p><li className="assignment-list__item">BO zegt: bi en pa</li></p>
+                <p><li className="assignment-list__item">BOET zegt: Biib en paap</li></p>
             </ul>
             <article className="mc__grid">
                 <p className="grid__text">BOTJEBOTJE:</p>
@@ -230,7 +228,7 @@ return(
                 <p className="grid__text">BOET:</p>
                 <input className="input mc__input" type="text"></input>
             </article>
-            <button className="assignment__button" onClick={(event)=> {
+            <button className="button assignment__button" onClick={(event)=> {
                             scrollY(event);
                             ButtonActive();
                             inputAnswer3(props);
@@ -245,16 +243,15 @@ export const MultipleChoice2 = (props) => {
     return(
         <article className="wrapper">
             <section className="assignment-container">
-                <p>{props.assignment}
-                </p>
-                <p> Denk eens na:</p>
-                <p>Waarom denk je dat Bibi Botje niet wil verkopen, zelfs niet voor héél veel geld? </p>
+                <p className="assignments__text">{props.assignment}</p>
+                <p className="assignments__text"> Denk eens na:</p>
+                <p className="assignments__text">Waarom denk je dat Bibi Botje niet wil verkopen, zelfs niet voor héél veel geld? </p>
                 <input className="input mc__input" value="" type="text"></input>
-                <p>Wat zou jij hebben gedaan als je in dezelfde situatie zat als Bibi?</p>
+                <p className="assignments__text">Wat zou jij hebben gedaan als je in dezelfde situatie zat als Bibi?</p>
                 <input className="input mc__input" value="" type="text"></input>
-                <p>Zijn er dingen die voor jou onbetaalbaar zijn? Waarom zijn die onbetaalbaar voor je?</p>
+                <p className="assignments__text">Zijn er dingen die voor jou onbetaalbaar zijn? Waarom zijn die onbetaalbaar voor je?</p>
                 <input className="input mc__input" value="" type="text"></input>
-                <button className="assignment__button" onClick={(event)=> {
+                <button className="button assignment__button" onClick={(event)=> {
                                 scrollY(event);
                                 ButtonActive();
                                 inputAnswer(props);
