@@ -8,12 +8,12 @@ class OpdrNav extends React.Component {
         return(
             <div className="opdr__nav">
                 <ul className="Nav__list">
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
+                    <li className="Nav__item"></li>
+                    <li className="Nav__item"></li>
+                    <li className="Nav__item"></li>
+                    <li className="Nav__item"></li>
+                    <li className="Nav__item"></li>
+                    <li className="Nav__item"></li>
                 </ul>
             </div>
         )
