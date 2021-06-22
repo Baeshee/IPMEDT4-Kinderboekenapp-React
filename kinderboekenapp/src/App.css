@@ -39,3 +39,30 @@ body{
         margin: 0 auto;
     }
 }
+=======
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  padding: 2rem;
+  font-size: 1.8rem;
+  font-family: "Open Sans", sans-serif;
+  line-height: 1.55;
+  box-sizing: border-box;
+}
+
+.profile__header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.profile__header__text {
+  font-size: 2.6rem;
+  margin-bottom: 2.5rem;
+}

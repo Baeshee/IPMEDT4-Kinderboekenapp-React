@@ -1,0 +1,27 @@
+.profileCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.profileCard__section {
+  margin: 3rem 0;
+}
+.profileCard__btnSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+}
+.profileCard__btnSection__colorBtn {
+  width: 15rem;
+  height: 5rem;
+}
+.profileCard__btnSection__logoutBtn {
+  padding: 1.5rem 4rem;
+  color: white;
+  background-color: #00aeff;
+}
+
+/*# sourceMappingURL=ProfileCard.css.map */
