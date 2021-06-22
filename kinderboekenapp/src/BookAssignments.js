@@ -2,17 +2,14 @@ import React, { Component } from "react";
 import axios from "axios";
 import { connect } from "react-redux";
 import { changeUserAssignments, changeActiveBook } from "./actions";
-
 import "./BookAssignments.css";
 import "./App.css";
-
-
-import { ImageVraag, AudioVraag, ColorVraag,  MultipleChoice, Podcast, VraagUnavailable, MultipleChoice2} from "./Vragen"
+import { ImageVraag, AudioVraag, ColorVraag, ColorAntwoord, ImageAntwoord,  MultipleChoice, Podcast, VraagUnavailable, MultipleChoice2} from "./Vragen"
 let x = 0;
 class BookAssignments extends Component {
 
     componentDidMount(){
-        this.getAssignData();
+       this.getAssignData();
     }
     
     getAssignData = () => {
@@ -21,13 +18,9 @@ class BookAssignments extends Component {
             this.props.changeUserAssignments(res.data);
         });
     }
-    inputAnswer = (props) =>{
-        axios.post("http://localhost:8000/api/assignments/1/", {answer_1 : "dit is een antwoord"},  {
-           headers: {'Content-Type': 'application/json'}}).catch(error => { console.log(error)
-        });
-          
-    }
-
+        
+    
+ 
     checkAnswer = (props) => {
         
         if(this.props.userAssignments[x].correct_answer_1 === this.props.userAssignments[x].answer_1){
@@ -50,19 +43,23 @@ class BookAssignments extends Component {
     }
 
 
-
-
-
-
-
     createAssignments = (assignment, index) =>{       
         switch(assignment.kind_of_assignment){
+            case "MultipleChoice2":
+                switch(assignment.status){
+                    case "active":
+                        return <MultipleChoice2 assignment={assignment.assignment} key={index} />;
+                    case "completed":
+                        return <MultipleChoice2 assignment={assignment.assignment} key={index} />;
+                    default:
+                        return <VraagUnavailable chapters={assignment.chapters} key={index} />;
+                }         
             case "color":
                 switch(assignment.status){
                     case "active":
-                        return <div><ColorVraag assignment={assignment.assignment} key={index}/> <button className="nav__button" onClick={this.checkAnswer}> klik </button></div>;
+                        return <section><ColorVraag assignment={assignment.assignment} key={index}/> <button className="nav__button" onClick={this.checkAnswer}> klik </button></section>;
                     case "completed":
-                        // return <ColorAntwoord assignment={assignment.assignment} key={index} />;
+                        return <ColorAntwoord assignment={assignment.assignment} key={index} />;
                     default:
                         return <VraagUnavailable chapters={assignment.chapters} key={index} />;
                 }
@@ -71,28 +68,26 @@ class BookAssignments extends Component {
                     case "active":
                         return <ImageVraag assignment={assignment.assignment} key={index} />;
                     case "completed":
-                        // return <ImageAntwoord assignment={assignment.assignment} key={index} />;
+                        return <ImageAntwoord assignment={assignment.assignment} key={index} />;
                     default:
                         return <VraagUnavailable chapters={assignment.chapters} key={index} />;
                 }
-
+            
             case "audio":
                     switch(assignment.status){
                         case "active":
                             return <AudioVraag assignment={assignment.assignment} key={index} />;
                         case "completed":
-                            // return <AudioVraag assignment={assignment.assignment} key={index} />;
+                            return <AudioVraag assignment={assignment.assignment} key={index} />;
                         default:
                             return <VraagUnavailable chapters={assignment.chapters} key={index} />;
-
-
                     }  
             case "MultipleChoice":
                         switch(assignment.status){
                             case "active":
                                 return <MultipleChoice assignment={assignment.assignment} key={index} />;
-                            // case "completed":
-                            //     return <MultipleChoice assignment={assignment.assignment} key={index} />;
+                            case "completed":
+                                return <MultipleChoice assignment={assignment.assignment} key={index} />;
                             default:
                                 return <VraagUnavailable chapters={assignment.chapters} key={index} />;
                         }  
@@ -100,33 +95,19 @@ class BookAssignments extends Component {
                         switch(assignment.status){
                             case "active":
                                 return <Podcast assignment={assignment.assignment} key={index} />;
-                            // case "completed":
-                            //     return <Podcast assignment={assignment.assignment} key={index} />;
+                            case "completed":
+                                return <Podcast assignment={assignment.assignment} key={index} />;
                             default:
                                 return <VraagUnavailable chapters={assignment.chapters} key={index} />;
                         }  
-            case "MultipleChoice2":
-                        switch(assignment.status){
-                            case "active":
-                                return <MultipleChoice2 assignment={assignment.assignment} key={index} />;
-                            // case "completed":
-                            //     return <MultipleChoiceVraag2 assignment={assignment.assignment} key={index} />;
-                            default:
-                                return <VraagUnavailable chapters={assignment.chapters} key={index} />;
-                        }         
+   
             default:
                 return <VraagUnavailable chapters={assignment.chapters} key={index} />;
         }
 }
     
 
-    render() {
-  
-        setTimeout(() => {
-            this.getAssignData();
-        }, 3000);
-       
-      
+    render() {      
             return (
 
                 <article className="assignments"> 

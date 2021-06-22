@@ -1,9 +1,12 @@
 import React from "react";
 import ReactAudioPlayer from 'react-audio-player';
-
+import axios from 'axios';
 let x = 0;
 
-
+const inputAnswer = (props) =>{
+    const requestBody = {answer_1: props.answer_1, isbn: props.isbn, chapters: props.chapters};
+    axios.patch("http://localhost:8000/api/assignments/1", requestBody)
+}
 
 function scrollY(event){
     event.preventDefault();
@@ -51,12 +54,11 @@ export const intro = (props) =>{
         <section className="assignment-container"><p>{props.assignment}</p>
             <ReactAudioPlayer
   src="my_audio_file.ogg"
-  className="AudioPlayer"
+
   autoPlay
   controls
 /></section>
     )
-
 }
 
 
@@ -64,11 +66,10 @@ export const ImageVraag = (props) => {
     return(
         <div className="wrapper">
         <section className="assignment-container">
-            <p>{props.assignment}
-</p>
+            <p>{props.assignment}</p>
             <form className="fileUpload" action="">
                 <label className="form__label" htmlFor="answer_2">Foto van jouw muts</label>
-                <input className="form__input image" type="file" if="answer_2" name="answer_2" />
+                <input type="file" if="answer_2" name="answer_2" />
                 <button className="assignment__button" onClick={(event)=> {
                 scrollY(event);
                 ButtonActive();
@@ -80,16 +81,16 @@ export const ImageVraag = (props) => {
     )
 }
 
-// export const ImageAntwoord = (props) => {
-//     return(
-//         <div className="wrapper">
-//         <section className="assignment-container">
-//             <p>{props.assignment}</p>
-//               <form><label htmlFor="color"></label>
-//               <input className="colorInput" id="color" value={props.value} name="color" type="color"></input></form>
-//               <label htmlFor="user__color">Schrijf hier je kleur op:</label><input id="userColor" className="user__color" type="text" ></input><button className="assignment__button" id="submitButton" className="submitButton" type="submit" onClick={scrollY}>Bevestig je kleur!</button></section></div>
-//     )
-// }
+export const ImageAntwoord = (props) => {
+    return(
+        <div className="wrapper">
+        <section className="assignment-container">
+            <p>{props.assignment}</p>
+              <form><label htmlFor="color"></label>
+              <input className="color__input" id="color" value={props.value} name="color" type="color"></input></form>
+              <label htmlFor="user__color">Schrijf hier je kleur op:</label><input id="userColor" className="user__color" type="text" ></input><button className="assignment__button" id="submitButton" type="submit" onClick={scrollY}>Bevestig je kleur!</button></section></div>
+    )
+}
 
 export const AudioVraag = (props) => {
     return(
@@ -97,7 +98,7 @@ export const AudioVraag = (props) => {
         <section className="assignment-container"><p>{props.assignment}</p>
             <ReactAudioPlayer
   src="my_audio_file.ogg"
-  className="AudioPlayer"
+
   autoPlay
   controls
 />
@@ -109,39 +110,26 @@ export const AudioVraag = (props) => {
     )
 }
 
-// export const AudioAntwoord = (props) => {
-//     return(
-//         <div className="wrapper" >
-//         <section className="assignment-container"><p>{props.assignment}</p>
-//             <ReactAudioPlayer
-//   src="my_audio_file.ogg"
-//   className="AudioPlayer"
-//   autoPlay
-//   controls
-// /></section></div>
-//     )
-// }
+export const AudioAntwoord = (props) => {
+    return(
+        <div className="wrapper" >
+        <section className="assignment-container"><p>{props.assignment}</p>
+            <ReactAudioPlayer
+  src="my_audio_file.ogg"
+  autoPlay
+  controls
+/></section></div>
+    )
+}
 
-// export const ColorVraag = () => {
-//     return(
-//         <div className="wrapper">
-//         <section className="assignment-container"><p>Bibi haar vader heeft een wolwinkel en verkoopt daar de meest bijzondere kleuren wol. Zo lezen we over paardenbloemstengelgroen, varkensstaartjesroze, diepzeezwart, watermeloenrood, krijtrotswit en Middellandsezeeblauw. In de naam van de kleur zie je steeds al staan waar je de kleur ‘in het echt’ terug kunt zien.<br></br>
 
-//         Kun jij ook zo’n mooie naam bedenken voor een kleur? Hieronder kun jij een kleur kiezen. Zoek de mooiste kleur uit en geef hem net zo’n bijzondere naam. Bedenk daarvoor dus goed waar de kleur jou precies aan doet denken..
-//         </p>
-//               <form><label htmlFor="color"></label><input className="colorInput" id="color" name="color"  type="color"></input></form><label htmlFor="userColor">Schrijf hier je kleur op:</label><input id="userColor" className="userColor" type="text" ></input><button className="assignment__button" id="submitButton" className="submitButton" type="submit" onClick={(event)=> {
-//                 scrollY(event);
-//                 ButtonActive();
-//             }}>Bevestig je kleur!</button></section></div>
-//     )
-// }
 
 export const ColorVraag = (props) => {
     return(
         <div className="wrapper">
         <section className="assignment-container"><p>{props.assignment}</p>
         
-              <form><label htmlFor="color"></label><input className="colorInput" id="color" name="color"  type="color"></input></form><label htmlFor="userColor">Schrijf hier je kleur op:</label><input id="userColor" className="userColor" type="text" ></input><button className="assignment__button" id="submitButton" type="submit" onClick={(event)=> {
+              <form><label htmlFor="color"></label><input className="color__input" id="color" name="color"  type="color"></input></form><label htmlFor="userColor">Schrijf hier je kleur op:</label><input id="userColor" className="userColor" type="text" ></input><button className="assignment__button" id="submitButton" type="submit" onClick={(event)=> {
                 scrollY(event);
                 ButtonActive();
             }}>Bevestig je kleur!</button></section></div>
@@ -149,16 +137,19 @@ export const ColorVraag = (props) => {
 }
 
 
-// export const ColorAntwoord = (props) => {
-//     return(
-//         <div className="wrapper">
-//         <section className="assignment-container"><p>{props.assignment}</p>
-//               <form><label htmlFor="color"></label><input className="colorInput" id="color" name="color"  type="color"></input></form><label htmlFor="userColor">Schrijf hier je kleur op:</label><input id="userColor" className="userColor"  type="text" ></input><button className="assignment__button" id="submitButton"  type="submit" onClick={(event)=> {
-//                 scrollY(event);
-//                 ButtonActive();
-//             }}>Bevestig je kleur!</button></section></div>
-//     )
-// }
+export const ColorAntwoord = (props) => {
+    return(
+        <div className="wrapper">
+        <section className="assignment-container"><p>{props.assignment}</p>
+              <form><label htmlFor="color"></label><input className="color__input" id="color" name="color"  type="color"></input></form><label htmlFor="userColor">Schrijf hier je kleur op:</label>
+              <input id="userColor" className="userColor"  type="text" ></input>
+              <button className="assignment__button" id="submitButton"  type="submit" onClick={(event)=> {
+                scrollY(event);
+                ButtonActive();
+                inputAnswer(props.isbn);
+            }}>Bevestig je kleur!</button></section></div>
+    )
+}
 
 export const Podcast = (props) =>{
     return(
@@ -168,7 +159,6 @@ export const Podcast = (props) =>{
         <p>{props.assignment}</p>
       <ReactAudioPlayer
 src="my_audio_file.ogg"
-className="AudioPlayer"
 autoPlay
 controls
 />
@@ -185,9 +175,9 @@ return(
     <div className="wrapper">
     <section className="assignment-container">
         <p>{props.assignment}</p>
-        <input className="McInput" type="text"></input>
+        <input className="mc__input" type="text"></input>
         <p>{props.assignmentChild1}</p>
-        <input className="McInput" type="text"></input>
+        <input className="mc__input" type="text"></input>
         <p>{props.assignmentChild2}
             <ul>
                 <li>BOTJEBOTJE zegt: Bibibibi en papapapa</li>
@@ -196,15 +186,15 @@ return(
                 <li>BOET zegt: Biib en paap</li>
 </ul></p>
 <p>{props.assignmentChild3}</p>
-<div className="McGrid">
-<p className="McGrid__text">BOTJEBOTJE:</p>
-<input className="McInput" type="text"></input>
-<p className="McGrid__text">EJTOB:</p>
-<input className="McInput" type="text"></input>
-<p className="McGrid__text">BO:</p>
-<input className="McInput" type="text"></input>
-<p className="McGrid__text">BOET:</p>
-<input className="McInput" type="text"></input>
+<div className="mc__grid">
+<p className="grid__text">BOTJEBOTJE:</p>
+<input className="mc__input" type="text"></input>
+<p className="grid__text">EJTOB:</p>
+<input className="mc__input" type="text"></input>
+<p className="grid__text">BO:</p>
+<input className="mc__input" type="text"></input>
+<p className="grid__text">BOET:</p>
+<input className="mc__input" type="text"></input>
 </div>
 <button className="assignment__button" onClick={(event)=> {
                 scrollY(event);
@@ -223,11 +213,11 @@ export const MultipleChoice2 = (props) => {
 </p>
 
 <p>{props.assignmentChild1}</p>
-<input className="McInput" value="" type="text"></input>
+<input className="mc__input" value="" type="text"></input>
 <p>{props.assignmentChild2}</p>
-<input className="McInput" value="" type="text"></input>
+<input className="mc__input" value="" type="text"></input>
 <p>{props.assignmentChild3}</p>
-<input className="McInput" value="" type="text"></input>
+<input className="mc__input" value="" type="text"></input>
 <button className="assignment__button" onClick={(event)=> {
                 scrollY(event);
                 ButtonActive();

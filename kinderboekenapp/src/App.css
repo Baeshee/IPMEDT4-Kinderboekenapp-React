@@ -67,15 +67,15 @@ form{
 
 input[type=text]:focus {
   background-color: lightblue;
-
 }
 
 input{
-  padding: 0.5rem;
+  padding: 0.3rem;
   width: 78%;
   margin: 0 auto;
   display: block;
   height: 5rem;
+  border-radius: 1rem;
 }
 
 Button{
@@ -101,7 +101,6 @@ audio{
   margin-bottom: 1rem;
 }
 
-
 img{
   display: block;
   margin: 0 auto;
@@ -118,7 +117,7 @@ img{
   width: 50%;
 }
 
-.McInput{
+.mc__Input{
 width: 90%;
 max-width: 75rem;
 margin: 0 auto;
@@ -135,15 +134,12 @@ label{
   padding-bottom: 0.4rem;
 }
 
-
-.colorInput{
+.color__input{
   width: 100%;
   height: 10rem;
 }
 
-
-
-.McGrid{
+.mc__grid{
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
@@ -151,7 +147,7 @@ label{
   width: 100%;
 }
 
-.McGrid__text{
+.grid__text{
   text-align: center;
   font-weight: 700;
   font-size: 2rem;
@@ -166,8 +162,8 @@ label{
 
 }
 .Nav__list{
+  width: 12rem;
   margin: 0 auto;
-  max-width: 15rem;
 }
 
 li{
@@ -178,10 +174,12 @@ li{
   border-radius: 100%;
   opacity: 50%;
 }
+
 .nav__active{
   background-color: green;
   opacity: 75%;
 }
+
 .nav__button{
   position: absolute;
   top: 1rem;
