@@ -1,3 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    padding: 2rem;
+    font-size: 1.8rem;
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.55;
+    box-sizing: border-box;
+}
+
+.boekenlijstHeader{
+    font-weight: 400;
+    font-size: 2.6rem;
+    margin-left: 30%;
+    margin-bottom: 3rem;
+}
+
+@media(min-width: 765px){
+    body{
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .boekenlijstHeader{
+        margin-left: 37%;
+    }
+}
+
+@media(min-width: 1000px){
+    body{
+        width: 70%;
+        margin: 0 auto;
+    }
+}
+=======
 * {
   margin: 0;
   padding: 0;
@@ -24,5 +66,3 @@ body {
   font-size: 2.6rem;
   margin-bottom: 2.5rem;
 }
-
-/*# sourceMappingURL=App.css.map */

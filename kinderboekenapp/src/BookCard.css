@@ -1,0 +1,44 @@
+.bookCard{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    box-shadow: 0 0 3px blue;
+    border-radius: 0.5rem;
+    margin-bottom: 4rem;
+    padding-bottom: 1rem;
+}
+
+.bookCard__img{
+    width: 8rem;
+    margin: 1rem;
+}
+
+.bookCard__title{
+    font-weight: 400;
+    font-size: 2rem;
+    margin-top: 1rem;
+}
+
+.bookCard__info{
+    font-size: 1.4rem;
+    margin-top: 0.5rem;
+}
+
+.bookCard__addButton{
+    /* position: absolute;
+    z-index: 1;
+    margin: 4rem 25rem; */
+    font-size: 3.2rem;
+    border-radius: 0.5rem;
+    background-color: #f2a365;
+    border: 0.5rem solid #f2a365;
+    height: 5rem;
+    width: 5rem;
+    margin: 4rem 3rem;
+    cursor: pointer;
+}
+
+/* @media(min-width: 1000px){
+    .bookCard{
+        grid-template-columns: repeat(0, minmax(0, 1fr));
+    }
+} */

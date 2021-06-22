@@ -1,39 +1,39 @@
 import React from 'react';
+// import BookCard from './BookCard';
+import BookCardList from './BookCardList';
+import Searchbar from './Searchbar';
+import FilterOptions from './FilterOptions';
 import axios from 'axios';
-import ProfileCard from './profilePage--card';
-import ProfileMascotte from './profilePage--mascotte';
-// import ProfileCardModal from './profileCard--modal';
-import './App.css';
+import './App.css'
+import { store } from './store';
+import {Provider} from 'react-redux';
 
-class App extends React.Component {
-  state = {names: []}
 
-    getNames = () => {
-        console.log("getName");
-        const BASE_URL = "https://kinderboekenapp-laravel.herokuapp.com/api/users";
-        axios.get(BASE_URL).then(res => {
-            const fetchedNames = res.data;
-            this.setState({names: fetchedNames});
-        });
-       
+class App extends React.Component{
+
+    bookCardClicked = id => {
+        console.log("Book card clicked test " + id);
     }
 
-    //mehtod call to get the api
-    componentDidMount(){
-      this.getNames();
-  }
+    render(){
 
-  render(){
-    return(
-      <article className="profile">
-        <section className="profile__header">
-          <h1 className="profile__header__text">Profiel</h1>
-        </section>
-        <ProfileMascotte/>
-        <ProfileCard/>
-      </article>
-    );
-  }
+        return(
+            <Provider store={store}>
+            <article>
+                <header>
+                    <h1 className="boekenlijstHeader">Boekenlijst</h1>
+                </header>
+                
+                <Searchbar onSubmit={this.makeApiCall}/>
+                <FilterOptions/>
+                {/* <BookCardList bookCardClicked = {this.bookCardClicked}/> */}
+                <BookCardList />
+                
+            </article>
+            </Provider>
+        );
+    }
 }
 
 export default App;
+
