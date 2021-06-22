@@ -7,8 +7,8 @@ import  ColorOpdr from './components/ColorOpdr';
 import  ImageOpdr from './components/ImageOpdr';
 import  AudioOpdr from './components/AudioOpdr';
 import  McOpdr from './components/McOpdr';
-
-
+import OpdrNav from './components/OpdrNav';
+import BookAssignments from './BookAssignments';
 import { changeUserAssignments, changeActiveBook } from "./actions";
 let x = 0;
 
@@ -19,10 +19,10 @@ class App extends React.Component {
        
                
          
-         getAssignData = () => {
+         getAssignData = (props) => {
              const URL = "http://localhost:8000/api/assignments"
              axios.get(URL).then(res => {
-                 this.props.changeUserAssignments(res.data);
+               //  this.props.changeUserAssignments(res.data);
                  console.log(res.data);
                  this.setLoading = false;
              });
@@ -56,10 +56,9 @@ class App extends React.Component {
         return (
             <main>
                 <Provider store={store}>
-                    <ColorOpdr/>
-                    <ImageOpdr/>
-                    <AudioOpdr/>
-                    <McOpdr/>
+                 
+                   <BookAssignments/>
+                   <OpdrNav/>
                     
                 </Provider>
             </main>
@@ -70,6 +69,6 @@ const mapStateToProps = state => {
     return { activeBook: state.activeBook, userAssignments: state.userAssignments}
 };
 
+export default App;
 
 
- export default connect(mapStateToProps, { changeUserAssignments: changeUserAssignments, changeActiveBook: changeActiveBook } )(App);

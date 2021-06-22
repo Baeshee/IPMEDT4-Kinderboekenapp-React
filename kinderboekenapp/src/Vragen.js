@@ -17,7 +17,7 @@ function scrollY(event){
     }, 500);
   }
 
-function ButtonActive(props){
+function ButtonActive(){
 
     let arr = document.getElementsByClassName('assignment__button');
     let arr2 = document.getElementsByTagName('section');
@@ -27,6 +27,7 @@ function ButtonActive(props){
     arr2[x].style.borderColor = "#0e8034";
     arr3[x].classList.add('nav__active')
     x++;
+
 }
 
 export const VraagUnavailable = (props) =>{
@@ -45,8 +46,6 @@ export const VraagUnavailable = (props) =>{
         
     </div>)
 }
-
-
 
 
 export const intro = (props) =>{

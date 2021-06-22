@@ -16,6 +16,7 @@ class BookAssignments extends Component {
         const URL = "http://localhost:8000/api/assignments"
         axios.get(URL).then(res => {
             this.props.changeUserAssignments(res.data);
+            console.log(res.data)
         });
     }
         
@@ -45,7 +46,10 @@ class BookAssignments extends Component {
 
     createAssignments = (assignment, index) =>{       
         switch(assignment.kind_of_assignment){
-            case "MultipleChoice2":
+
+            
+            case "multipleChoice2":
+                console.log("dit is tekst 1")
                 switch(assignment.status){
                     case "active":
                         return <MultipleChoice2 assignment={assignment.assignment} key={index} />;
@@ -53,17 +57,20 @@ class BookAssignments extends Component {
                         return <MultipleChoice2 assignment={assignment.assignment} key={index} />;
                     default:
                         return <VraagUnavailable chapters={assignment.chapters} key={index} />;
-                }         
+                }        
+
             case "color":
+                console.log("dit is tekst 2")
                 switch(assignment.status){
                     case "active":
-                        return <section><ColorVraag assignment={assignment.assignment} key={index}/> <button className="nav__button" onClick={this.checkAnswer}> klik </button></section>;
+                        return <ColorVraag assignment={assignment.assignment} key={index}/>;
                     case "completed":
                         return <ColorAntwoord assignment={assignment.assignment} key={index} />;
                     default:
                         return <VraagUnavailable chapters={assignment.chapters} key={index} />;
                 }
             case "image":
+                console.log("dit is tekst 3")
                 switch(assignment.status){
                     case "active":
                         return <ImageVraag assignment={assignment.assignment} key={index} />;
@@ -74,6 +81,7 @@ class BookAssignments extends Component {
                 }
             
             case "audio":
+                console.log("dit is tekst 4")
                     switch(assignment.status){
                         case "active":
                             return <AudioVraag assignment={assignment.assignment} key={index} />;
@@ -82,7 +90,8 @@ class BookAssignments extends Component {
                         default:
                             return <VraagUnavailable chapters={assignment.chapters} key={index} />;
                     }  
-            case "MultipleChoice":
+            case "multipleChoice1":
+                console.log("dit is tekst 5")
                         switch(assignment.status){
                             case "active":
                                 return <MultipleChoice assignment={assignment.assignment} key={index} />;
@@ -91,7 +100,8 @@ class BookAssignments extends Component {
                             default:
                                 return <VraagUnavailable chapters={assignment.chapters} key={index} />;
                         }  
-            case "Podcast":
+            case "podcast":
+                console.log("dit is tekst 6")
                         switch(assignment.status){
                             case "active":
                                 return <Podcast assignment={assignment.assignment} key={index} />;
@@ -99,8 +109,9 @@ class BookAssignments extends Component {
                                 return <Podcast assignment={assignment.assignment} key={index} />;
                             default:
                                 return <VraagUnavailable chapters={assignment.chapters} key={index} />;
+
                         }  
-   
+                        
             default:
                 return <VraagUnavailable chapters={assignment.chapters} key={index} />;
         }
