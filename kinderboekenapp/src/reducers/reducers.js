@@ -1,7 +1,16 @@
 // Reducer for searchbar
 
-import { CHANGE_SEARCHTERM, CHANGE_BOOKS, CHANGE_USERBOOKS, CHANGE_ACTIVEBOOK, CHANGE_COLORVALUE, CHANGE_USERDATA, CHANGE_BASEURL, CHANGE_USERASSIGNMENTS} from "../actions.js";
+import { CHANGE_SEARCHTERM, CHANGE_BOOKS, CHANGE_USERBOOKS, CHANGE_ACTIVEBOOK, CHANGE_COLORVALUE, CHANGE_USERDATA, CHANGE_BASEURL, CHANGE_USERASSIGNMENTS, CHANGE_SHOWCOLORMODAL} from "../actions.js";
 
+
+export const showColorModal = (state = "", action) => {
+    switch(action.type){
+        case CHANGE_SHOWCOLORMODAL:    
+            return action.payload;
+        default:
+            return state;
+    }
+}
 
 export const searchTerm = (state = "", action) => {
     switch(action.type){

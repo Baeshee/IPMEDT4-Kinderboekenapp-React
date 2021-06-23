@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { changeShowColorModal } from "../actions";
 
 import AuthService from "../services/service_auth.service";
 
@@ -10,22 +12,12 @@ import './ProfileCard.css';
 
 
 class ProfileCard extends React.Component {
-
-    constructor(){
-        super();
-        this.state = {
-            show: false
-        };
-        this.showModal = this.showModal.bind(this);
-        this.hideModal = this.hideModal.bind(this);
-    }
-
     showModal = () =>{
-        this.setState({show: true});
+        this.props.changeShowColorModal(true);
     }
 
     hideModal = () =>{
-        this.setState({show: false});
+        this.props.changeShowColorModal(false);
     }
 
     logOut = () => {
@@ -38,7 +30,7 @@ class ProfileCard extends React.Component {
             <article className="profileCard">
                 <ProfileUser/>
                 <section className="profileCard__section">
-                    <Modal show={this.state.show} handleClose={this.hideModal}>
+                    <Modal show={this.props.showColorModal} handleClose={this.hideModal}>
                     </Modal>
                 </section>
 
@@ -51,4 +43,8 @@ class ProfileCard extends React.Component {
     }
 }
 
-export default ProfileCard;
+const mapStateToProps = state => {
+    return { showColorModal: state.showColorModal}
+}
+
+export default connect(mapStateToProps, { changeShowColorModal: changeShowColorModal})(ProfileCard);

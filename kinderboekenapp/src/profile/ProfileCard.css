@@ -20,8 +20,6 @@
   border: 0.1rem solid black;
   border-radius: 0.5rem;
   font-size: 1.8rem;
-  background-color: #69b6ff;
-  color: white;
 }
 .profileCard__btnSection__logoutBtn {
   padding: 1.5rem 4rem;
@@ -29,33 +27,6 @@
   background-color: #0084FF;
   border: 0.1rem solid black;
   border-radius: 0.5rem;
-  color: white;
-}
-
-.modal__content__closeBtn {
-  padding: 1.25rem 3rem;
-  font-size: 2rem;
-  background-color: #69b6ff;
-  border: 0.1rem solid black;
-  border-radius: 0.5rem;
-  margin-top: 2rem;
-  margin-left: 6.5rem;
-  color: white;
-}
-
-@media (min-width: 768px) {
-  .modal__content__closeBtn {
-    font-size: 2.2rem;
-    margin-top: 4rem;
-    margin-left: 36%;
-  }
-}
-
-@media (min-width: 1000px) {
-  .modal__content__closeBtn {
-    font-size: 2.8rem;
-    margin-left: 37%;
-  }
 }
 
 /*# sourceMappingURL=ProfileCard.css.map */

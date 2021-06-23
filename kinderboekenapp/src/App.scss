@@ -17,12 +17,22 @@ body{
     position: relative;
 }
 
-.profile__header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    &__text {
-      font-size: 2.6rem;
-      margin-bottom: 2.5rem;
+.profile {
+    margin-top: 5rem;
+
+    &__header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &__text {
+          font-size: 3rem;
+          margin-bottom: 2.5rem;
+        }
+  }
+}
+
+@media screen and (min-width: 1000px){
+    .profile__header__text {
+        font-size: 6rem;
     }
 }

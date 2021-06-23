@@ -1,7 +1,6 @@
 import React from "react";
 import {connect} from "react-redux";
-import {changeColor} from '../actions';
-import { colorValue } from '../reducers/reducers';
+import {changeColor, changeShowColorModal} from '../actions';
 import axios from "axios";
 import './ColorOptions.css';
 import authHeader from '../services/service_auth-header';
@@ -9,20 +8,22 @@ import authHeader from '../services/service_auth-header';
 
 class ColorOptions extends React.Component{
 
-    makeApiCall = colorValue =>{
-        const requestBody = {img: colorValue}
+    state = {color: ''}
+
+    makeApiCall = () =>{
+        this.props.changeColor(this.state.color);
+        const requestBody = {img: this.state.color}
         axios.patch(this.props.BASE_URL + '/api/user/update', requestBody, { headers: authHeader()});
-        alert("Kleur is veranderd! Sluit de popup!");
+        this.props.changeShowColorModal(false);
     }
 
     handleChange = event =>{
-        this.props.changeColor(event.target.value);
+        this.setState({ color: event.target.value});
     }
 
     handleSubmit = event =>{
         event.preventDefault();     //make apiCall
-        this.makeApiCall(this.props.colorValue);
-
+        this.makeApiCall();
     }
 
 
@@ -45,7 +46,6 @@ class ColorOptions extends React.Component{
                 </section>
                 <section className="colorForm__btnSection">
                     <input className="colorForm__btnSection__submitButton" type="submit" value="Verander" />
-
                 </section>
             </form>
         );
@@ -53,12 +53,12 @@ class ColorOptions extends React.Component{
 }
 
 const mapStateToProps = state =>{
-    return{colorValue: state.colorValue, BASE_URL: state.BASE_URL}
+    return{colorValue: state.colorValue, BASE_URL: state.BASE_URL, showColorModal: state.showColorModal}
 }
 
 export default connect(
     mapStateToProps,
-    {changeColor: changeColor}
+    {changeColor: changeColor, changeShowColorModal: changeShowColorModal}
 ) (ColorOptions);
 
 

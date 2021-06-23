@@ -18,17 +18,22 @@ body {
 }
 
 .profile {
-  margin-top: 12rem;
+  margin-top: 5rem;
 }
-
 .profile__header {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .profile__header__text {
-  font-size: 2.6rem;
+  font-size: 3rem;
   margin-bottom: 2.5rem;
+}
+
+@media screen and (min-width: 1000px) {
+  .profile__header__text {
+    font-size: 6rem;
+  }
 }
 
 /*# sourceMappingURL=App.css.map */

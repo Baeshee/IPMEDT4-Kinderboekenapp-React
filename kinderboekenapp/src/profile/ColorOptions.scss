@@ -30,9 +30,28 @@
             font-size: 2rem;
             padding: 1rem 2rem;
             margin-top: 20rem;
+            bottom: 0;
             background-color: #00aeff;
             border: 0.1rem solid black;
             border-radius: 0.5rem;
         }
     }
 }
+
+.modal__header__close{
+    font-size: 5rem;
+    margin-right: 1rem;
+}
+
+@media screen and (min-width: 768px){
+    .colorForm__btnSection__submitButton {
+        margin-top: 30rem;
+        font-size: 3rem;
+    }
+}   
+
+@media screen and (min-width: 1000px){
+    .colorForm__btnSection__submitButton {
+        margin-top: 50rem;
+    }
+}   

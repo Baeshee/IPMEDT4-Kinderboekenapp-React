@@ -9,9 +9,14 @@ export const CHANGE_ACTIVEBOOK = "CHANGE_ACTIVEBOOK";
 export const CHANGE_COLORVALUE = "CHANGE_COLORVALUE";
 export const CHANGE_USERDATA = "CHANGE_USERDATA";
 export const CHANGE_BASEURL = "CHANGE_BASEURL";
+export const CHANGE_SHOWCOLORMODAL = "CHANGE_SHOWCOLORMODAL";
 
 export const CHANGE_USERASSIGNMENTS = "CHANGE_USERASSIGNMENTS";
 
+export const changeShowColorModal = showColorModal => ({
+    type: CHANGE_SHOWCOLORMODAL,
+    payload: showColorModal,
+});
 
 export const changeSearchTerm = searchTerm => ({
     type: CHANGE_SEARCHTERM,
