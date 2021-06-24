@@ -30,8 +30,6 @@ class BookAssignments extends Component {
                 switch(assignment.status){
                     case "active":
                         return <MultipleChoice2 assignment={assignment.assignment} key={index} />;
-                    case "completed":
-                        return <MultipleChoice2 assignment={assignment.assignment} key={index} />;
                     default:
                         return <VraagUnavailable chapters={assignment.chapters} key={index} />;
                 }        
@@ -41,8 +39,6 @@ class BookAssignments extends Component {
                 switch(assignment.status){
                     case "active":
                         return <ColorVraag assignment={assignment.assignment} key={index}/>;
-                    case "completed":
-                        return <ColorAntwoord assignment={assignment.assignment} key={index} />;
                     default:
                         return <VraagUnavailable chapters={assignment.chapters} key={index} />;
                 }
@@ -51,8 +47,6 @@ class BookAssignments extends Component {
                 switch(assignment.status){
                     case "active":
                         return <ImageVraag assignment={assignment.assignment} key={index} />;
-                    case "completed":
-                        return <ImageAntwoord assignment={assignment.assignment} key={index} />;
                     default:
                         return <VraagUnavailable chapters={assignment.chapters} key={index} />;
                 }
@@ -62,8 +56,6 @@ class BookAssignments extends Component {
                     switch(assignment.status){
                         case "active":
                             return <AudioVraag assignment={assignment.assignment} key={index} />;
-                        case "completed":
-                            return <AudioVraag assignment={assignment.assignment} key={index} />;
                         default:
                             return <VraagUnavailable chapters={assignment.chapters} key={index} />;
                     }  
@@ -72,8 +64,6 @@ class BookAssignments extends Component {
                         switch(assignment.status){
                             case "active":
                                 return <MultipleChoice assignment={assignment.assignment} key={index} />;
-                            case "completed":
-                                return <MultipleChoice assignment={assignment.assignment} key={index} />;
                             default:
                                 return <VraagUnavailable chapters={assignment.chapters} key={index} />;
                         }  
@@ -81,8 +71,6 @@ class BookAssignments extends Component {
                 
                         switch(assignment.status){
                             case "active":
-                                return <Podcast assignment={assignment.assignment} key={index} />;
-                            case "completed":
                                 return <Podcast assignment={assignment.assignment} key={index} />;
                             default:
                                 return <VraagUnavailable chapters={assignment.chapters} key={index} />;
