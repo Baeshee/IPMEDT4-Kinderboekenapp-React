@@ -51,7 +51,7 @@ class Boekenplank extends Component {
             slidesPerRow: 1,
             responsive: [
             {
-            breakpoint: 1080,
+            breakpoint: 1200,
             settings: {
                 slidesToShow: 3,
                 slidesToScroll: 3,
