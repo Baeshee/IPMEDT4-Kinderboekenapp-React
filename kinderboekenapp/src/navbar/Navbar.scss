@@ -1,0 +1,51 @@
+@use "sass:map";
+
+$colors:(
+    "BP":red,
+    "BL": green,
+    "PF": blue
+    );
+
+.nav {
+    width: 100%;
+    height: 7rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    &__list{
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: row;
+        list-style: none;
+        &__link{
+            text-decoration: none;
+            color: black;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        & li{
+            width: 100%;
+            height: 100%;
+            background-color: green;
+            &:nth-of-type(1){
+                background-color:map.get($colors, "BP");
+            }
+            &:nth-of-type(2){
+                background-color:map.get($colors, "BL");
+            }
+            &:nth-of-type(3){
+                background-color:map.get($colors, "PF");
+            }
+        }
+    }
+}
+
+.fas{
+    opacity: 0.9;
+}

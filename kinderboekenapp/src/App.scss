@@ -5,22 +5,34 @@
   
 html{
     font-size: 62.5%;
+    height: 100%;
 }
   
 body{
-    padding: 2rem;
+    padding: 1rem;
     font-size: 1.8rem;
     font-family: 'Open Sans', sans-serif;
     line-height: 1.55;
     box-sizing: border-box;
+    position: relative;
 }
 
-.profile__header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    &__text {
-      font-size: 2.6rem;
-      margin-bottom: 2.5rem;
+.profile {
+    margin-top: 5rem;
+
+    &__header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &__text {
+          font-size: 3rem;
+          margin-bottom: 2.5rem;
+        }
+  }
+}
+
+@media screen and (min-width: 1000px){
+    .profile__header__text {
+        font-size: 6rem;
     }
 }

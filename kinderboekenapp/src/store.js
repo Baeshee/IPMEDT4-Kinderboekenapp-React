@@ -1,11 +1,14 @@
-// Store for searchbar
+import { createStore, applyMiddleware } from "redux";
+import { composeWithDevTools } from "redux-devtools-extension";
+import thunk from "redux-thunk";
+import rootReducer from "./reducers/reducer_index";
 
-import {combineReducers, createStore} from "redux";
-import {searchTerm, books} from "./reducers.js";
+
+
+const middleware = [thunk];
 
 export const store = createStore(
-    combineReducers({
-        searchTerm, // searchTerm: searchTerm
-        books, // books:books
-    })
+  rootReducer,
+  composeWithDevTools(applyMiddleware(...middleware))
 );
+

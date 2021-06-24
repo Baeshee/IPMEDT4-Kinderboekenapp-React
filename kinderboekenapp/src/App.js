@@ -1,35 +1,72 @@
-import React from 'react';
-// import BookCard from './BookCard';
-import BookCardList from './BookCardList';
-import Searchbar from './Searchbar';
-import FilterOptions from './FilterOptions';
-import axios from 'axios';
-import './App.css'
-import { store } from './store';
-import {Provider} from 'react-redux';
+import React from "react";
 
+import Login from "./components/login.component";
+import Register from "./components/register.component";
+import Profile from "./profile/Profile";
+
+import Boekenlijst from './boekenlijst/Boekenlijst';
+import Navbar from './navbar/Navbar';
+import { NavItems } from './navbar/NavItems';
+import Boekenplank from './boekenplank/Boekenplank';
+import BookAssignments from './opdrachten/BookAssignments'
+
+import {Provider} from "react-redux";
+import {store} from "./store.js";
+import { Link, Switch, Route, BrowserRouter as Router, Redirect } from "react-router-dom";
+
+import "./App.css";
 
 class App extends React.Component{
-
-    bookCardClicked = id => {
-        console.log("Book card clicked test " + id);
-    }
+    // state = {video: ""}; replaced by redux
 
     render(){
-
         return(
             <Provider store={store}>
-            <article>
-                <header>
-                    <h1 className="boekenlijstHeader">Boekenlijst</h1>
-                </header>
-                
-                <Searchbar onSubmit={this.makeApiCall}/>
-                <FilterOptions/>
-                {/* <BookCardList bookCardClicked = {this.bookCardClicked}/> */}
-                <BookCardList />
-                
-            </article>
+                <Router>      
+                    <Switch>
+                        <Route path="/register">
+                            <main>
+                                {/* <h2>Register here</h2> */}
+                                    <Register />
+                            </main>
+                        </Route>
+                        
+                        <Route path="/login">
+                            <main>
+                                <Login />
+                            </main>
+                        </Route>
+
+                        <Route path="/profile">
+                            <main>
+                                <Profile />
+                                <Navbar navitems={NavItems} />
+                            </main>
+                        </Route>
+
+                        <Route path="/boekenlijst">
+                            <main>
+                                <Boekenlijst />
+                                <Navbar navitems={NavItems} />
+                            </main>
+                        </Route>
+
+                        <Route path='/boekenplank'>
+                            <main>
+                                <Boekenplank />
+                                <Navbar navitems={NavItems} />
+                            </main>
+                        </Route>
+
+                        <Route path='/boek'>
+                            <main>
+                                <BookAssignments />
+                                <Navbar navitems={NavItems} />
+                            </main>
+                        </Route>
+                        <Redirect to="/login" />
+                    </Switch>
+                </Router>
             </Provider>
         );
     }
@@ -37,3 +74,5 @@ class App extends React.Component{
 
 export default App;
 
+// https://bezkoder.com/react-redux-jwt-auth/#Setup_Reactjs_Project
+// Used for auth login with redux

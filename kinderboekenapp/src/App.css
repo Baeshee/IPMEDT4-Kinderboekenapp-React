@@ -1,45 +1,3 @@
-*{
-    margin: 0;
-    padding: 0;
-}
-
-html{
-    font-size: 62.5%;
-}
-
-body{
-    padding: 2rem;
-    font-size: 1.8rem;
-    font-family: 'Open Sans', sans-serif;
-    line-height: 1.55;
-    box-sizing: border-box;
-}
-
-.boekenlijstHeader{
-    font-weight: 400;
-    font-size: 2.6rem;
-    margin-left: 30%;
-    margin-bottom: 3rem;
-}
-
-@media(min-width: 765px){
-    body{
-        width: 80%;
-        margin: 0 auto;
-    }
-
-    .boekenlijstHeader{
-        margin-left: 37%;
-    }
-}
-
-@media(min-width: 1000px){
-    body{
-        width: 70%;
-        margin: 0 auto;
-    }
-}
-=======
 * {
   margin: 0;
   padding: 0;
@@ -47,22 +5,35 @@ body{
 
 html {
   font-size: 62.5%;
+  height: 100%;
 }
 
 body {
-  padding: 2rem;
+  padding: 1rem;
   font-size: 1.8rem;
   font-family: "Open Sans", sans-serif;
   line-height: 1.55;
   box-sizing: border-box;
+  position: relative;
 }
 
+.profile {
+  margin-top: 5rem;
+}
 .profile__header {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .profile__header__text {
-  font-size: 2.6rem;
+  font-size: 3rem;
   margin-bottom: 2.5rem;
 }
+
+@media screen and (min-width: 1000px) {
+  .profile__header__text {
+    font-size: 6rem;
+  }
+}
+
+/*# sourceMappingURL=App.css.map */

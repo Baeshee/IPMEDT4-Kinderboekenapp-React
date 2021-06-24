@@ -1,0 +1,12 @@
+.mascotte-name__section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 4rem;
+}
+.mascotte-name__section__figure__img {
+  height: 25rem;
+}
+
+/*# sourceMappingURL=Mascotte.css.map */
