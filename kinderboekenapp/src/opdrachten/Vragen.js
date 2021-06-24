@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState, setState } from "react";
 import ReactAudioPlayer from 'react-audio-player';
 import axios from 'axios';
 let x = 0;
+
 
 
 
@@ -33,8 +34,8 @@ const inputAnswer3 = (props) =>{
 //     axios.patch("http://localhost:8000/api/assignments/1", requestBody)
 // }
 
-// const inputImage = (props) =>{
-//     const objectURL = URL.createObjectURL(props.event.files[0]);
+// const inputImage = (event) =>{
+//     const objectURL = URL.createObjectURL(event.target.files);
 //     return objectURL;
 // }
 
@@ -76,24 +77,46 @@ export const VraagUnavailable = (props) =>{
 }
 
 
+// export const ImageVraag = (props) => {
 
-export const ImageVraag = (props) => {
-    return(
-        <article className="wrapper">
-            <section className="assignment-container">
-                <p className="assignments__text">{props.assignment}</p>
-                <form className="form fileUpload" action="">
-                    <label className="label form__label" htmlFor="answer_2">Foto van jouw muts:</label>
-                    <input className="input" onSubmit={(props) => props.inputImage} type="file" if="answer_2" name="answer_2" />
-                    <button className="button assignment__button image" onClick={(event)=> {
-                        scrollY(event);
-                        ButtonActive();
-                    }}  type="submit"> Verzenden </button>
-                </form>
-            </section>
-        </article>
-    )
-}
+//     // const fileSelectedHandler = (event)=> {
+//     //     console.log(event.target.files[0]);
+//     //     props = { file: event.target.files[0]};
+//     //     console.log(props.file);
+//     // }
+
+//     // const [file, setFile] = useState({
+//     //     file: ""
+
+//     // });
+
+//     // const changeFile = () => {
+//     //     setFile({file: event.target.files[0]})
+
+//     // }
+
+
+//     return(
+//         <article className="wrapper">
+//             <section className="assignment-container">
+//                 <p className="assignments__text">{props.assignment}</p>
+//                 <form className="form fileUpload" action="">
+//                     <label className="label form__label" htmlFor="answer_2">Jouw foto:</label>
+//                     <input type="file" if="answer_2" name="answer_2" onChange={(event)=> {
+//                         inputImage(event);
+//                     }} />
+//                     <div className="img__wrapper" styling="">
+//                         <img className="img__input" src={props.objectURL} alt="Jouw foto hier"/>
+//                     </div>
+//                     <button className="button assignment__button image" onClick={(event)=> {
+//                         scrollY(event);
+//                         ButtonActive();
+//                     }}  type="submit"> Verzenden </button>
+//                 </form>
+//             </section>
+//         </article>
+//     )
+// }
 
 export const ImageAntwoord = (props) => {
     return(
@@ -151,7 +174,7 @@ export const ColorVraag = (props) => {
                     <label className="label" htmlFor="color"></label>
                     <input className="input color__input" id="color" name="color"  type="color"></input>
                 </form>
-                <label htmlFor="userColor">Schrijf hier je kleur op:</label>
+                <label className="label" htmlFor="userColor">Schrijf hier je kleur op:</label>
                 <input id="userColor" className="input userColor" type="text" ></input>
                 <button className="button assignment__button" id="submitButton" type="submit" onClick={(event)=> {
                     scrollY(event);
