@@ -17,6 +17,18 @@ import { ImageVraag, AudioVraag, ColorVraag, ColorAntwoord, ImageAntwoord,  Mult
 let x = 0;
 class BookAssignments extends Component {
 
+<<<<<<< Updated upstream:kinderboekenapp/src/BookAssignments.js
+=======
+    getAssignData = () => {
+        const isbn = JSON.parse(localStorage.getItem('bookISBN'));
+        console.log(authHeader());
+        axios.get('http://localhost:8000/' + '/api/user/opdrachten/' + isbn, { headers: authHeader()}).then(res => {
+            this.props.changeUserAssignments(res.data);
+        });
+        localStorage.removeItem("bookISBN");
+    }
+
+>>>>>>> Stashed changes:kinderboekenapp/src/opdrachten/BookAssignments.js
     componentDidMount(){
        this.getAssignData();
     }
