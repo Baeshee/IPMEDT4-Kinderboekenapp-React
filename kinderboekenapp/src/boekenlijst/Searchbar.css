@@ -1,0 +1,27 @@
+.searchbar_section {
+  width: 80%;
+  margin: 8%;
+  margin-bottom: 2rem;
+}
+.searchbar_section__input {
+  border-radius: 0.5rem;
+  border: 1px grey solid;
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.4rem;
+  font-family: "Open Sans", sans-serif;
+}
+
+@media (min-width: 1000px) {
+  .searchbar_section {
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 8rem;
+    margin-bottom: 2rem;
+  }
+  .searchbar_section__input {
+    font-size: 3rem;
+  }
+}
+
+/*# sourceMappingURL=Searchbar.css.map */

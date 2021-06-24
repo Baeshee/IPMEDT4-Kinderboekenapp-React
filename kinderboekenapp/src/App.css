@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+  height: 100%;
+}
+
+body {
+  padding: 1rem;
+  font-size: 1.8rem;
+  font-family: "Open Sans", sans-serif;
+  line-height: 1.55;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.profile {
+  margin-top: 5rem;
+}
+.profile__header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.profile__header__text {
+  font-size: 3rem;
+  margin-bottom: 2.5rem;
+}
+
+@media screen and (min-width: 1000px) {
+  .profile__header__text {
+    font-size: 6rem;
+  }
+}
+
+/*# sourceMappingURL=App.css.map */

@@ -1,0 +1,58 @@
+.colorForm {
+  position: relative;
+}
+.colorForm__section {
+  margin-top: 5.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.colorForm__section__label {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.colorForm__section__options {
+  padding: 1.5rem 3rem;
+  margin-top: 2rem;
+  margin-left: 1rem;
+  box-shadow: 0 0 1px black;
+  font-size: 1.8rem;
+}
+.colorForm__section__options__pick {
+  margin: 3rem;
+  border: 0.1rem solid black;
+}
+.colorForm__btnSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.colorForm__btnSection__submitButton {
+  font-size: 2rem;
+  padding: 1rem 2rem;
+  margin-top: 20rem;
+  bottom: 0;
+  background-color: #00aeff;
+  border: 0.1rem solid black;
+  border-radius: 0.5rem;
+}
+
+.modal__header__close {
+  font-size: 5rem;
+  margin-right: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+  .colorForm__btnSection__submitButton {
+    margin-top: 30rem;
+    font-size: 3rem;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .colorForm__btnSection__submitButton {
+    margin-top: 50rem;
+  }
+}
+
+/*# sourceMappingURL=ColorOptions.css.map */

@@ -1,0 +1,46 @@
+.filterOptions_section {
+  margin: auto;
+  width: 90%;
+}
+.filterOptions_section_p {
+  margin-top: 3rem;
+  margin-left: 2%;
+}
+.filterOptions_section__filterButton {
+  border-radius: 0.5rem;
+  border: 1px grey solid;
+  padding: 0.5rem 1rem;
+  margin: 1rem;
+  margin-bottom: 2rem;
+  width: 43.5%;
+}
+.filterOptions_section__filterButton__filterButton--auteur {
+  margin-bottom: 5rem;
+  width: 93.5%;
+}
+
+@media (min-width: 765px) {
+  .filterOptions_section__filterButton {
+    margin-left: 2rem;
+    width: 41%;
+  }
+}
+@media (min-width: 1000px) {
+  .filterOptions_section {
+    margin: auto;
+    width: 60%;
+  }
+
+  .filterOptions_section_p {
+    font-size: 2.5rem;
+  }
+
+  .filterOptions_section__filterButton {
+    font-size: 2rem;
+  }
+  .filterOptions_section__filterButton--auteur {
+    font-size: 2rem;
+  }
+}
+
+/*# sourceMappingURL=FilterOptions.css.map */
