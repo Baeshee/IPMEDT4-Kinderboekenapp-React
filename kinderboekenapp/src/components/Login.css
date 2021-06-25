@@ -10,6 +10,7 @@
   background-color: white;
   border-radius: 0.5rem;
   padding: 2rem 3rem;
+  margin-top: 5rem;
 }
 .login__section {
   display: flex;
@@ -185,7 +186,8 @@
   .login, .register {
     max-width: 40%;
     position: relative;
-    margin-top: 20rem;
+    margin-top: 10rem ;
+    margin-bottom: 10rem;
   }
 }
 

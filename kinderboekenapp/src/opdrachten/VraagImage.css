@@ -1,11 +1,11 @@
 .img-container {
-  max-height: 6rem;
+  max-height: 8rem;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .img-container-imageVraag {
-  transform: scale(0.1);
+  transform: scale(0.2);
 }
 
 .custom-file-input::-webkit-file-upload-button {
@@ -25,5 +25,9 @@
   text-shadow: 0.1rem 0.1rem #fff;
   font-size: 1.6rem;
 }
-
+@media screen and (max-width: 600px){
+  .assignment-container{
+    font-size: 15px;
+  }
+}
 /*# sourceMappingURL=VraagImage.css.map */

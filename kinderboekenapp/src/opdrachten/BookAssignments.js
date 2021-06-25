@@ -6,6 +6,7 @@ import OpdrachtNav from './components/OpdrachtNav';
 import authHeader from '../services/service_auth-header';
 import { changeUserAssignments, changeActiveBook } from "../actions";
 import ImageVraag from './ImageVraag';
+import Endscreen from './components/Endscreen.js';
 
 import { AudioVraag, ColorVraag, ColorAntwoord, ImageAntwoord,  MultipleChoice, Podcast, VraagUnavailable, MultipleChoice2} from "./Vragen"
 import "./BookAssignments.css";
@@ -100,6 +101,7 @@ class BookAssignments extends Component {
                     <OpdrachtNav />
                     <a className="back-link" href='/boekenplank'><i className="fas fa-times"></i></a>
                     {this.props.userAssignments.map((assignment, index) => this.createAssignments(assignment, index))}
+                    <Endscreen/>
                 </article>
             );
         }

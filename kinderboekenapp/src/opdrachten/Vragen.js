@@ -2,6 +2,7 @@ import React, { useState, setState } from "react";
 import ReactAudioPlayer from 'react-audio-player';
 import axios from 'axios';
 let x = 0;
+let y = window.scrollY;
 
 
 
@@ -40,6 +41,7 @@ const inputAnswer3 = (props) =>{
 // }
 
 
+
 function scrollY(event){
     event.preventDefault();
     let top  = window.pageYOffset || document.documentElement.scrollTop;
@@ -47,19 +49,16 @@ function scrollY(event){
     setTimeout(() => {
         window.scroll({top: top, behavior: 'smooth'});
     }, 500);
-  }
+}
 
 function ButtonActive(){
-
+  //  const [active, setActive] = useState(false);
     let arr = document.getElementsByClassName('assignment__button');
     let arr2 = document.getElementsByTagName('section');
-    let arr3 = document.getElementsByClassName('Nav__item');
     arr[x].style.backgroundColor = '#0e8034';
     arr2[x].style.borderWidth = 'thick';
     arr2[x].style.borderColor = "#0e8034";
-    arr3[x].classList.add('nav__active')
     x++;
-
 }
 
 export const VraagUnavailable = (props) =>{
@@ -76,47 +75,6 @@ export const VraagUnavailable = (props) =>{
         </article>)
 }
 
-
-// export const ImageVraag = (props) => {
-
-//     // const fileSelectedHandler = (event)=> {
-//     //     console.log(event.target.files[0]);
-//     //     props = { file: event.target.files[0]};
-//     //     console.log(props.file);
-//     // }
-
-//     // const [file, setFile] = useState({
-//     //     file: ""
-
-//     // });
-
-//     // const changeFile = () => {
-//     //     setFile({file: event.target.files[0]})
-
-//     // }
-
-
-//     return(
-//         <article className="wrapper">
-//             <section className="assignment-container">
-//                 <p className="assignments__text">{props.assignment}</p>
-//                 <form className="form fileUpload" action="">
-//                     <label className="label form__label" htmlFor="answer_2">Jouw foto:</label>
-//                     <input type="file" if="answer_2" name="answer_2" onChange={(event)=> {
-//                         inputImage(event);
-//                     }} />
-//                     <div className="img__wrapper" styling="">
-//                         <img className="img__input" src={props.objectURL} alt="Jouw foto hier"/>
-//                     </div>
-//                     <button className="button assignment__button image" onClick={(event)=> {
-//                         scrollY(event);
-//                         ButtonActive();
-//                     }}  type="submit"> Verzenden </button>
-//                 </form>
-//             </section>
-//         </article>
-//     )
-// }
 
 export const ImageAntwoord = (props) => {
     return(
@@ -179,7 +137,7 @@ export const ColorVraag = (props) => {
                 <button className="button assignment__button" id="submitButton" type="submit" onClick={(event)=> {
                     scrollY(event);
                     ButtonActive();
-                    inputAnswer(props);
+                //    inputAnswer(props);
                 }}>Bevestig je kleur!</button>
             </section>
         </article>
@@ -200,7 +158,7 @@ export const ColorAntwoord = (props) => {
                 <button className="button assignment__button" id="submitButton"  type="submit" onClick={(event)=> {
                     scrollY(event);
                     ButtonActive();
-                    inputAnswer(props.isbn);
+             //       inputAnswer(props.isbn);
                 }}>Bevestig je kleur!</button>
             </section>
         </article>
@@ -211,7 +169,7 @@ export const Podcast = (props) =>{
     return(
         <article className="wrapper">
             <section className="assignment-container"> 
-             <p className="assignments__text">{props.assignment}</p>
+            <p className="assignments__text">{props.assignment}</p>
                 <ReactAudioPlayer
                     src="my_audio_file.ogg"
                     autoPlay
@@ -254,7 +212,7 @@ return(
             <button className="button assignment__button" onClick={(event)=> {
                             scrollY(event);
                             ButtonActive();
-                            inputAnswer3(props);
+                  //          inputAnswer3(props);
                         }}>Verzend</button>
 
         </section>
@@ -277,7 +235,7 @@ export const MultipleChoice2 = (props) => {
                 <button className="button assignment__button" onClick={(event)=> {
                                 scrollY(event);
                                 ButtonActive();
-                                inputAnswer(props);
+            //                    inputAnswer(props);
                             }}>Verzend</button>
             </section>
         </article>
