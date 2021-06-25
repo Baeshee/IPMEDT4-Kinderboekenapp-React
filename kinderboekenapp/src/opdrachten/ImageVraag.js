@@ -46,7 +46,7 @@ componentDidMount(){
         }else if(window.scrollY > 3001){
             arr3[3].classList.add('nav__active')
         }
-    }, 500);
+    }, 250);
 }
    
  
