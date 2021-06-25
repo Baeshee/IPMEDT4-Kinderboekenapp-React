@@ -21,12 +21,11 @@
   border-radius: 1rem;
   margin: 0 auto;
   margin-bottom: 8rem;
-  width: 95%;
-  scroll-snap-type: y mandatory;
+  width: 80%;
+  max-height: 95%;
   max-width: 75rem;
-  padding: 1.5rem;
+  padding: 6rem;
   background-color: #F9F9F9;
-  min-height: 50rem;
 }
 
 .wrapper{
@@ -70,18 +69,13 @@ h1{
   display: block;
   height: 5rem;
   border-radius: 1rem;
-  text-align: center;
-}
-
-.input#file-upload-button {
-  background-color: blue;
 }
 
 .button{
   width: 78%;
   height: 5rem;
   display: block;
-  margin: 10rem auto;
+  margin: 2.2rem auto;
   font-weight: 800;
   background-color: white;
   border-radius: 5rem;
@@ -96,7 +90,7 @@ h1{
 
 audio{
   display: block;
-  margin: 7.5rem auto;
+  margin: 0 auto;
   width: 25rem;
   height: 5rem;
 }
@@ -141,12 +135,13 @@ display: block;
 }
 
 .label{
+  left: 50%;
+  transform: translateX(-50%);
   margin: 1rem auto;
   display: block;
   width: 20rem;
   font-size: 2rem;
   padding-bottom: 0.4rem;
-  text-align: center;
 }
 
 .color__input{
@@ -178,10 +173,7 @@ display: block;
 }
 .Nav__list{
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 1rem;
+  margin: 0 auto;
 }
 
 .Nav__item{
@@ -203,9 +195,4 @@ display: block;
   left: calc(-50vw + 50%);
   right: calc(-50vw + 50%);
   margin: 5% auto;
-}
-@media screen and (max-width: 60rem){
-  .assignment-container{
-    font-size: 1.5rem;
-  }
 }

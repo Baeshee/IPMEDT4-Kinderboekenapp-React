@@ -179,20 +179,6 @@
 
 @media(min-width: 768px) {
     .login, .register { 
-        max-width: 80%;
-        margin: auto;
         margin-top: 10rem;
     }
-
-
-}
-
-@media(min-width: 1000px) {
-    .login, .register { 
-        max-width: 40%;
-        position: relative;
-        margin-top: 20rem;
-    }
-
-
 }

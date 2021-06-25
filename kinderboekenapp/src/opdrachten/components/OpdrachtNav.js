@@ -12,6 +12,8 @@ class OpdrNav extends React.Component {
                     <li className="Nav__item"></li>
                     <li className="Nav__item"></li>
                     <li className="Nav__item"></li>
+                    <li className="Nav__item"></li>
+                    <li className="Nav__item"></li>
                 </ul>
             </div>
         )
