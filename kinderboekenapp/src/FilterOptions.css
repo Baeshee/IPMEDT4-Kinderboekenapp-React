@@ -1,0 +1,31 @@
+.filterOptions_section{
+    margin-left: 4%;
+}
+
+.filterOptions_section_p{
+    margin-top: 3rem;
+    margin-left: 4%;   
+}
+
+.filterOptions_section__filterButton{
+    border-radius: 0.5rem;
+    border: 1px grey solid;
+    padding: 0.5rem 1rem;
+    margin: 1rem;
+    margin-bottom: 2rem;
+    width: 43.5%;
+}
+
+.filterOptions_section__filterButton--auteur{
+    margin-bottom: 5rem;
+    width: 93.5%;
+}
+
+@media(min-width: 765px){
+    .filterOptions_section__filterButton{
+        margin-left: 2rem;
+        width: 41%;
+    }
+}
+
+

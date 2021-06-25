@@ -45,13 +45,8 @@
 
 @media screen and (min-width: 768px) {
   .colorForm__btnSection__submitButton {
-    margin-top: 30rem;
+    margin-top: 20rem;
     font-size: 3rem;
-  }
-}
-@media screen and (min-width: 1000px) {
-  .colorForm__btnSection__submitButton {
-    margin-top: 50rem;
   }
 }
 
