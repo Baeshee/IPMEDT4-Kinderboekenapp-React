@@ -41,9 +41,9 @@ componentDidMount(){
             arr3[0].classList.add('nav__active')
         } else if(window.scrollY > 1101 && window.scrollY < 2400){
             arr3[1].classList.add('nav__active')
-        }else if(window.scrollY > 2401 && window.scrollY < 3400){
+        }else if(window.scrollY > 2401 && window.scrollY < 3000){
             arr3[2].classList.add('nav__active')
-        }else if(window.scrollY > 3401){
+        }else if(window.scrollY > 3001){
             arr3[3].classList.add('nav__active')
         }
     }, 500);
