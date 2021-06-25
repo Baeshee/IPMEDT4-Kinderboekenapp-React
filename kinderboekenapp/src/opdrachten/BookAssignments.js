@@ -14,10 +14,10 @@ class BookAssignments extends Component {
 
     getAssignData = () => {
         const isbn = JSON.parse(localStorage.getItem('bookISBN'));
+        this.props.changeUserAssignments([]);
         axios.get(this.props.BASE_URL + '/api/user/opdrachten/' + isbn, { headers: authHeader()}).then(res => {
-            this.props.changeUserAssignments(res.data);
+            this.props.changeUserAssignments(Object.values(res.data));
         });
-        localStorage.removeItem("bookISBN");
     }
 
     componentDidMount(){
